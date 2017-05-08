@@ -30,15 +30,7 @@ class LineSegment2D {
     void Set_C(double new_C) {
         coeff_C = new_C;
     }
-    double Get_A() {
-        return coeff_A;
-    }
-    double Get_B() {
-        return coeff_B;
-    }
-    double Get_C() {
-        return coeff_C;
-    }
+    double Get_Coeff(int count);
     string checkIntersection(LineSegment2D lineSegment);
 };
 #endif  // MODULES_INTERSECTTWOLINE_INCLUDE_LINESEGMENT_H_

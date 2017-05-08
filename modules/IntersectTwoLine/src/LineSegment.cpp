@@ -7,25 +7,34 @@
 using std::string;
 using std::stringstream;
 
+double LineSegment2D::Get_Coeff(int count) {
+  switch (count) {
+    case 1: return coeff_A;
+    case 2: return coeff_B;
+    case 3: return coeff_C;
+    default: throw "Invalid value";
+  }
+}
+
 string LineSegment2D::checkIntersection(LineSegment2D lineSegment) {
   string str1, str2, str3;
   stringstream stream1, stream2;
-  if ((lineSegment.Get_A() / Get_A() ==
-      lineSegment.Get_B() / Get_B()) &&
-      (lineSegment.Get_A() / Get_A() ==
-      lineSegment.Get_C() / Get_C())) {
+  if ((lineSegment.Get_Coeff(1) / Get_Coeff(1) ==
+      lineSegment.Get_Coeff(2) / Get_Coeff(2)) &&
+      (lineSegment.Get_Coeff(1) / Get_Coeff(1) ==
+      lineSegment.Get_Coeff(3) / Get_Coeff(3))) {
         str = "Lines are coincide";
-  } else if (lineSegment.Get_A()/Get_A() == lineSegment.Get_B()/Get_B()) {
+  } else if (lineSegment.Get_Coeff(1) / Get_Coeff(1) == lineSegment.Get_Coeff(2) / Get_Coeff(2)) {
     str = "Lines are parallel";
   } else {
-      double coord_X = (-1) * (Get_C() * lineSegment.Get_B() -
-                lineSegment.Get_C() * Get_B()) /
-                (Get_A() * lineSegment.Get_B() -
-                Get_B() * lineSegment.Get_A());
-      double coord_Y = (-1) * (Get_A() * lineSegment.Get_C() -
-                lineSegment.Get_A() * Get_C()) /
-                (Get_A() * lineSegment.Get_B() -
-                lineSegment.Get_A() * Get_B());
+      double coord_X = (-1) * (Get_Coeff(3) * lineSegment.Get_Coeff(2) -
+                lineSegment.Get_Coeff(3) * Get_Coeff(2)) /
+                (Get_Coeff(1) * lineSegment.Get_Coeff(2) -
+                Get_Coeff(2) * lineSegment.Get_Coeff(1));
+      double coord_Y = (-1) * (Get_Coeff(1) * lineSegment.Get_Coeff(3) -
+                lineSegment.Get_Coeff(1) * Get_Coeff(3)) /
+                (Get_Coeff(1) * lineSegment.Get_Coeff(2) -
+                lineSegment.Get_Coeff(1) * Get_Coeff(2));
     str1 = "Intersection point: (";
     stream1 << coord_X;
     stream1 >> str2;
