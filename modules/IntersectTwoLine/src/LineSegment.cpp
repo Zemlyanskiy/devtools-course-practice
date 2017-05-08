@@ -16,7 +16,7 @@ double LineSegment2D::Get_Coeff(int count) {
   }
 }
 
-string line2D::checkIntersection(LineSegment2D line) {
+string LineSegment2D::checkIntersection(LineSegment2D line) {
   string str1, str2, str3;
   stringstream stream1, stream2;
   if ((line.Get_Coeff(1) / Get_Coeff(1) ==
