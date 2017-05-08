@@ -31,6 +31,6 @@ class LineSegment2D {
         coeff_C = new_C;
     }
     double Get_Coeff(int count);
-    string checkIntersection(LineSegment2D lineSegment);
+    string checkIntersection(LineSegment2D line);
 };
 #endif  // MODULES_INTERSECTTWOLINE_INCLUDE_LINESEGMENT_H_

@@ -16,25 +16,25 @@ double LineSegment2D::Get_Coeff(int count) {
   }
 }
 
-string LineSegment2D::checkIntersection(LineSegment2D lineSegment) {
+string line2D::checkIntersection(LineSegment2D line) {
   string str1, str2, str3;
   stringstream stream1, stream2;
-  if ((lineSegment.Get_Coeff(1) / Get_Coeff(1) ==
-      lineSegment.Get_Coeff(2) / Get_Coeff(2)) &&
-      (lineSegment.Get_Coeff(1) / Get_Coeff(1) ==
-      lineSegment.Get_Coeff(3) / Get_Coeff(3))) {
+  if ((line.Get_Coeff(1) / Get_Coeff(1) ==
+      line.Get_Coeff(2) / Get_Coeff(2)) &&
+      (line.Get_Coeff(1) / Get_Coeff(1) ==
+      line.Get_Coeff(3) / Get_Coeff(3))) {
         str = "Lines are coincide";
-  } else if (lineSegment.Get_Coeff(1) / Get_Coeff(1) == lineSegment.Get_Coeff(2) / Get_Coeff(2)) {
+  } else if (line.Get_Coeff(1)/Get_Coeff(1) == line.Get_Coeff(2)/Get_Coeff(2)) {
     str = "Lines are parallel";
   } else {
-      double coord_X = (-1) * (Get_Coeff(3) * lineSegment.Get_Coeff(2) -
-                lineSegment.Get_Coeff(3) * Get_Coeff(2)) /
-                (Get_Coeff(1) * lineSegment.Get_Coeff(2) -
-                Get_Coeff(2) * lineSegment.Get_Coeff(1));
-      double coord_Y = (-1) * (Get_Coeff(1) * lineSegment.Get_Coeff(3) -
-                lineSegment.Get_Coeff(1) * Get_Coeff(3)) /
-                (Get_Coeff(1) * lineSegment.Get_Coeff(2) -
-                lineSegment.Get_Coeff(1) * Get_Coeff(2));
+      double coord_X = (-1) * (Get_Coeff(3) * line.Get_Coeff(2) -
+                line.Get_Coeff(3) * Get_Coeff(2)) /
+                (Get_Coeff(1) * line.Get_Coeff(2) -
+                Get_Coeff(2) * line.Get_Coeff(1));
+      double coord_Y = (-1) * (Get_Coeff(1) * line.Get_Coeff(3) -
+                line.Get_Coeff(1) * Get_Coeff(3)) /
+                (Get_Coeff(1) * line.Get_Coeff(2) -
+                line.Get_Coeff(1) * Get_Coeff(2));
     str1 = "Intersection point: (";
     stream1 << coord_X;
     stream1 >> str2;
