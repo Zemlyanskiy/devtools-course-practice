@@ -309,7 +309,6 @@ Pol.SubMonom(&monom);
 EXPECT_TRUE(res == Pol);
 }
 
-
 TEST(TPolinom, can_add_up_linear_polynoms)
 {
 const int size = 1;
