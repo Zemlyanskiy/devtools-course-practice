@@ -563,7 +563,5 @@ TPolinom first(mon1, size);
 TPolinom second(mon2, size);
 TPolinom result(res_Mon, res_size);
 
-first = first * second;
-
-EXPECT_TRUE(result == first);
+EXPECT_TRUE(result == (first * second));
 }
