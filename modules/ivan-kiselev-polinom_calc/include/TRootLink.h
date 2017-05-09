@@ -2,7 +2,6 @@
 
 #ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TROOTLINK_H_
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TROOTLINK_H_
-
 #include "TDatValue.h"
 #include <iostream>
 
@@ -15,21 +14,17 @@ protected:
 PTRootLink pNext;  //  next point
 
 public:
-TRootLink(PTRootLink pN = NULL)
-{
+TRootLink(PTRootLink pN = NULL){
 pNext = pN;
 }
-~TRootLink() { }
-PTRootLink GetNextLink()
-{
+~TRootLink() {}
+PTRootLink GetNextLink(){
 return pNext;
 }
-void SetNextLink(PTRootLink pLink)
-{
+void SetNextLink(PTRootLink pLink){
 pNext = pLink;
 }
-void InsNextLink(PTRootLink pLink)
-{
+void InsNextLink(PTRootLink pLink){
 PTRootLink p = pNext;
 pNext = pLink;
 if (pLink != NULL) pLink->pNext = p;
