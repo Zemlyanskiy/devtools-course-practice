@@ -12,8 +12,8 @@ TPolinom(int monoms[][4] = NULL, int km = 0);
 //  Check ReadMe
 TPolinom(TPolinom &q);  // constructor
 ~TPolinom() {}
-TMonom* GetMonom() { 
-return (TMonom*)GetDatValue(); 
+TMonom* GetMonom() {
+return (TMonom*)GetDatValue();
 }
 TPolinom& operator+(TPolinom &q);  //  Add Polinoms
 TPolinom& operator-(TPolinom &q);  //  Sub Polinoms
