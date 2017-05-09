@@ -12,10 +12,10 @@ TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN) {
 pValue = pVal;
 }
 ~TDatLink() {}
-void SetDatValue(PTDatValue pVal) {
+virtual void SetDatValue(PTDatValue pVal) {
 pValue = pVal;
 }
-PTDatValue GetDatValue() {
+virtual PTDatValue GetDatValue() {
 return pValue;
 }
 PTDatLink GetNextDatLink() {
