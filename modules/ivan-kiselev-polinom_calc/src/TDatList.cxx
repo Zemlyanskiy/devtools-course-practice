@@ -1,7 +1,6 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TDatList.h"
-PTDatValue TDatList::GetDatValue()
-{
+PTDatValue TDatList::GetDatValue() {
 return pCurrLink->pValue;
 }
 
@@ -39,12 +38,10 @@ ListLen++;
 }
 
 void TDatList::InsLast(PTDatValue pVal) {
-if (pFirst->pValue == NULL)
-{
+if (pFirst->pValue == NULL) {
 InsFirst(pVal);
 }
-else
-{
+else {
 while (GoNext() != 1) {}
 pPrevLink->SetNextLink(GetLink(pVal, pLast));
 pCurrLink = pPrevLink->GetNextDatLink();
@@ -53,13 +50,13 @@ ListLen++;
 }
 
 void TDatList::InsCurrent(PTDatValue pVal) {
-if (pPrevLink != NULL)
-{
+if (pPrevLink != NULL) {
 pPrevLink->SetNextLink(GetLink(pVal, pCurrLink));
 pCurrLink = pPrevLink->GetNextDatLink();
 ListLen++;
 }
-else InsFirst(pVal);
+else 
+InsFirst(pVal);
 }
 
 void TDatList::DelFirst(void) {
@@ -70,12 +67,10 @@ old->~TDatLink();
 }
 
 void TDatList::DelCurrent(void) {
-if (pCurrLink == pFirst)
-{
+if (pCurrLink == pFirst) {
 DelFirst();
 }
-else
-{
+else {
 PTDatLink old = pCurrLink;
 pPrevLink->SetNextLink(pCurrLink->GetNextLink());
 pCurrLink = pCurrLink->GetNextDatLink();
