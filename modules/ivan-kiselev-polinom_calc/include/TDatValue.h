@@ -1,16 +1,12 @@
 // Copyright 2017 Ivan Kiselev
 
-#ifndef _TDatValue_
-#define _TDatValue_
-
-#include <iostream>
-
-using namespace std;
+#ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATVALUE_H_
+#define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATVALUE_H_
 
 class TDatValue {
 public:
-	virtual TDatValue * GetCopy() = 0; // copia
-	~TDatValue() {};
+virtual TDatValue * GetCopy() = 0; // copia
+~TDatValue() {};
 };
 
-#endif
+#endif // MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATVALUE_H_

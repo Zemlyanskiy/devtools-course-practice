@@ -4,6 +4,9 @@
 #define _TMonon_
 
 #include "TDatValue.h"
+#include <iostream>
+
+using namespace std;
 
 class TMonom : public TDatValue {
 protected:
