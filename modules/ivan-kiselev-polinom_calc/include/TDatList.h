@@ -1,4 +1,4 @@
-// Copyright 2017 Ivan Kiselev
+//  Copyright 2017 Ivan Kiselev
 
 #ifndef _TDatList_
 #define _TDatList_
@@ -20,7 +20,6 @@ protected:
 	{
 		return new TDatLink(pVal, pLink);
 	}
-	void DelLink(PTDatLink pLink);
 public:
 	TDatList();
 	~TDatList() {
@@ -32,8 +31,6 @@ public:
 		return pFirst == pLast;
 	}
 	int GetListLength()    const { return ListLen; };
-	void SetCurrentPos(int pos);
-	int GetCurrentPos(void) const;
 	virtual void Reset(void);
 	virtual bool IsListEnded(void) const;
 	int GoNext(void);
