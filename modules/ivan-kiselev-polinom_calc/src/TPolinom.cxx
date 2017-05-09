@@ -11,17 +11,17 @@ InsLast(Monom);
 Reset();
 }
 
-TPolinom::TPolinom(TPolinom & q)
+TPolinom::TPolinom(TPolinom * q)
 {
 TMonom* Monom = new TMonom(0, 0, 0, 0);
 pHead->SetDatValue(Monom);
-for (q.Reset(); !q.IsListEnded(); q.GoNext())
+for (q->Reset(); !q->IsListEnded(); q->GoNext())
 {
-InsLast(q.GetDatValue());
+InsLast(q->GetDatValue());
 }
 pHead->SetNextLink(pFirst);
 Reset();
-q.Reset();
+q->Reset();
 }
 
 TPolinom & TPolinom::operator+(TPolinom q)

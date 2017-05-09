@@ -9,10 +9,10 @@ TPolinom(int monoms[][4] = NULL, int km = 0);
 //  km => kol-vo monomov
 //  constructor
 //  Check ReadMe
-TPolinom(TPolinom &q);  // constructor
+TPolinom(TPolinom *q);  // constructor
 ~TPolinom() {}
 TMonom* GetMonom() {
-return (TMonom*)GetDatValue();
+return dynamic_cast<TMonom*>(GetDatValue());
 }
 TPolinom& operator+(TPolinom q);  //  Add Polinoms
 TPolinom& operator-(TPolinom q);  //  Sub Polinoms
