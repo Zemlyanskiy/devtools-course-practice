@@ -53,8 +53,7 @@ if (pPrevLink != NULL) {
 pPrevLink->SetNextLink(GetLink(pVal, pCurrLink));
 pCurrLink = pPrevLink->GetNextDatLink();
 ListLen++;
-} else
-{
+} else {
 InsFirst(pVal);
 }
 }
@@ -69,8 +68,7 @@ old->~TDatLink();
 void TDatList::DelCurrent(void) {
 if (pCurrLink == pFirst) {
 DelFirst();
-} else
-{
+} else {
 PTDatLink old = pCurrLink;
 pPrevLink->SetNextLink(pCurrLink->GetNextLink());
 pCurrLink = pCurrLink->GetNextDatLink();
