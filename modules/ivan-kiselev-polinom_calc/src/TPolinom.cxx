@@ -68,7 +68,7 @@ TPolinom & TPolinom::operator*(TPolinom & q)
 TPolinom* old = new TPolinom();
 for (Reset(); !IsListEnded(); GoNext())
 for (q.Reset(); !q.IsListEnded(); q.GoNext())
-old->AddMonom(&(*GetMonom() * *q.GetMonom()));
+old->AddMonom(&((*GetMonom()) * (*q.GetMonom())));
 return *old;
 }
 

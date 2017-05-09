@@ -8,7 +8,7 @@ class THeadRing : public TDatList{
 PTDatLink pHead;
  public:
 THeadRing();
-~THeadRing();
+~THeadRing() {}
 virtual void InsFirst(PTDatValue pVal = NULL);
 virtual void DelFirst(void);
 };

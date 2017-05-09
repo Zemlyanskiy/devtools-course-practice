@@ -7,11 +7,6 @@ pStop = pHead;
 pLast->SetNextLink(pHead);
 }
 
-THeadRing::~THeadRing()
-{
-delete pHead;
-}
-
 void THeadRing::InsFirst(PTDatValue pVal)
 {
 TDatList::InsFirst(pVal);

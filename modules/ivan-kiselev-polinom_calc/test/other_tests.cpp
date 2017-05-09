@@ -1,6 +1,6 @@
 // Copyright 2017 Ivan Kiselev
 
-#include "..\3rdparty\gtest\gtest.h"
+#include "gtest.h"
 #include "..\include\TPolinoms.h"
 
 TEST(TRootLink, Set_Next_Link)
