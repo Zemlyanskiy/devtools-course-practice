@@ -7,7 +7,8 @@ typedef TDatLink *PTDatLink;
 class TDatLink : public TRootLink {
  protected:
 PTDatValue pValue;  //  Value
- public:	TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN) {
+ public:
+TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN) {
 pValue = pVal;
 }
 ~TDatLink() {}
