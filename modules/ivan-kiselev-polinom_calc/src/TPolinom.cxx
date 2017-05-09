@@ -100,12 +100,12 @@ bool TPolinom::operator==(TPolinom &q)
 		return false;
 	else
 	{
-		TMonom* pMon;
-		TMonom* qMon;
 		Reset();
 		q.Reset();
 		while (!IsListEnded())
 		{
+			TMonom* pMon;
+			TMonom* qMon;
 			pMon = GetMonom();
 			qMon = q.GetMonom();
 			if (*pMon == *qMon)
