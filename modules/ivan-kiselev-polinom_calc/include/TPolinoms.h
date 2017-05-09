@@ -2,10 +2,8 @@
 
 #ifndef _TPolinoms_
 #define _TPolinoms_
-
 #include "THeadRing.h"
 #include "TMonom.h"
-
 class TPolinom : public THeadRing{
 public:
 	TPolinom(int monoms[][4] = NULL, int km = 0);

@@ -4,23 +4,20 @@
 #include "TRootLink.h"
 class TDatLink;
 typedef TDatLink *PTDatLink;
-
 class TDatLink : public TRootLink {
-
-protected:
+ protected:
 PTDatValue pValue;  //  Value
-
-public:	TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN){
+ public:	TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN) {
 pValue = pVal;
 }
 ~TDatLink() {}
-void SetDatValue(PTDatValue pVal){
+void SetDatValue(PTDatValue pVal) {
 pValue = pVal;
 }
-PTDatValue GetDatValue(){
+PTDatValue GetDatValue() {
 return pValue;
 }
-PTDatLink GetNextDatLink(){
+PTDatLink GetNextDatLink() {
 return (PTDatLink)pNext;
 }
 friend class TDatList;
