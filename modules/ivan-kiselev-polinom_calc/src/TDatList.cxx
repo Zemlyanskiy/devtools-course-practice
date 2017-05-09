@@ -40,8 +40,7 @@ ListLen++;
 void TDatList::InsLast(PTDatValue pVal) {
 if (pFirst->pValue == NULL) {
 InsFirst(pVal);
-} else
-{
+} else {
 while (GoNext() != 1) {}
 pPrevLink->SetNextLink(GetLink(pVal, pLast));
 pCurrLink = pPrevLink->GetNextDatLink();
