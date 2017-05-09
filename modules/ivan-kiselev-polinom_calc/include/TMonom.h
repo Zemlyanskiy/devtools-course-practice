@@ -29,7 +29,7 @@ int GetIndexY(void);
 int GetIndexZ(void);
 TMonom& operator=(const TMonom &tm);
 TMonom operator*(TMonom mon);
-bool operator==(const TMonom tm);
+bool operator==(const TMonom &tm);
 bool EqualityExponent(TMonom tm);
 bool operator<(TMonom tm);  //  prioritet x > y > z
 bool operator>(TMonom tm);  //  prioritet x > y > z

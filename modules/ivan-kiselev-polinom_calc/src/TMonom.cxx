@@ -61,7 +61,7 @@ that->SetIndexZ(this->GetIndexZ() + mon.GetIndexZ());
 return *that;
 }
 
-bool TMonom::operator==(const TMonom tm) {
+bool TMonom::operator==(const TMonom &tm) {
 return ((Coeff == tm.Coeff) && (XInd == tm.XInd)
 && (YInd == tm.YInd) && (ZInd == tm.ZInd));
 }
