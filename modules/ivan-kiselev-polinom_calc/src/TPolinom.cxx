@@ -1,4 +1,5 @@
 #include "../include/TPolinoms.h"
+
 TPolinom::TPolinom(int monoms[][4], int km)
 {
 	TMonom* Monom = new TMonom(0, 0, 0, 0);

@@ -5,15 +5,14 @@
 
 #include "TDatList.h"
 
-class THeadRing : public TDatList
-{
+class THeadRing : public TDatList{
 protected:
-PTDatLink pHead;
+ PTDatLink pHead;
 public:
-THeadRing();
-~THeadRing();
-virtual void InsFirst(PTDatValue pVal = NULL);
-virtual void DelFirst(void);
+ THeadRing();
+ ~THeadRing();
+ virtual void InsFirst(PTDatValue pVal = NULL);
+ virtual void DelFirst(void);
 };
 
 #endif //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_THEADRING_H_

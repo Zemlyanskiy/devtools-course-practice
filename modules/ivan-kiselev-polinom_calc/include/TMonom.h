@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class TMonom : public TDatValue {
+class TMonom : public TDatValue{
 protected:
 	int Coeff; // monom's coeff
 	int XInd; // index X

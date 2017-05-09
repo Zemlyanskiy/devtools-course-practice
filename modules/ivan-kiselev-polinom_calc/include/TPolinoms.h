@@ -6,8 +6,7 @@
 #include "THeadRing.h"
 #include "TMonom.h"
 
-class TPolinom : public THeadRing
-{
+class TPolinom : public THeadRing{
 public:
 	TPolinom(int monoms[][4] = NULL, int km = 0);
 	// km => kol-vo monomov

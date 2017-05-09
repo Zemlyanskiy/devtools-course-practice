@@ -5,8 +5,7 @@
 
 #include "TDatLink.h"
 
-class TDatList
-{
+class TDatList{
 protected:
 	PTDatLink pFirst;
 	PTDatLink pLast;
