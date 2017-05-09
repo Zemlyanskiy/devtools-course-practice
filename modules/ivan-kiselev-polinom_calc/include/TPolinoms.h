@@ -3,7 +3,6 @@
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TPOLINOMS_H_
 #include "THeadRing.h"
 #include "TMonom.h"
-#include <iostream>
 using namespace std;
 class TPolinom : public THeadRing {
  public:
