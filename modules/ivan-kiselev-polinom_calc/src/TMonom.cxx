@@ -62,14 +62,16 @@ return *that;
 }
 
 bool TMonom::operator==(const TMonom tm) {
-return ((Coeff == tm.Coeff) && (XInd == tm.XInd) && (YInd == tm.YInd) && (ZInd == tm.ZInd));
+return ((Coeff == tm.Coeff) && (XInd == tm.XInd)
+	&& (YInd == tm.YInd) && (ZInd == tm.ZInd));
 }
 
 bool TMonom::EqualityExponent(TMonom tm) {
-return (XInd == tm.XInd) && (YInd == tm.YInd) && (ZInd == tm.ZInd);
+return (XInd == tm.XInd) && (YInd == tm.YInd)
+&& (ZInd == tm.ZInd);
 }
 
-bool TMonom::operator<(TMonom tm) {  // prioritet x > y > z
+bool TMonom::operator<(TMonom tm) {  //  prioritet x > y > z
 if (EqualityExponent(tm)) return false;
 if (XInd > tm.XInd)
 return false;
@@ -88,7 +90,7 @@ return true;
 return false;
 }
 
-bool TMonom::operator>(TMonom tm) { // prioritet x > y > z
+bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
 if (EqualityExponent(tm)) return false;
 if (XInd < tm.XInd)
 return false;
