@@ -1,6 +1,6 @@
+//  Copyright 2017 Ivan Kiselev
 #include "../include/TPolinoms.h"
-TPolinom::TPolinom(int monoms[][4], int km)
-{
+TPolinom::TPolinom(int monoms[][4], int km) {
 TMonom* Monom = new TMonom(0, 0, 0, 0);
 pHead->SetDatValue(Monom);
 for (int i = 0; i < km; i++)
@@ -11,8 +11,7 @@ InsLast(Monom);
 Reset();
 }
 
-TPolinom::TPolinom(TPolinom * q)
-{
+TPolinom::TPolinom(TPolinom * q) {
 TMonom* Monom = new TMonom(0, 0, 0, 0);
 pHead->SetDatValue(Monom);
 for (q->Reset(); !q->IsListEnded(); q->GoNext())
@@ -24,8 +23,7 @@ Reset();
 q->Reset();
 }
 
-TPolinom & TPolinom::operator+(TPolinom q)
-{
+TPolinom & TPolinom::operator+(TPolinom q) {
 TPolinom* old = new TPolinom(q);
 Reset();
 while (!IsListEnded())
@@ -39,8 +37,7 @@ old->Reset();
 return *old;
 }
 
-TPolinom & TPolinom::operator-(TPolinom q)
-{
+TPolinom & TPolinom::operator-(TPolinom q) {
 Reset();
 while (!q.IsListEnded())
 {
@@ -52,8 +49,7 @@ q.Reset();
 return *this;
 }
 
-TPolinom & TPolinom::operator*(int mult)
-{
+TPolinom & TPolinom::operator*(int mult) {
 Reset();
 while (!IsListEnded())
 {
@@ -63,8 +59,7 @@ GoNext();
 return *this;
 }
 
-TPolinom & TPolinom::operator*(TPolinom q)
-{
+TPolinom & TPolinom::operator*(TPolinom q) {
 TPolinom* old = new TPolinom();
 for (Reset(); !IsListEnded(); GoNext())
 for (q.Reset(); !q.IsListEnded(); q.GoNext()) {
@@ -74,8 +69,7 @@ old->AddMonom(result);
 return *old;
 }
 
-TPolinom & TPolinom::operator=(TPolinom q)
-{
+TPolinom & TPolinom::operator=(TPolinom q) {
 if (IsEmpty())
 {
 for (q.Reset(); !q.IsListEnded(); q.GoNext())
@@ -94,8 +88,7 @@ return *that;
 }
 }
 
-bool TPolinom::operator==(TPolinom q)
-{
+bool TPolinom::operator==(TPolinom q) {
 if (pFirst == q.pFirst) return true;
 if (this->ListLen != q.ListLen)
 return false;
@@ -121,8 +114,7 @@ return true;
 }
 }
 
-void TPolinom::AddMonom(TMonom * monom)
-{
+void TPolinom::AddMonom(TMonom * monom) {
 Reset();
 while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom())))
 {
@@ -143,8 +135,7 @@ else InsLast(monom->GetCopy());
 Reset();
 }
 
-void TPolinom::SubMonom(TMonom * monom)
-{
+void TPolinom::SubMonom(TMonom * monom) {
 Reset();
 while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom())))
 {
@@ -169,8 +160,7 @@ InsLast(monom->GetCopy());
 }
 }
 
-std::ostream& operator<<(std::ostream &os, TPolinom &q)
-{
+std::ostream& operator<<(std::ostream &os, TPolinom &q) {
 TMonom* old = new TMonom();
 for (q.Reset(); !q.IsListEnded(); q.GoNext())
 {

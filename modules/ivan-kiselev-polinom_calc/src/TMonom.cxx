@@ -1,3 +1,4 @@
+//  Copyright 2017 Ivan Kiselev
 #include "../include/TMonom.h"
 #include <iostream>
 using namespace std;
