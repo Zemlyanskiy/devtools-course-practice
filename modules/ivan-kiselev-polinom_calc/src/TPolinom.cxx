@@ -3,8 +3,7 @@
 TPolinom::TPolinom(int monoms[][4], int km) {
 TMonom* Monom = new TMonom(0, 0, 0, 0);
 pHead->SetDatValue(Monom);
-for (int i = 0; i < km; i++)
-{
+for (int i = 0; i < km; i++) {
 Monom = new TMonom(monoms[i][0], monoms[i][1], monoms[i][2], monoms[i][3]);
 InsLast(Monom);
 }
@@ -14,8 +13,7 @@ Reset();
 TPolinom::TPolinom(TPolinom * q) {
 TMonom* Monom = new TMonom(0, 0, 0, 0);
 pHead->SetDatValue(Monom);
-for (q->Reset(); !q->IsListEnded(); q->GoNext())
-{
+for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
 InsLast(q->GetDatValue());
 }
 pHead->SetNextLink(pFirst);
@@ -26,8 +24,7 @@ q->Reset();
 TPolinom & TPolinom::operator+(TPolinom q) {
 TPolinom* old = new TPolinom(q);
 Reset();
-while (!IsListEnded())
-{
+while (!IsListEnded()) {
 old->AddMonom(GetMonom());
 GoNext();
 }
@@ -39,8 +36,7 @@ return *old;
 
 TPolinom & TPolinom::operator-(TPolinom q) {
 Reset();
-while (!q.IsListEnded())
-{
+while (!q.IsListEnded()) {
 SubMonom(q.GetMonom());
 q.GoNext();
 }
@@ -51,8 +47,7 @@ return *this;
 
 TPolinom & TPolinom::operator*(int mult) {
 Reset();
-while (!IsListEnded())
-{
+while (!IsListEnded()) {
 GetMonom()->SetCoeff(GetMonom()->Coeff * mult);
 GoNext();
 }
@@ -70,19 +65,15 @@ return *old;
 }
 
 TPolinom & TPolinom::operator=(TPolinom q) {
-if (IsEmpty())
-{
-for (q.Reset(); !q.IsListEnded(); q.GoNext())
-{
+if (IsEmpty()) {
+for (q.Reset(); !q.IsListEnded(); q.GoNext()) {
 InsLast(q.GetDatValue());
 }
 pHead->SetNextLink(pFirst);
 Reset();
 q.Reset();
 return *this;
-}
-else
-{
+} else {
 TPolinom* that = new TPolinom(q);
 return *that;
 }
@@ -92,18 +83,15 @@ bool TPolinom::operator==(TPolinom q) {
 if (pFirst == q.pFirst) return true;
 if (this->ListLen != q.ListLen)
 return false;
-else
-{
+else {
 Reset();
 q.Reset();
-while (!IsListEnded())
-{
+while (!IsListEnded()) {
 TMonom* pMon;
 TMonom* qMon;
 pMon = GetMonom();
 qMon = q.GetMonom();
-if (*pMon == *qMon)
-{
+if (*pMon == *qMon) {
 GoNext();
 q.GoNext();
 }
@@ -116,19 +104,15 @@ return true;
 
 void TPolinom::AddMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom())))
-{
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom()))) {
 GoNext();
 }
 if (!IsListEnded())
-if (GetMonom()->EqualityExponent(*monom))
-{
+if (GetMonom()->EqualityExponent(*monom)) {
 GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
 if (GetMonom()->GetCoeff() == 0)
 DelCurrent();
-}
-else
-{
+} else {
 InsCurrent(monom->GetCopy());
 }
 else InsLast(monom->GetCopy());
@@ -137,24 +121,18 @@ Reset();
 
 void TPolinom::SubMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom())))
-{
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom()))) {
 GoNext();
 }
 if (!IsListEnded())
-if (GetMonom()->EqualityExponent(*monom))
-{
+if (GetMonom()->EqualityExponent(*monom)) {
 GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
 if (GetMonom()->GetCoeff() == 0)
 DelCurrent();
-}
-else
-{
+} else {
 monom->Coeff = -monom->Coeff;
 InsCurrent(monom->GetCopy());
-}
-else
-{
+} else {
 monom->Coeff = -monom->Coeff;
 InsLast(monom->GetCopy());
 }
@@ -162,8 +140,7 @@ InsLast(monom->GetCopy());
 
 std::ostream& operator<<(std::ostream &os, TPolinom &q) {
 TMonom* old = new TMonom();
-for (q.Reset(); !q.IsListEnded(); q.GoNext())
-{
+for (q.Reset(); !q.IsListEnded(); q.GoNext()) {
 old = q.GetMonom();
 os << old;
 }
