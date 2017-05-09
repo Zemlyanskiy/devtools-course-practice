@@ -2,54 +2,54 @@
 
 void TDatList::DelLink(PTDatLink pLink)
 {
-PTDatLink that = pCurrLink;
-pPrevLink->SetNextLink(pCurrLink->pNext);
-pCurrLink = pCurrLink->GetNextDatLink();
-that->~TDatLink();
-ListLen--;
+	PTDatLink that = pCurrLink;
+	pPrevLink->SetNextLink(pCurrLink->pNext);
+	pCurrLink = pCurrLink->GetNextDatLink();
+	that->~TDatLink();
+	ListLen--;
 }
 
 PTDatValue TDatList::GetDatValue()
 {
-return pCurrLink->pValue;
+	return pCurrLink->pValue;
 }
 
 TDatList::TDatList()
 {
-pFirst = new TDatLink(NULL, NULL);
-pLast = pFirst;
-pCurrLink = pFirst;
-pPrevLink = NULL;
-pStop = pFirst;
-CurrPos = 0;
-ListLen = 0;
+	pFirst = new TDatLink(NULL, NULL);
+	pLast = pFirst;
+	pCurrLink = pFirst;
+	pPrevLink = NULL;
+	pStop = pFirst;
+	CurrPos = 0;
+	ListLen = 0;
 }
 
 void TDatList::SetCurrentPos(int pos)
 {
-if ((pos - 1 < 0) || (pos - 1 > ListLen)) throw 2;
-Reset();
-while (CurrPos < pos - 1)
-{
-	GoNext();
-}
+	if ((pos - 1 < 0) || (pos - 1 > ListLen)) throw 2;
+	Reset();
+	while (CurrPos < pos - 1)
+	{
+		GoNext();
+	}
 }
 
 int TDatList::GetCurrentPos(void) const
 {
-return CurrPos;
+	return CurrPos;
 }
 
 void TDatList::Reset(void)
 {
-pCurrLink = pFirst;
-pPrevLink = NULL;
-CurrPos = 0;
+	pCurrLink = pFirst;
+	pPrevLink = NULL;
+	CurrPos = 0;
 }
 
 bool TDatList::IsListEnded(void) const
 {
-return ((CurrPos >= ListLen) || (pCurrLink == pLast));
+	return ((CurrPos >= ListLen) || (pCurrLink == pLast));
 }
 
 int TDatList::GoNext(void)
