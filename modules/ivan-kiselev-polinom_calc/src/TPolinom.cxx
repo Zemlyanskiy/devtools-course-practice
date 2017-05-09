@@ -74,8 +74,19 @@ Reset();
 q.Reset();
 return *this;
 } else {
-TPolinom* that = new TPolinom(q);
-return *that;
+	this->Reset();
+	this->ListLen = q.ListLen;
+	while (!q.IsListEnded())
+	{
+		this->GetMonom()->SetCoeff(q.GetMonom()->GetCoeff());
+		this->GetMonom()->SetIndexX(q.GetMonom()->GetIndexX());
+		this->GetMonom()->SetIndexY(q.GetMonom()->GetIndexY());
+		this->GetMonom()->SetIndexZ(q.GetMonom()->GetIndexZ());
+		q.GoNext();
+		this->GoNext();
+	}
+//  TPolinom* that = new TPolinom(q);
+//  return *that;
 }
 }
 
