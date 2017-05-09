@@ -14,6 +14,7 @@ int ListLen;
 PTDatLink GetLink(PTDatValue pVal = NULL, PTDatLink pLink = NULL) {
 return new TDatLink(pVal, pLink);
 }
+
  public:
 TDatList();
 ~TDatList() {
