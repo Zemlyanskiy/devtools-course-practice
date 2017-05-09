@@ -1,5 +1,6 @@
 #include "../include/TMonom.h"
-
+#include <iostream>
+using namespace std;
 void TMonom::SetCoeff(int cval)
 {
 	Coeff = cval;

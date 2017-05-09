@@ -8,7 +8,7 @@ class TPolinom : public THeadRing{
 TPolinom(int monoms[][4] = NULL, int km = 0);
 //  km => kol-vo monomov
 //  constructor
-//	Check ReadMe
+//  Check ReadMe
 TPolinom(TPolinom &q);  // constructor
 ~TPolinom() {}
 TMonom* GetMonom() { 
@@ -17,7 +17,7 @@ return (TMonom*)GetDatValue();
 TPolinom& operator+(TPolinom &q);  //  Add Polinoms
 TPolinom& operator-(TPolinom &q);  //  Sub Polinoms
 TPolinom& operator*(TPolinom &q);  //  Mult Polinoms
-TPolinom& operator*(int);  //  Mult int
+TPolinom& operator*(int mult);  //  Mult int
 TPolinom& operator=(TPolinom &q);
 bool operator==(TPolinom &q);
 void AddMonom(TMonom* monom);  //  + Monom

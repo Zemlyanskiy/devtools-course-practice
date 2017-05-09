@@ -2,8 +2,7 @@
 #ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
 #include "TDatValue.h"
-#include <iostream>
-using namespace std;
+
 class TMonom : public TDatValue{
  protected:
 int Coeff;  //  monom's coeff
@@ -11,8 +10,7 @@ int XInd;  //  index X
 int YInd;  //  index Y
 int ZInd;  //  index Z
  public:
-TMonom(int cval = 1, int x = 0, int y = 0, int z = 0)
-{
+TMonom(int cval = 1, int x = 0, int y = 0, int z = 0) {
 Coeff = cval;
 XInd = x;
 YInd = y;

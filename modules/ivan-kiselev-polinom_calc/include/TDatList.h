@@ -11,22 +11,21 @@ PTDatLink pPrevLink;
 PTDatLink pStop;
 int CurrPos;
 int ListLen;
- protected:
-PTDatLink GetLink(PTDatValue pVal = NULL, PTDatLink pLink = NULL)
-{
+PTDatLink GetLink(PTDatValue pVal = NULL, PTDatLink pLink = NULL) {
 return new TDatLink(pVal, pLink);
 }
  public:
 TDatList();
 ~TDatList() {
 DelList();
-};
+}
 PTDatValue GetDatValue();
-virtual int IsEmpty()  const
-{
+virtual int IsEmpty() const {
 return pFirst == pLast;
 }
-int GetListLength()    const { return ListLen; };
+int GetListLength() const {
+return ListLen;
+}
 virtual void Reset(void);
 virtual bool IsListEnded(void) const;
 int GoNext(void);
