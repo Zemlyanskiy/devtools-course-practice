@@ -81,9 +81,9 @@ return *that;
 
 bool TPolinom::operator==(TPolinom q) {
 if (pFirst == q.pFirst) return true;
-if (this->ListLen != q.ListLen)
+if (this->ListLen != q.ListLen) {
 return false;
-else {
+} else {
 Reset();
 q.Reset();
 while (!IsListEnded()) {
@@ -104,7 +104,8 @@ return true;
 
 void TPolinom::AddMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom()))) {
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) 
+&& (*monom < *GetMonom()))) {
 GoNext();
 }
 if (!IsListEnded())
@@ -114,14 +115,16 @@ if (GetMonom()->GetCoeff() == 0)
 DelCurrent();
 } else {
 InsCurrent(monom->GetCopy());
+} else {
+InsLast(monom->GetCopy());
 }
-else InsLast(monom->GetCopy());
 Reset();
 }
 
 void TPolinom::SubMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) && (*monom < *GetMonom()))) {
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) 
+&& (*monom < *GetMonom()))) {
 GoNext();
 }
 if (!IsListEnded())
