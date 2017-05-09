@@ -169,7 +169,7 @@ InsLast(monom->GetCopy());
 }
 }
 
-ostream& operator<<(ostream &os, TPolinom &q)
+std::ostream& operator<<(std::ostream &os, TPolinom &q)
 {
 TMonom* old = new TMonom();
 for (q.Reset(); !q.IsListEnded(); q.GoNext())

@@ -3,7 +3,6 @@
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
 #include "TDatValue.h"
 #include <iostream>
-using namespace std;
 class TMonom : public TDatValue{
  protected:
 int Coeff;  //  monom's coeff
@@ -34,7 +33,7 @@ bool operator==(const TMonom tm);
 bool EqualityExponent(TMonom tm);
 bool operator<(TMonom tm);  //  prioritet x > y > z
 bool operator>(TMonom tm);  //  prioritet x > y > z
-friend std::ostream& operator<<(ostream &os, TMonom * tm);
+friend std::ostream& operator<<(std::ostream &os, TMonom * tm);
 friend class TPolinom;
 };
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_

@@ -22,6 +22,6 @@ TPolinom& operator=(TPolinom q);
 bool operator==(TPolinom q);
 void AddMonom(TMonom* monom);  //  + Monom
 void SubMonom(TMonom* monom);  //  - Monom
-friend ostream& operator<<(ostream &os, TPolinom &q);
+friend std::ostream& operator<<(std::ostream &os, TPolinom &q);
 };
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TPOLINOMS_H_
