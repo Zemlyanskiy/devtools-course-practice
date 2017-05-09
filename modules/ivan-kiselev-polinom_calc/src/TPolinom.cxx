@@ -94,9 +94,9 @@ qMon = q.GetMonom();
 if (*pMon == *qMon) {
 GoNext();
 q.GoNext();
-}
-else
+} else {
 return false;
+}
 }
 return true;
 }
@@ -104,7 +104,7 @@ return true;
 
 void TPolinom::AddMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) 
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom))
 && (*monom < *GetMonom()))) {
 GoNext();
 }
@@ -123,7 +123,7 @@ Reset();
 
 void TPolinom::SubMonom(TMonom * monom) {
 Reset();
-while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom)) 
+while ((!IsListEnded() && !(GetMonom()->EqualityExponent(*monom))
 && (*monom < *GetMonom()))) {
 GoNext();
 }
