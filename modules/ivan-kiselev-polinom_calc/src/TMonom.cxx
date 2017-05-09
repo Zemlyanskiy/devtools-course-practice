@@ -63,7 +63,7 @@ return *that;
 
 bool TMonom::operator==(const TMonom tm) {
 return ((Coeff == tm.Coeff) && (XInd == tm.XInd)
-	&& (YInd == tm.YInd) && (ZInd == tm.ZInd));
+&& (YInd == tm.YInd) && (ZInd == tm.ZInd));
 }
 
 bool TMonom::EqualityExponent(TMonom tm) {
