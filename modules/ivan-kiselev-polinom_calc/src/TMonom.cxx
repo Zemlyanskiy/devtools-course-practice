@@ -62,7 +62,7 @@ if (tm->GetIndexZ() != 0) os << " * z^" << tm->GetIndexZ();
 return os;
 };
 
-TMonom TMonom::operator*(TMonom &mon)
+TMonom TMonom::operator*(TMonom mon)
 {
 TMonom* that = new TMonom(0, 0, 0, 0);
 that->Coeff = this->Coeff * mon.Coeff;
@@ -72,17 +72,17 @@ that->SetIndexZ(this->GetIndexZ() + mon.GetIndexZ());
 return *that;
 };
 
-bool TMonom::operator==(const TMonom &tm)
+bool TMonom::operator==(const TMonom tm)
 {
 return ((Coeff == tm.Coeff) && (XInd == tm.XInd) && (YInd == tm.YInd) && (ZInd == tm.ZInd));
 };
 
-bool TMonom::EqualityExponent(TMonom &tm)
+bool TMonom::EqualityExponent(TMonom tm)
 {
 return (XInd == tm.XInd) && (YInd == tm.YInd) && (ZInd == tm.ZInd);
 };
 
-bool TMonom::operator<(TMonom &tm) // prioritet x > y > z
+bool TMonom::operator<(TMonom tm) // prioritet x > y > z
 {
 if (EqualityExponent(tm)) return false;
 if (XInd > tm.XInd)
@@ -102,7 +102,7 @@ return true;
 return false;
 };
 
-bool TMonom::operator>(TMonom &tm) // prioritet x > y > z
+bool TMonom::operator>(TMonom tm) // prioritet x > y > z
 {
 if (EqualityExponent(tm)) return false;
 if (XInd < tm.XInd)
