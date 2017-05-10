@@ -75,7 +75,9 @@ q.Reset();
 return *this;
 } else {
 TPolinom* that = new TPolinom(q);
-return *that;
+this->pFirst = that->pFirst;
+pHead->SetNextLink(pFirst);
+return *this;
 }
 }
 
