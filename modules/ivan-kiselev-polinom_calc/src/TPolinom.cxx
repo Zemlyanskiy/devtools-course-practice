@@ -73,11 +73,11 @@ pHead->SetNextLink(pFirst);
 Reset();
 q.Reset();
 return *this;
-}//  else {
+}  //  else {
 //  TPolinom* that = new TPolinom(q);
 //  return *that;
 //  this = new TPolinom(q);
-// 	return *this;
+return *this;
 //  }
 }
 
