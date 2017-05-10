@@ -2,8 +2,6 @@
 #ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
 #include "TRootLink.h"
-class TDatLink;
-typedef TDatLink *PTDatLink;
 class TDatLink : public TRootLink {
  protected:
 PTDatValue pValue;  //  Value
@@ -21,9 +19,10 @@ pValue = pVal;
 virtual PTDatValue GetDatValue() {
 return pValue;
 }
-PTDatLink GetNextDatLink() {
-return (PTDatLink)pNext;
+TDatLink* GetNextDatLink() {
+return (TDatLink*)pNext;
 }
 friend class TDatList;
 };
+typedef TDatLink *PTDatLink;
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
