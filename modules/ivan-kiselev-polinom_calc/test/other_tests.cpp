@@ -212,15 +212,15 @@ EXPECT_TRUE(old == res);
 }
 
 TEST(THeadRing, Del_First) {
-	int size = 2;
-	int res_size = 1;
-	int mon[][4] = { { 2, 1, 0, 0 } ,{ 1, 0, 0, 3 } };
-	int resmon[][4] = { { 1, 0, 0, 3 } };
-	TPolinom old(mon, size);
-	TPolinom res(resmon, res_size);
-	old.DelFirst();
+int size = 2;
+int res_size = 1;
+int mon[][4] = { { 2, 1, 0, 0 } ,{ 1, 0, 0, 3 } };
+int resmon[][4] = { { 1, 0, 0, 3 } };
+TPolinom old(mon, size);
+TPolinom res(resmon, res_size);
+old.DelFirst();
 
-	EXPECT_TRUE(old == res);
+EXPECT_TRUE(old == res);
 }
 
 TEST(TPolinom, Auto_Equal) {
