@@ -20,7 +20,7 @@ virtual PTDatValue GetDatValue() {
 return pValue;
 }
 TDatLink* GetNextDatLink() {
-return (TDatLink*)pNext;
+return reinterpret_cast<TDatLink*>(pNext);
 }
 friend class TDatList;
 };
