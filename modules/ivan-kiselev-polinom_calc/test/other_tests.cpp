@@ -198,6 +198,31 @@ first = first * second;
 EXPECT_TRUE(result == first);
 }
 
+TEST(THeadRing, Ins_First) {
+int size = 1;
+int res_size = 2;
+int mon[][4] = { { 1, 0, 0, 3 } };
+int resmon[][4] = { { 2, 1, 0, 0} , { 1, 0, 0, 3 } };
+TMonom Mon(2, 1, 0, 0);
+TPolinom old(mon, size);
+TPolinom res(resmon, res_size);
+old.InsFirst(dynamic_cast<PTDatValue>(&Mon));
+
+EXPECT_TRUE(old == res);
+}
+
+TEST(THeadRing, Del_First) {
+	int size = 2;
+	int res_size = 1;
+	int mon[][4] = { { 2, 1, 0, 0 } ,{ 1, 0, 0, 3 } };
+	int resmon[][4] = { { 1, 0, 0, 3 } };
+	TPolinom old(mon, size);
+	TPolinom res(resmon, res_size);
+	old.DelFirst();
+
+	EXPECT_TRUE(old == res);
+}
+
 TEST(TPolinom, Auto_Equal) {
 int size = 1;
 int mon[][4] = { { 1, 0, 0, 3 } };
