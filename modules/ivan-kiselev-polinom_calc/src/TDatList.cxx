@@ -14,7 +14,7 @@ CurrPos = 0;
 ListLen = 0;
 }
 
-TDatList::TDatList(TDatList &List) {
+TDatList::TDatList(const TDatList &List) {
 pFirst = new TDatLink(NULL, NULL);
 pLast = pFirst;
 pCurrLink = pFirst;
