@@ -17,7 +17,6 @@ return new TDatLink(pVal, pLink);
 
  public:
 TDatList();
-//  TDatList(const TDatList &List);
 ~TDatList() {
 DelList();
 }

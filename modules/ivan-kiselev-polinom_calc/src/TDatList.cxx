@@ -14,16 +14,6 @@ CurrPos = 0;
 ListLen = 0;
 }
 
-//  TDatList::TDatList(const TDatList &List) {
-//  pFirst = new TDatLink(NULL, NULL);
-//  pLast = pFirst;
-//  pCurrLink = pFirst;
-//  pPrevLink = NULL;
-//  pStop = pFirst;
-//  CurrPos = 0;
-//  ListLen = 0;
-//  }  //  uses module
-
 void TDatList::Reset(void) {
 pCurrLink = pFirst;
 pPrevLink = NULL;
