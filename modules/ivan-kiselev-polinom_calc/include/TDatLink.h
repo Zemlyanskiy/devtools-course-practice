@@ -11,6 +11,9 @@ PTDatValue pValue;  //  Value
 TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL):TRootLink(pN) {
 pValue = pVal;
 }
+TDatLink(TDatLink &Link) : TRootLink(Link.pNext) {
+pValue = Link.GetDatValue();
+}
 ~TDatLink() {}
 virtual void SetDatValue(PTDatValue pVal) {
 pValue = pVal;

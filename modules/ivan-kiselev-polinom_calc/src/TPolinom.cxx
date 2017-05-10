@@ -73,10 +73,12 @@ pHead->SetNextLink(pFirst);
 Reset();
 q.Reset();
 return *this;
-} else {
-TPolinom* that = new TPolinom(q);
-return *that;
-}
+}//  else {
+//  TPolinom* that = new TPolinom(q);
+//  return *that;
+//  this = new TPolinom(q);
+// 	return *this;
+//  }
 }
 
 bool TPolinom::operator==(TPolinom q) {
