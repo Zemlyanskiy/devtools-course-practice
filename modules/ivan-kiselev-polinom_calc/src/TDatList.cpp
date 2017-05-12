@@ -14,15 +14,6 @@ CurrPos = 0;
 ListLen = 0;
 }
 
-/*TDatList::TDatList(const TDatList &List) : TDatList() {
-int k = 0;
-pCurrLink = List.pFirst;
-while (k < List.ListLen) {
-	k++;
-	if (pCurrLink != NULL) InsLast(pCurrLink->GetDatValue());
-}
-}*/
-
 void TDatList::Reset(void) {
 pCurrLink = pFirst;
 pPrevLink = NULL;
