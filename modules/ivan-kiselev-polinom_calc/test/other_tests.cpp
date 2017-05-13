@@ -229,6 +229,7 @@ int mon[][4] = { { 1, 0, 0, 3 } };
 TPolinom old(mon, size);
 
 EXPECT_TRUE(old == old);
+//EXPECT_EQ(old , old);
 }
 
 TEST(TPolinom, can_compare_the_polynoms) {
