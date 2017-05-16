@@ -623,7 +623,11 @@ TEST(TPolinom, multiplication_with_simple_polinom) {
     // (2*x*y*z)
     TPolinom second(mon2, size2);
     TPolinom result(resMon, size1);
-    EXPECT_TRUE(result == &(first * &second));
+    TPolinom answer;
+
+    answer = (first * &second);
+
+    EXPECT_TRUE(result == &answer);
 }
 
 TEST(TPolinom, multiplication_with_big_polinom_4x4) {
