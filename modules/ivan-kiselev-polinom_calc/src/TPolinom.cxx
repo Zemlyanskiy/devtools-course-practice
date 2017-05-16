@@ -5,7 +5,7 @@ TPolinom::TPolinom(int monoms[][4], int km) {
     pHead->SetDatValue(Monom);
     for (int i = 0; i < km; i++) {
         Monom = new TMonom(monoms[i][0], monoms[i][1],
-		monoms[i][2], monoms[i][3]);
+        monoms[i][2], monoms[i][3]);
         InsLast(Monom);
     }
     Reset();
@@ -111,7 +111,7 @@ void TPolinom::AddMonom(TMonom * monom) {
         && (*monom < *GetMonom()))) {
         GoNext();
     }
-    if (!IsListEnded())
+    if ((!IsListEnded()))
         if (GetMonom()->EqualityExponent(*monom)) {
             GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
@@ -130,7 +130,7 @@ void TPolinom::SubMonom(TMonom * monom) {
         && (*monom < *GetMonom()))) {
         GoNext();
     }
-    if (!IsListEnded())
+    if ((!IsListEnded()))
         if (GetMonom()->EqualityExponent(*monom)) {
             GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
