@@ -11,7 +11,7 @@ class TMonom : public TDatValue {
     int ZInd;  //  index Z
 
  public:
-	 explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0) {
+     explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0) {
         Coeff = cval;
         XInd = x;
         YInd = y;
