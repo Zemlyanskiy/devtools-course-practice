@@ -12,7 +12,7 @@ class TRootLink {
     PTRootLink pNext;  //  next point
 
  public:
-    TRootLink(PTRootLink pN = NULL) {
+     explicit TRootLink(PTRootLink pN = NULL) {
         pNext = pN;
     }
     ~TRootLink() {}
