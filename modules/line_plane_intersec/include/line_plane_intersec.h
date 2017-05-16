@@ -5,7 +5,7 @@
 #include <vector>
 
 class Intersection {
- public:
+  public:
     Intersection();
     Intersection(double linex0, double liney0, double linez0,
         double dirx0, double diry0, double dirz0,

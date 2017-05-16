@@ -7,7 +7,7 @@
 #include <string>
 
 class ArithmeticParser {
- public:
+  public:
     bool Parse(const std::string &expression);
     bool Evaluate(double x, double *result) const;
     bool Evaluate(double *result) const { return Evaluate(0.0, result); }

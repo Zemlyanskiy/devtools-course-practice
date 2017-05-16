@@ -4,7 +4,7 @@
 #define MODULES_FRACTION_INCLUDE_FRACTION_H_
 
 class Fraction {
- public:
+  public:
     Fraction();
     Fraction(const int numerator, const int denominator);
     Fraction(const Fraction &z);

@@ -6,7 +6,7 @@
 #include <string>
 
 class FractionCalculator {
- public:
+  public:
     FractionCalculator();
     std::string operator()(int argc, const char **argv);
 

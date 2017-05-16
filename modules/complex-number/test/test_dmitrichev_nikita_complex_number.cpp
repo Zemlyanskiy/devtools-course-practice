@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 class Dmitrichev_Nikita_ComplexNumberTest : public ::testing::Test {
- protected:
+  protected:
     virtual void SetUp() {
         CN = new ComplexNumber[N];
 
