@@ -5,7 +5,7 @@
 #include "TMonom.h"
 class TPolinom : public THeadRing {
  public:
-     explicit TPolinom(int monoms[][4] = NULL, int km = 0);
+    explicit TPolinom(int monoms[][4] = NULL, int km = 0);
     //  km => kol-vo monomov
     //  constructor
     //  Check ReadMe
