@@ -7,6 +7,7 @@ class TDatLink : public TRootLink {
     PTDatValue pValue;  //  Value
  public:
     TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL) :TRootLink(pN) {
+		pNext = pN;
         pValue = pVal;
     }
     TDatLink(TDatLink &Link) : TRootLink(Link.pNext) {

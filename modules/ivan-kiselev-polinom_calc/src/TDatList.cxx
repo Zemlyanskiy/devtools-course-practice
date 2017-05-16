@@ -14,7 +14,6 @@ TDatList::TDatList() {
     ListLen = 0;
 }
 TDatList::TDatList(const TDatList &list) {
-    TDatLink* that = new TDatLink();
     int k = 1;
     pFirst = new TDatLink(*list.pFirst);
     pLast = pFirst;
@@ -23,7 +22,7 @@ TDatList::TDatList(const TDatList &list) {
     pStop = pFirst;
     CurrPos = 0;
     ListLen = 0;
-    that = list.pFirst;
+    TDatLink * that = list.pFirst;
     while (k < list.ListLen) {
         pCurrLink = new TDatLink(*that);
         k++;

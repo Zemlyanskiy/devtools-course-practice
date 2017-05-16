@@ -6,7 +6,7 @@
 #include <string>
 
 class ComplexCalculator {
-  public:
+ public:
     ComplexCalculator();
     std::string operator()(int argc, const char** argv);
 

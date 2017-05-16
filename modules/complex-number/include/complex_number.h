@@ -4,7 +4,7 @@
 #define MODULES_COMPLEX_NUMBER_INCLUDE_COMPLEX_NUMBER_H_
 
 class ComplexNumber {
-  public:
+ public:
     ComplexNumber();
     ComplexNumber(const double real, const double imaginary);
     ComplexNumber(const ComplexNumber& z);
