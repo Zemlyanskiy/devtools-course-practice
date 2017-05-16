@@ -31,7 +31,6 @@ TDatList::TDatList(const TDatList &list) {
     }
     pLast = new TDatLink(that->GetDatValue(), that->pNext);
     ListLen = k;
-
 }
 void TDatList::Reset(void) {
     pCurrLink = pFirst;
@@ -59,8 +58,7 @@ void TDatList::InsFirst(PTDatValue pVal) {
 void TDatList::InsLast(PTDatValue pVal) {
     if (pFirst->pValue == NULL) {
         InsFirst(pVal);
-    }
-    else {
+    } else {
         while (GoNext() != 1) {}
         pPrevLink->SetNextLink(GetLink(pVal, pLast));
         pCurrLink = pPrevLink->GetNextDatLink();
@@ -73,8 +71,7 @@ void TDatList::InsCurrent(PTDatValue pVal) {
         pPrevLink->SetNextLink(GetLink(pVal, pCurrLink));
         pCurrLink = pPrevLink->GetNextDatLink();
         ListLen++;
-    }
-    else {
+    } else {
         InsFirst(pVal);
     }
 }
@@ -89,8 +86,7 @@ void TDatList::DelFirst(void) {
 void TDatList::DelCurrent(void) {
     if (pCurrLink == pFirst) {
         DelFirst();
-    }
-    else {
+    } else {
         PTDatLink old = pCurrLink;
         pPrevLink->SetNextLink(pCurrLink->GetNextLink());
         pCurrLink = pCurrLink->GetNextDatLink();
