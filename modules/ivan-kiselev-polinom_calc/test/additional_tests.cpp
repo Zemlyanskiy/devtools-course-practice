@@ -1,7 +1,7 @@
 // Copyright 2017 Ivan Kiselev
+#include <iostream>
 #include "../3rdparty/gtest/gtest.h"
 #include "../include/TPolinoms.h"
-#include <iostream>
 TEST(TDatList, DelCurrent) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
@@ -13,7 +13,7 @@ TEST(TDatList, DelCurrent) {
     pol.Reset();
     pol.DelCurrent();
 
-    EXPECT_TRUE(pol == &res);    
+    EXPECT_TRUE(pol == &res);
 }
 
 TEST(TMonom, cout_test) {
@@ -78,4 +78,8 @@ TEST(TDatValue, can_create_DatValue) {
 
 TEST(THeadRing, can_create_THeadRing) {
     EXPECT_NO_FATAL_FAILURE(THeadRing thead());
+}
+
+TEST(THeadRing, can_create_TRootLink) {
+    EXPECT_NO_FATAL_FAILURE(PTRootLink troot());
 }
