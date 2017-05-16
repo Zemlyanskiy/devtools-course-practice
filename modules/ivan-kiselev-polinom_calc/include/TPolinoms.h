@@ -5,11 +5,11 @@
 #include "TMonom.h"
 class TPolinom : public THeadRing {
  public:
-    TPolinom(int monoms[][4] = NULL, int km = 0);
+	 explicit TPolinom(int monoms[][4] = NULL, int km = 0);
     //  km => kol-vo monomov
     //  constructor
     //  Check ReadMe
-    TPolinom(TPolinom *q);  // constructor
+	explicit TPolinom(TPolinom *q);  // constructor
     ~TPolinom() {}
     TMonom* GetMonom() {
         return dynamic_cast<TMonom*>(GetDatValue());
