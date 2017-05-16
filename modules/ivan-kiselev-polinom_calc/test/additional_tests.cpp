@@ -18,7 +18,7 @@ TEST(TDatList, DelCurrent) {
 
 TEST(TMonom, cout_test) {
     TMonom* mon = new TMonom(2, 1, 1, 1);
-    EXPECT_NO_FATAL_FAILURE(std::cout << mon);
+    GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(TMonom, Equality) {
@@ -66,20 +66,23 @@ TEST(TPolinom, Not_Equal_polinoms2) {
 TEST(TPolinom, cout_polinom) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int size = 2;
-    int ressize = 1;
     TPolinom pol(mon, size);
 
-    EXPECT_NO_FATAL_FAILURE(std::cout << pol);
-}
-
-TEST(TDatValue, can_create_DatValue) {
-    EXPECT_NO_FATAL_FAILURE(PTDatValue tdat);
+    GTEST_TEST_NO_FATAL_FAILURE_(std::cout << pol, GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(THeadRing, can_create_THeadRing) {
-    EXPECT_NO_FATAL_FAILURE(THeadRing thead());
+    GTEST_TEST_NO_FATAL_FAILURE_(THeadRing thead, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(THeadRing, can_create_TRootLink) {
-    EXPECT_NO_FATAL_FAILURE(PTRootLink troot());
+TEST(TRootLink, can_create_TRootLink) {
+    GTEST_TEST_NO_FATAL_FAILURE_(PTRootLink troot(), GTEST_NONFATAL_FAILURE_);
+}
+
+TEST(TRootLink, can_set_next_link) {
+    TDatLink* link = new TDatLink();
+    TDatLink* TDL = new TDatLink();
+    
+    TDL->SetNextLink(reinterpret_cast<TRootLink*> (link));
+    EXPECT_TRUE(TDL->GetNextLink() == link);
 }
