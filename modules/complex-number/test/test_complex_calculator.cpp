@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class ComplexCalculatorTest : public ::testing::Test {
-  protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {

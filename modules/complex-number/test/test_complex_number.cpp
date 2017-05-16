@@ -7,7 +7,7 @@
 #include "include/complex_number.h"
 
 class ComplexNumberTest : public ::testing::Test {
-  protected:
+ protected:
     double epsilon = 0.001;
 };
 

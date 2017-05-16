@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 class Grachev_Vlad_ComplexNumberTest : public ::testing::Test {
-  protected:
+ protected:
     double epsilon = 0.001;
 };
 

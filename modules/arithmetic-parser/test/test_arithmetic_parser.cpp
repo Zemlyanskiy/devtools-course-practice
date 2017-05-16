@@ -11,7 +11,7 @@
 using std::string;
 
 class ArithmeticParserTest : public ::testing::Test {
-  protected:
+ protected:
     ArithmeticParser parser;
 };
 

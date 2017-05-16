@@ -6854,7 +6854,7 @@ std::string DeathTest::last_death_test_message_;
 
 // Provides cross platform implementation for some death functionality.
 class DeathTestImpl : public DeathTest {
-  protected:
+ protected:
   DeathTestImpl(const char* a_statement, const RE* a_regex)
       : statement_(a_statement),
         regex_(a_regex),
@@ -7274,7 +7274,7 @@ class ForkingDeathTest : public DeathTestImpl {
   // All of these virtual functions are inherited from DeathTest.
   virtual int Wait();
 
-  protected:
+ protected:
   void set_child_pid(pid_t child_pid) { child_pid_ = child_pid; }
 
  private:

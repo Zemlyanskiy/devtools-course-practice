@@ -16,7 +16,7 @@ using std::string;
 
 
 class FractionCalculatorTest: public ::testing::Test {
-  protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char *> options;
 
