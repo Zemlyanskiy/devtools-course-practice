@@ -6,8 +6,7 @@ class TDatLink : public TRootLink {
  protected:
     PTDatValue pValue;  //  Value
  public:
-    TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL) {
-		pNext = pN;
+    TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL) : TRootLink(pN) {
         pValue = pVal;
     }
     TDatLink(TDatLink &Link) : TRootLink(Link.pNext) {
