@@ -116,8 +116,7 @@ void TPolinom::AddMonom(TMonom * monom) {
             GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        }
-        else {
+        } else {
             InsCurrent(monom->GetCopy());
         }
     } else {
@@ -137,8 +136,7 @@ void TPolinom::SubMonom(TMonom * monom) {
             GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        }
-        else {
+        } else {
             monom->Coeff = -monom->Coeff;
             InsCurrent(monom->GetCopy());
         }
