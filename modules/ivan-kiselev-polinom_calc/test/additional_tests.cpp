@@ -23,14 +23,14 @@ TEST(TMonom, cout_test) {
 
 TEST(TMonom, Equality1) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
-    TMonom* mon2 = new TMonom(2, 1, 1, 2);
+    TMonom* mon2 = new TMonom(3, 1, 1, 5);
 
     EXPECT_FALSE(mon2 < mon1);
 }
 
 TEST(TMonom, Equality2) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
-    TMonom* mon2 = new TMonom(2, 1, 1, 1);
+    TMonom* mon2 = new TMonom(3, 1, 1, 5);
 
     EXPECT_FALSE(mon1 > mon2);
 }
