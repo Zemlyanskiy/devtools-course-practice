@@ -6,7 +6,7 @@ class TDatLink : public TRootLink {
  protected:
     PTDatValue pValue;  //  Value
  public:
-    TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL) :TRootLink(pN) {
+    TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL) {
 		pNext = pN;
         pValue = pVal;
     }
