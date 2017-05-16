@@ -95,12 +95,12 @@ TEST(TRootLink, can_set_next_link) {
 
 TEST(TDatList, list_ended) {
     TDatList list;
-    EXPECT_TRUE( 1 == list.IsEmpty());
+    EXPECT_EQ(1, list.IsEmpty());
 }
 
 TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
     TDatLink MyLink;
-    TDatLink MyLink2(NULL,&MyLink);
+    TDatLink MyLink2(NULL, &MyLink);
     TMonom mon(1, 0, 0, 0);
     MyLink.SetDatValue(reinterpret_cast<TDatValue*> (&mon));
     EXPECT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GetDatValue())));
