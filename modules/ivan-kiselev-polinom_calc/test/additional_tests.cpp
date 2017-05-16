@@ -92,3 +92,17 @@ TEST(TRootLink, can_set_next_link) {
     TDL->SetNextLink(reinterpret_cast<TRootLink*> (link));
     EXPECT_TRUE(TDL->GetNextLink() == link);
 }
+
+TEST(TDatList, list_ended) {
+    TDatList list;
+    EXPECT_TRUE( 1 == list.IsEmpty());
+}
+
+TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
+    TDatLink MyLink;
+    TDatLink MyLink2(NULL,&MyLink);
+    TMonom mon(1, 0, 0, 0);
+    MyLink.SetDatValue(reinterpret_cast<TDatValue*> (&mon));
+    EXPECT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GetDatValue())));
+    EXPECT_TRUE(&MyLink == MyLink2.GetNextDatLink());
+}
