@@ -111,14 +111,16 @@ void TPolinom::AddMonom(TMonom * monom) {
         && (*monom < *GetMonom()))) {
         GoNext();
     }
-    if ((!IsListEnded()))
+    if (!IsListEnded()) {
         if (GetMonom()->EqualityExponent(*monom)) {
             GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        } else {
+        }
+        else {
             InsCurrent(monom->GetCopy());
-        } else {
+        }
+    } else {
         InsLast(monom->GetCopy());
     }
     Reset();
@@ -130,15 +132,17 @@ void TPolinom::SubMonom(TMonom * monom) {
         && (*monom < *GetMonom()))) {
         GoNext();
     }
-    if ((!IsListEnded()))
+    if (!IsListEnded()) {
         if (GetMonom()->EqualityExponent(*monom)) {
             GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        } else {
+        }
+        else {
             monom->Coeff = -monom->Coeff;
             InsCurrent(monom->GetCopy());
-        } else {
+        }
+    } else {
         monom->Coeff = -monom->Coeff;
         InsLast(monom->GetCopy());
     }
