@@ -4,7 +4,8 @@ TPolinom::TPolinom(int monoms[][4], int km) {
     TMonom* Monom = new TMonom(0, 0, 0, 0);
     pHead->SetDatValue(Monom);
     for (int i = 0; i < km; i++) {
-        Monom = new TMonom(monoms[i][0], monoms[i][1], monoms[i][2], monoms[i][3]);
+        Monom = new TMonom(monoms[i][0], monoms[i][1],
+		monoms[i][2], monoms[i][3]);
         InsLast(Monom);
     }
     Reset();
@@ -73,8 +74,7 @@ TPolinom & TPolinom::operator=(TPolinom *q) {
         Reset();
         q->Reset();
         return *this;
-    }
-    else {
+    } else {
         TPolinom* that = new TPolinom(q);
         this->pFirst = that->pFirst;
         pHead->SetNextLink(pFirst);
@@ -86,8 +86,7 @@ bool TPolinom::operator==(TPolinom *q) {
     if (pFirst == q->pFirst) return true;
     if (this->ListLen != q->ListLen) {
         return false;
-    }
-    else {
+    } else {
         Reset();
         q->Reset();
         while (!IsListEnded()) {
@@ -98,8 +97,7 @@ bool TPolinom::operator==(TPolinom *q) {
             if (*pMon == *qMon) {
                 GoNext();
                 q->GoNext();
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -118,11 +116,9 @@ void TPolinom::AddMonom(TMonom * monom) {
             GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        }
-        else {
+        } else {
             InsCurrent(monom->GetCopy());
-        }
-    else {
+        } else {
         InsLast(monom->GetCopy());
     }
     Reset();
@@ -139,12 +135,10 @@ void TPolinom::SubMonom(TMonom * monom) {
             GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
             if (GetMonom()->GetCoeff() == 0)
                 DelCurrent();
-        }
-        else {
+        } else {
             monom->Coeff = -monom->Coeff;
             InsCurrent(monom->GetCopy());
-        }
-    else {
+        } else {
         monom->Coeff = -monom->Coeff;
         InsLast(monom->GetCopy());
     }
