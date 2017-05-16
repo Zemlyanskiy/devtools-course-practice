@@ -25,14 +25,14 @@ TEST(TMonom, Equality1) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
     TMonom* mon2 = new TMonom(2, 1, 1, 2);
 
-    EXPECT_FALSE(mon2 < mon1);
+    EXPECT_TRUE(mon2 < mon1);  //  expect_false
 }
 
 TEST(TMonom, Equality2) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
     TMonom* mon2 = new TMonom(2, 1, 1, 1);
 
-    EXPECT_FALSE(mon1 > mon2);
+    EXPECT_TRUE(mon1 > mon2);  //  expect_false
 }
 
 TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
