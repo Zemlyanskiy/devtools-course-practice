@@ -41,7 +41,7 @@ TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
     EXPECT_TRUE(pol == &pol2);
 }
 
-TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
+TEST(TPolinom, Not_Equal_polinoms1) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
@@ -52,7 +52,7 @@ TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
     EXPECT_FALSE(pol == &res);
 }
 
-TEST(TPolinom, Not_Equal_polinoms) {
+TEST(TPolinom, Not_Equal_polinoms2) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } , { 10, 0, 0, 1 } };
     int size = 2;
