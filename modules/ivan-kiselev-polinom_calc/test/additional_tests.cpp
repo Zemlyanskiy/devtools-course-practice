@@ -21,12 +21,18 @@ TEST(TMonom, cout_test) {
     GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TMonom, Equality) {
+TEST(TMonom, Equality1) {
+    TMonom* mon1 = new TMonom(2, 1, 1, 1);
+    TMonom* mon2 = new TMonom(2, 1, 1, 1);
+
+    EXPECT_FALSE(mon2 < mon1);
+}
+
+TEST(TMonom, Equality2) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
     TMonom* mon2 = new TMonom(2, 1, 1, 1);
 
     EXPECT_FALSE(mon1 > mon2);
-    EXPECT_FALSE(mon2 < mon1);
 }
 
 TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
