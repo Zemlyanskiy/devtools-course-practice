@@ -23,7 +23,7 @@ TEST(TMonom, cout_test) {
 
 TEST(TMonom, Equality1) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
-    TMonom* mon2 = new TMonom(2, 1, 1, 1);
+    TMonom* mon2 = new TMonom(2, 1, 1, 2);
 
     EXPECT_FALSE(mon2 < mon1);
 }
