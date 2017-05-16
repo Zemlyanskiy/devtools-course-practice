@@ -88,7 +88,7 @@ TEST(TRootLink, can_create_TRootLink) {
 TEST(TRootLink, can_set_next_link) {
     TDatLink* link = new TDatLink();
     TDatLink* TDL = new TDatLink();
-    
+
     TDL->SetNextLink(reinterpret_cast<TRootLink*> (link));
     EXPECT_TRUE(TDL->GetNextLink() == link);
 }
