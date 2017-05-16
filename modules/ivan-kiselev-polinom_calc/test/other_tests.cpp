@@ -208,7 +208,7 @@ TEST(THeadRing, Ins_First) {
     TPolinom res(resmon, res_size);
     old.InsFirst(dynamic_cast<PTDatValue>(&Mon));
 
-    EXPECT_TRUE(old == res);
+    EXPECT_TRUE(old == &res);
 }
 
 TEST(THeadRing, Del_First) {
@@ -220,7 +220,7 @@ TEST(THeadRing, Del_First) {
     TPolinom res(resmon, res_size);
     old.DelFirst();
 
-    EXPECT_TRUE(old == res);
+    EXPECT_TRUE(old == &res);
 }
 
 TEST(TPolinom, Auto_Equal) {
@@ -228,7 +228,7 @@ TEST(TPolinom, Auto_Equal) {
     int mon[][4] = { { 1, 0, 0, 3 } };
     TPolinom old(mon, size);
 
-    EXPECT_TRUE(old == old);
+    EXPECT_TRUE(old == &old);
 }
 
 TEST(TPolinom, can_compare_the_polynoms) {
@@ -237,7 +237,7 @@ TEST(TPolinom, can_compare_the_polynoms) {
     TPolinom Pol1(mon, size);
     TPolinom Pol2(mon, size);
 
-    EXPECT_TRUE(Pol1 == Pol2);
+    EXPECT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_copy_polinoms) {
@@ -246,7 +246,7 @@ TEST(TPolinom, can_copy_polinoms) {
     TPolinom Pol1(mon, size);
     TPolinom Pol2(Pol1);
 
-    EXPECT_TRUE(Pol1 == Pol2);
+    EXPECT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_assign_polynoms) {
@@ -255,18 +255,18 @@ TEST(TPolinom, can_assign_polynoms) {
     TPolinom Pol1(mon, size);
     TPolinom Pol2;
 
-    Pol2 = Pol1;
+    Pol2 = &Pol1;
 
-    EXPECT_TRUE(Pol1 == Pol2);
+    EXPECT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_assign_empty_polynom) {
     TPolinom Pol1;
     TPolinom Pol2;
 
-    Pol2 = Pol1;
+    Pol2 = &Pol1;
 
-    EXPECT_TRUE(Pol1 == Pol2);
+    EXPECT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_add_Monom_1) {
@@ -280,7 +280,7 @@ TEST(TPolinom, can_add_Monom_1) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_2) {
@@ -294,7 +294,7 @@ TEST(TPolinom, can_add_Monom_2) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_3) {
@@ -308,7 +308,7 @@ TEST(TPolinom, can_add_Monom_3) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_4) {
@@ -323,7 +323,7 @@ TEST(TPolinom, can_add_Monom_4) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_1) {
@@ -337,7 +337,7 @@ TEST(TPolinom, can_subtract_Monom_1) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_2) {
@@ -351,7 +351,7 @@ TEST(TPolinom, can_subtract_Monom_2) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_3) {
@@ -365,7 +365,7 @@ TEST(TPolinom, can_subtract_Monom_3) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == Pol);
+    EXPECT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_up_linear_polynoms) {
@@ -378,9 +378,9 @@ TEST(TPolinom, can_add_up_linear_polynoms) {
     TPolinom Pol2(mon2, size);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol1 + Pol2;
+    TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, can_add_up_simple_polynoms_A_plus_B) {
@@ -397,9 +397,9 @@ TEST(TPolinom, can_add_up_simple_polynoms_A_plus_B) {
     TPolinom Pol2(mon2, size2);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol1 + Pol2;
+    TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(expected_Pol == Pol);
+    EXPECT_TRUE(expected_Pol == &Pol);
 }
 
 TEST(TPolinom, can_add_up_simple_polynoms_B_plus_A) {
@@ -416,9 +416,9 @@ TEST(TPolinom, can_add_up_simple_polynoms_B_plus_A) {
     TPolinom Pol2(mon2, size2);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol2 + Pol1;
+    TPolinom Pol = Pol2 + &Pol1;
 
-    EXPECT_TRUE(expected_Pol == Pol);
+    EXPECT_TRUE(expected_Pol == &Pol);
 }
 
 TEST(TPolinom, can_add_up_polynoms) {
@@ -436,9 +436,9 @@ TEST(TPolinom, can_add_up_polynoms) {
     TPolinom Pol2(mon2, size2);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol1 + Pol2;
+    TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_1) {
@@ -460,9 +460,9 @@ TEST(TPolinom, can_add_up_many_polynoms_1) {
     TPolinom Pol;
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    Pol = Pol1 + Pol2 + Pol3;
+    Pol = Pol1 + &Pol2 + &Pol3;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_2) {
@@ -484,9 +484,9 @@ TEST(TPolinom, can_add_up_many_polynoms_2) {
     TPolinom Pol;
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    Pol = Pol2 + Pol3 + Pol1;
+    Pol = Pol2 + &Pol3 + &Pol1;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_3) {
@@ -508,9 +508,9 @@ TEST(TPolinom, can_add_up_many_polynoms_3) {
     TPolinom Pol;
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    Pol = Pol2 + Pol1 + Pol3;
+    Pol = Pol2 + &Pol1 + &Pol3;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, can_subtract_simple_polinom) {
@@ -527,9 +527,9 @@ TEST(TPolinom, can_subtract_simple_polinom) {
     TPolinom third(mon1, size1);
     TPolinom res(resmon, res_size);
 
-    first = first - second;
+    first = first - &second;
 
-    EXPECT_TRUE(res == first);
+    EXPECT_TRUE(res == &first);
 }
 
 
@@ -545,9 +545,9 @@ TEST(TPolinom, can_subtract_polinom) {
     TPolinom second(mon2, size1);
     TPolinom res(resmon, res_size);
 
-    first = first - second;
+    first = first - &second;
 
-    EXPECT_TRUE(res == first);
+    EXPECT_TRUE(res == &first);
 }
 
 TEST(TPolinom, can_subtract_up_simple_polynoms_A_minus_B) {
@@ -564,9 +564,9 @@ TEST(TPolinom, can_subtract_up_simple_polynoms_A_minus_B) {
     TPolinom Pol2(mon2, size2);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol1 - Pol2;
+    TPolinom Pol = Pol1 - &Pol2;
 
-    EXPECT_TRUE(expected_Pol == Pol);
+    EXPECT_TRUE(expected_Pol == &Pol);
 }
 
 TEST(TPolinom, can_subtract_up_simple_polynoms_B_minus_A) {
@@ -583,9 +583,9 @@ TEST(TPolinom, can_subtract_up_simple_polynoms_B_minus_A) {
     TPolinom Pol2(mon2, size2);
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol2 - Pol1;
+    TPolinom Pol = Pol2 - &Pol1;
 
-    EXPECT_TRUE(expected_Pol == Pol);
+    EXPECT_TRUE(expected_Pol == &Pol);
 }
 
 TEST(TPolinom, can_subtract_up_polynoms) {
@@ -605,9 +605,9 @@ TEST(TPolinom, can_subtract_up_polynoms) {
     // 15+5x^2yz^3+10x^4y^3z^2-20x^5+20x^7z^2+10x^9y^9z^9
     TPolinom expected_Pol(expected_mon, expected_size);
 
-    TPolinom Pol = Pol1 - Pol2;
+    TPolinom Pol = Pol1 - &Pol2;
 
-    EXPECT_TRUE(Pol == expected_Pol);
+    EXPECT_TRUE(Pol == &expected_Pol);
 }
 
 TEST(TPolinom, multiplication_with_simple_polinom) {
@@ -623,7 +623,7 @@ TEST(TPolinom, multiplication_with_simple_polinom) {
     // (2*x*y*z)
     TPolinom second(mon2, size2);
     TPolinom result(resMon, size1);
-    EXPECT_TRUE(result == (first * second));
+    EXPECT_TRUE(result == &(first * &second));
 }
 
 TEST(TPolinom, multiplication_with_big_polinom_4x4) {
@@ -649,5 +649,5 @@ TEST(TPolinom, multiplication_with_big_polinom_4x4) {
     TPolinom second(mon2, size);
     TPolinom result(res_Mon, res_size);
 
-    EXPECT_TRUE(result == (first * second));
+    EXPECT_TRUE(result == &(first * &second));
 }

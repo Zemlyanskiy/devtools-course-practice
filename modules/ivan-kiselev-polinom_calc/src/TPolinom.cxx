@@ -21,7 +21,7 @@ TPolinom::TPolinom(TPolinom * q) {
     q->Reset();
 }
 
-TPolinom & TPolinom::operator+(TPolinom &q) {
+TPolinom & TPolinom::operator+(TPolinom *q) {
     TPolinom* old = new TPolinom(q);
     Reset();
     while (!IsListEnded()) {
@@ -29,23 +29,23 @@ TPolinom & TPolinom::operator+(TPolinom &q) {
         GoNext();
     }
     Reset();
-    q.Reset();
+    q->Reset();
     old->Reset();
     return *old;
 }
 
-TPolinom & TPolinom::operator-(TPolinom &q) {
+TPolinom & TPolinom::operator-(TPolinom *q) {
     Reset();
-    while (!q.IsListEnded()) {
-        SubMonom(q.GetMonom());
-        q.GoNext();
+    while (!q->IsListEnded()) {
+        SubMonom(q->GetMonom());
+        q->GoNext();
     }
     Reset();
-    q.Reset();
+    q->Reset();
     return *this;
 }
 
-TPolinom & TPolinom::operator*(int &mult) {
+TPolinom & TPolinom::operator*(const int &mult) {
     Reset();
     while (!IsListEnded()) {
         GetMonom()->SetCoeff(GetMonom()->Coeff * mult);
@@ -54,24 +54,24 @@ TPolinom & TPolinom::operator*(int &mult) {
     return *this;
 }
 
-TPolinom & TPolinom::operator*(TPolinom &q) {
+TPolinom & TPolinom::operator*(TPolinom *q) {
     TPolinom* old = new TPolinom();
     for (Reset(); !IsListEnded(); GoNext())
-        for (q.Reset(); !q.IsListEnded(); q.GoNext()) {
-            TMonom* result = new TMonom(((*GetMonom()) * (*q.GetMonom())));
+        for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
+            TMonom* result = new TMonom(((*GetMonom()) * (*q->GetMonom())));
             old->AddMonom(result);
         }
     return *old;
 }
 
-TPolinom & TPolinom::operator=(TPolinom &q) {
+TPolinom & TPolinom::operator=(TPolinom *q) {
     if (IsEmpty()) {
-        for (q.Reset(); !q.IsListEnded(); q.GoNext()) {
-            InsLast(q.GetDatValue());
+        for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
+            InsLast(q->GetDatValue());
         }
         pHead->SetNextLink(pFirst);
         Reset();
-        q.Reset();
+        q->Reset();
         return *this;
     }
     else {
@@ -82,22 +82,22 @@ TPolinom & TPolinom::operator=(TPolinom &q) {
     }
 }
 
-bool TPolinom::operator==(TPolinom &q) {
-    if (pFirst == q.pFirst) return true;
-    if (this->ListLen != q.ListLen) {
+bool TPolinom::operator==(TPolinom *q) {
+    if (pFirst == q->pFirst) return true;
+    if (this->ListLen != q->ListLen) {
         return false;
     }
     else {
         Reset();
-        q.Reset();
+        q->Reset();
         while (!IsListEnded()) {
             TMonom* pMon;
             TMonom* qMon;
             pMon = GetMonom();
-            qMon = q.GetMonom();
+            qMon = q->GetMonom();
             if (*pMon == *qMon) {
                 GoNext();
-                q.GoNext();
+                q->GoNext();
             }
             else {
                 return false;
