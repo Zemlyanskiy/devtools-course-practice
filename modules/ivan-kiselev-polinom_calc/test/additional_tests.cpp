@@ -71,3 +71,11 @@ TEST(TPolinom, cout_polinom) {
 
     EXPECT_NO_FATAL_FAILURE(std::cout << pol);
 }
+
+TEST(TDatValue, can_create_DatValue) {
+    EXPECT_NO_FATAL_FAILURE(PTDatValue tdat);
+}
+
+TEST(THeadRing, can_create_THeadRing) {
+    EXPECT_NO_FATAL_FAILURE(THeadRing thead());
+}
