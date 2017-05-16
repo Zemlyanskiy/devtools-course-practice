@@ -7,7 +7,7 @@ class TDatLink : public TRootLink {
     PTDatValue pValue;  //  Value
  public:
      explicit TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL)
-		 : TRootLink(pN) {
+         : TRootLink(pN) {
         pValue = pVal;
     }
     TDatLink(TDatLink &Link) : TRootLink(Link.pNext) {
