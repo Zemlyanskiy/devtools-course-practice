@@ -66,7 +66,7 @@ TPolinom & TPolinom::operator*(TPolinom *q) {
 }
 
 TPolinom & TPolinom::operator=(TPolinom *q) {
-    if (IsEmpty()) {
+    //  if (IsEmpty()) {
         for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
             InsLast(q->GetDatValue());
         }
@@ -74,7 +74,7 @@ TPolinom & TPolinom::operator=(TPolinom *q) {
         Reset();
         q->Reset();
         return *this;
-    }
+    //  }
 }
 
 bool TPolinom::operator==(TPolinom *q) {
