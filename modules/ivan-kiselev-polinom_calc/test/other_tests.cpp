@@ -7,14 +7,15 @@ TEST(TRootLink, Set_Next_Link_test) {
     PTDatLink pdv1 = &sec;
     TDatLink first(NULL);
 
-    GTEST_TEST_NO_FATAL_FAILURE_(first.SetNextLink(pdv1) , GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(first.SetNextLink(pdv1) ,
+        GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(TRootLink, Set_Next_Link) {
     TDatLink sec(NULL);
     PTDatLink pdv1 = &sec;
-    
-    TDatLink first(NULL,pdv1);
+
+    TDatLink first(NULL, pdv1);
 
     EXPECT_EQ(&sec, first.GetNextLink());
 }
@@ -39,7 +40,7 @@ TEST(TRootLink, Ins_Next_Link) {
 }
 
 TEST(TDatLink, create_DatLink_with_parametr) {
-    EXPECT_NO_FATAL_FAILURE(TDatLink sec(NULL,NULL));
+    EXPECT_NO_FATAL_FAILURE(TDatLink sec(NULL, NULL));
 }
 
 TEST(TDatLink, create_DatLink) {
