@@ -82,7 +82,7 @@ TEST(THeadRing, can_create_THeadRing) {
 }
 
 TEST(TRootLink, can_create_TRootLink) {
-	TDatList list;
+    TDatList list;
     GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
 }
 
