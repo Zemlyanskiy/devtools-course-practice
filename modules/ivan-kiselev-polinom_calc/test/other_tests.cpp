@@ -831,6 +831,12 @@ TEST(TDatList, TDatList_destructor) {
     GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
 }
 
+TEST(TMonom, TMonom_destructor) {
+    TMonom monom(1, 0, 0, 0);
+
+    GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
+}
+
 TEST(TDatLink, TDatLink_functional) {
     TDatLink link2;
     TDatLink link(NULL, &link2);
@@ -839,6 +845,5 @@ TEST(TDatLink, TDatLink_functional) {
 
     link.SetDatValue(pVal);
 
-    EXPECT_TRUE((reinterpret_cast<PTDatValue> (link.GetDatValue())) == &monom);
-    GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
+    EXPECT_TRUE(link.GetDatValue() == pVal);
 }
