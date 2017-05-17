@@ -206,7 +206,7 @@ TEST(THeadRing, Ins_First) {
     TMonom Mon(2, 1, 0, 0);
     TPolinom old(mon, size);
     TPolinom res(resmon, res_size);
-    old.InsFirst(dynamic_cast<PTDatValue>(&Mon));
+    old.InsFirst(dynamic_cast<PTDatValue> (&Mon));
 
     EXPECT_TRUE(old == &res);
 }
