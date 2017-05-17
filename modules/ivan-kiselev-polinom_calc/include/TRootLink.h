@@ -10,11 +10,11 @@ typedef TDatValue *PTDatValue;
 class TRootLink {
  protected:
     PTRootLink pNext_;  //  next point
+	explicit TRootLink(PTRootLink pN = NULL) {
+		pNext_ = pN;
+	}
 
- public:
-     explicit TRootLink(PTRootLink pN = NULL) {
-        pNext_ = pN;
-    }
+ public:     
     ~TRootLink() {}
     PTRootLink GetNextLink() {
         return pNext_;

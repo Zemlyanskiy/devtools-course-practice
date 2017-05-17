@@ -816,12 +816,18 @@ TEST(THeadRing, THeadRing_destructor) {
     GTEST_TEST_NO_FATAL_FAILURE_(THR.~THeadRing(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TDatList, TDatList_destructor) {
+TEST(TDatList, TDatList_IsEmpty) {
     TDatList list;
     int i;
 
     i = list.IsEmpty();
+
     EXPECT_EQ(1, i);
+}
+
+TEST(TDatList, TDatList_destructor) {
+    TDatList list;
+
     GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
 }
 
