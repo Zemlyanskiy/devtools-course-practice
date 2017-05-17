@@ -659,7 +659,7 @@ TEST(TPolinom, multiplication_with_big_polinom_4x4) {
 //  Additional tests
 
 TEST(TDatList, DelCurrent) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
     int ressize = 1;
@@ -692,8 +692,8 @@ TEST(TMonom, Equality2) {
 }
 
 TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
-    int mon2[][4] = { { 1, 0, 1, 0 } ,{ 3, 0, 0, 2 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
+    int mon2[][4] = { { 1, 0, 1, 0 } , { 3, 0, 0, 2 } };
     int size = 2;
     TPolinom pol(mon, size);
     TPolinom pol2(mon2, size);
@@ -704,7 +704,7 @@ TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
 }
 
 TEST(TPolinom, Not_Equal_polinoms1) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
     int ressize = 1;
@@ -715,8 +715,8 @@ TEST(TPolinom, Not_Equal_polinoms1) {
 }
 
 TEST(TPolinom, Not_Equal_polinoms2) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
-    int resmon[][4] = { { 2, 0, 0, 2 } ,{ 10, 0, 0, 1 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
+    int resmon[][4] = { { 2, 0, 0, 2 } , { 10, 0, 0, 1 } };
     int size = 2;
     int ressize = 1;
     TPolinom pol(mon, size);
@@ -726,7 +726,7 @@ TEST(TPolinom, Not_Equal_polinoms2) {
 }
 
 TEST(TPolinom, cout_polinom) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int size = 2;
     TPolinom pol(mon, size);
 
@@ -774,8 +774,8 @@ TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
 }
 
 TEST(TPolinom, mylt_on_int) {
-    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
-    int mon2[][4] = { { 2, 0, 1, 0 } ,{ 4, 0, 0, 2 } };
+    int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
+    int mon2[][4] = { { 2, 0, 1, 0 } , { 4, 0, 0, 2 } };
     int size = 2;
     TPolinom pol(mon, size);
     TPolinom res(mon2, size);
