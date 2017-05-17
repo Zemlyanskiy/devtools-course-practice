@@ -718,20 +718,20 @@ TEST(TPolinom, Not_Equal_polinoms1) {
     int size = 2;
     int ressize = 1;
     TPolinom pol(mon, size);
-    TPolinom res(resmon, ressize);
+    TPolinom pol2(resmon, ressize);
 
-    EXPECT_FALSE(pol == &res);
+    EXPECT_FALSE(pol == &pol2);
 }
 
 TEST(TPolinom, Not_Equal_polinoms2) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
-    int resmon[][4] = { { 2, 0, 0, 2 } , { 10, 0, 0, 1 } };
+    int mon2[][4] = { { 2, 0, 0, 2 } , { 10, 0, 0, 1 } };
     int size = 2;
-    int ressize = 1;
     TPolinom pol(mon, size);
-    TPolinom res(resmon, ressize);
-
-    bool result = (pol == &res);
+    TPolinom pol2(mon2, size);
+    bool result;
+    
+    result = (pol == &pol2);
 
     EXPECT_FALSE(result);
 }

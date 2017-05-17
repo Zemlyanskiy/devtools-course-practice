@@ -85,9 +85,7 @@ bool TMonom::operator<(TMonom tm) {  //  prioritet x > y > z
     // & YInd == tm.YInd
     if (ZInd > tm.ZInd)
         return false;
-    else if (ZInd < tm.ZInd)
-        return true;
-    return false;
+    return true;
 }
 
 bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
@@ -104,9 +102,7 @@ bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
     // & YInd == tm.YInd
     if (ZInd < tm.ZInd)
         return false;
-    else if (ZInd > tm.ZInd)
-        return true;
-    return false;
+    return true;
 }
 
 TDatValue* TMonom::GetCopy() {
