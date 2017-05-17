@@ -730,7 +730,7 @@ TEST(TPolinom, Not_Equal_polinoms2) {
     TPolinom pol(mon, size);
     TPolinom pol2(mon2, size);
     bool result;
-    
+
     result = (pol == &pol2);
 
     EXPECT_FALSE(result);
