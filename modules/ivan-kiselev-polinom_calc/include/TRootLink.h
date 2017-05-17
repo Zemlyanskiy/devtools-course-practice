@@ -14,7 +14,7 @@ class TRootLink {
         pNext_ = pN;
     }
 
- public:     
+ public:
     ~TRootLink() {}
     PTRootLink GetNextLink() {
         return pNext_;
