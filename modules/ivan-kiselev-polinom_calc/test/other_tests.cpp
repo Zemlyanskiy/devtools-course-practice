@@ -672,8 +672,13 @@ TEST(TDatList, DelCurrent) {
     EXPECT_TRUE(pol == &res);
 }
 
-TEST(TMonom, cout_test) {
+TEST(TMonom, cout_test1) {
     TMonom* mon = new TMonom(2, 1, 1, 1);
+    GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
+}
+
+TEST(TMonom, cout_test2) {
+    TMonom* mon = new TMonom(-2, 1, 1, 1);
     GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
 }
 
