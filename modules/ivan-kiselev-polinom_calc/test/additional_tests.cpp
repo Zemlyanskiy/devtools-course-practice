@@ -82,7 +82,8 @@ TEST(THeadRing, can_create_THeadRing) {
 }
 
 TEST(TRootLink, can_create_TRootLink) {
-    GTEST_TEST_NO_FATAL_FAILURE_(PTRootLink troot(), GTEST_NONFATAL_FAILURE_);
+	TDatList list;
+    GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(TRootLink, can_set_next_link) {
