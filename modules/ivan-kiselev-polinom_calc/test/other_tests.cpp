@@ -1,12 +1,20 @@
 // Copyright 2017 Ivan Kiselev
 #include "../3rdparty/gtest/gtest.h"
 #include "../include/TPolinoms.h"
-TEST(TRootLink, Set_Next_Link) {
+
+TEST(TRootLink, Set_Next_Link_test) {
     TDatLink sec(NULL);
     PTDatLink pdv1 = &sec;
     TDatLink first(NULL);
 
-    first.SetNextLink(pdv1);
+    GTEST_TEST_NO_FATAL_FAILURE_(first.SetNextLink(pdv1) , GTEST_NONFATAL_FAILURE_);
+}
+
+TEST(TRootLink, Set_Next_Link) {
+    TDatLink sec(NULL);
+    PTDatLink pdv1 = &sec;
+    
+    TDatLink first(NULL,pdv1);
 
     EXPECT_EQ(&sec, first.GetNextLink());
 }
@@ -30,6 +38,9 @@ TEST(TRootLink, Ins_Next_Link) {
     EXPECT_EQ(&third, first.GetNextLink());
 }
 
+TEST(TDatLink, create_DatLink_with_parametr) {
+    EXPECT_NO_FATAL_FAILURE(TDatLink sec(NULL,NULL));
+}
 
 TEST(TDatLink, create_DatLink) {
     TDatLink sec(NULL);
