@@ -799,28 +799,28 @@ TEST(TPolinom, mylt_on_int) {
 //  test for .h files
 
 TEST(THeadRing, THeadRing_destructor) {
-	THeadRing THR;
+    THeadRing THR;
 
-	GTEST_TEST_NO_FATAL_FAILURE_(THR.~THeadRing(), GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(THR.~THeadRing(), GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(TDatList, TDatList_destructor) {
-	TDatList list;
-	int i;
-	
-	i = list.IsEmpty();
-	EXPECT_EQ(1, i);
-	GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
+    TDatList list;
+    int i;
+    
+    i = list.IsEmpty();
+    EXPECT_EQ(1, i);
+    GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TDatLink, TDatLink_functional) {	
-	TDatLink link2;
-	TDatLink link(NULL,&link2);
-	TMonom monom(1, 0, 0, 0);
-	PTDatValue pVal = reinterpret_cast<PTDatValue> (&monom);
+TEST(TDatLink, TDatLink_functional) {
+    TDatLink link2;
+    TDatLink link(NULL,&link2);
+    TMonom monom(1, 0, 0, 0);
+    PTDatValue pVal = reinterpret_cast<PTDatValue> (&monom);
 
-	link.SetDatValue(pVal);
+    link.SetDatValue(pVal);
 
-	EXPECT_TRUE((reinterpret_cast<PTDatValue> (link.GetDatValue())) == &monom);
-	GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
+    EXPECT_TRUE((reinterpret_cast<PTDatValue> (link.GetDatValue())) == &monom);
+    GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
 }
