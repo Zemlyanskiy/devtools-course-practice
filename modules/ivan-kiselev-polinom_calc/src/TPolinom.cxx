@@ -2,7 +2,7 @@
 #include "../include/TPolinoms.h"
 TPolinom::TPolinom(int monoms[][4], int km) {
     TMonom* Monom = new TMonom(0, 0, 0, 0);
-    pHead->SetDatValue(Monom);
+    pHead_->SetDatValue(Monom);
     for (int i = 0; i < km; i++) {
         Monom = new TMonom(monoms[i][0], monoms[i][1],
         monoms[i][2], monoms[i][3]);
@@ -13,11 +13,11 @@ TPolinom::TPolinom(int monoms[][4], int km) {
 
 TPolinom::TPolinom(TPolinom * q) {
     TMonom* Monom = new TMonom(0, 0, 0, 0);
-    pHead->SetDatValue(Monom);
+    pHead_->SetDatValue(Monom);
     for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
         InsLast(q->GetDatValue());
     }
-    pHead->SetNextLink(pFirst);
+    pHead_->SetNextLink(pFirst);
     Reset();
     q->Reset();
 }
@@ -49,7 +49,7 @@ TPolinom & TPolinom::operator-(TPolinom *q) {
 TPolinom & TPolinom::operator*(const int &mult) {
     Reset();
     while (!IsListEnded()) {
-        GetMonom()->SetCoeff(GetMonom()->Coeff * mult);
+        GetMonom()->SetCoeff_(GetMonom()->Coeff_ * mult);
         GoNext();
     }
     return *this;
@@ -69,7 +69,7 @@ TPolinom & TPolinom::operator=(TPolinom *q) {
         for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
             InsLast(q->GetDatValue());
         }
-        pHead->SetNextLink(pFirst);
+        pHead_->SetNextLink(pFirst);
         Reset();
         q->Reset();
         return *this;
@@ -106,8 +106,8 @@ void TPolinom::AddMonom(TMonom * monom) {
     }
     if (!IsListEnded()) {
         if (GetMonom()->EqualityExponent(*monom)) {
-            GetMonom()->SetCoeff(monom->GetCoeff() + GetMonom()->GetCoeff());
-            if (GetMonom()->GetCoeff() == 0)
+            GetMonom()->SetCoeff_(monom->GetCoeff_() + GetMonom()->GetCoeff_());
+            if (GetMonom()->GetCoeff_() == 0)
                 DelCurrent();
         } else {
             InsCurrent(monom->GetCopy());
@@ -126,15 +126,15 @@ void TPolinom::SubMonom(TMonom * monom) {
     }
     if (!IsListEnded()) {
         if (GetMonom()->EqualityExponent(*monom)) {
-            GetMonom()->SetCoeff(GetMonom()->GetCoeff() - monom->GetCoeff());
-            if (GetMonom()->GetCoeff() == 0)
+            GetMonom()->SetCoeff_(GetMonom()->GetCoeff_() - monom->GetCoeff_());
+            if (GetMonom()->GetCoeff_() == 0)
                 DelCurrent();
         } else {
-            monom->Coeff = -monom->Coeff;
+            monom->Coeff_ = -monom->Coeff_;
             InsCurrent(monom->GetCopy());
         }
     } else {
-        monom->Coeff = -monom->Coeff;
+        monom->Coeff_ = -monom->Coeff_;
         InsLast(monom->GetCopy());
     }
 }

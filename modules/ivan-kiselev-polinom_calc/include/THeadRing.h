@@ -5,7 +5,7 @@
 #include "TDatList.h"
 class THeadRing : public TDatList {
  protected:
-    PTDatLink pHead;
+    PTDatLink pHead_;
  public:
     THeadRing();
     virtual void InsFirst(PTDatValue pVal = NULL);

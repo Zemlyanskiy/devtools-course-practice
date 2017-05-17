@@ -5,22 +5,22 @@
 #include <iostream>
 class TMonom : public TDatValue {
  protected:
-    int Coeff;  //  monom's coeff
-    int XInd;  //  index X
-    int YInd;  //  index Y
-    int ZInd;  //  index Z
+    int Coeff_;  //  monom's Coeff_
+    int XInd_;  //  index X
+    int YInd_;  //  index Y
+    int ZInd_;  //  index Z
 
  public:
      explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0) {
-        Coeff = cval;
-        XInd = x;
-        YInd = y;
-        ZInd = z;
+        Coeff_ = cval;
+        XInd_ = x;
+        YInd_ = y;
+        ZInd_ = z;
     }
     ~TMonom() {}
     virtual TDatValue * GetCopy();
-    void SetCoeff(int cval);
-    int  GetCoeff(void);
+    void SetCoeff_(int cval);
+    int  GetCoeff_(void);
     void SetIndexX(int ival);
     void SetIndexY(int ival);
     void SetIndexZ(int ival);

@@ -3,7 +3,7 @@
 #ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATVALUE_H_
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATVALUE_H_
 class TDatValue {
- public:
+ protected:
     virtual TDatValue * GetCopy() = 0;  //  copia
 };
 

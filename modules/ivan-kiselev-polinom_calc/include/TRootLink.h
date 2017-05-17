@@ -9,23 +9,23 @@ typedef TRootLink *PTRootLink;
 typedef TDatValue *PTDatValue;
 class TRootLink {
  protected:
-    PTRootLink pNext;  //  next point
+    PTRootLink pNext_;  //  next point
 
  public:
      explicit TRootLink(PTRootLink pN = NULL) {
-        pNext = pN;
+        pNext_ = pN;
     }
     ~TRootLink() {}
     PTRootLink GetNextLink() {
-        return pNext;
+        return pNext_;
     }
     void SetNextLink(PTRootLink pLink) {
-        pNext = pLink;
+        pNext_ = pLink;
     }
     void InsNextLink(PTRootLink pLink) {
-        PTRootLink p = pNext;
-        pNext = pLink;
-        if (pLink != NULL) pLink->pNext = p;
+        PTRootLink p = pNext_;
+        pNext_ = pLink;
+        if (pLink != NULL) pLink->pNext_ = p;
     }
     virtual void SetDatValue(PTDatValue pVal) = 0;
     virtual PTDatValue GetDatValue() = 0;

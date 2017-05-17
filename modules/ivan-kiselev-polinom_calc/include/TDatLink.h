@@ -4,24 +4,24 @@
 #include "TRootLink.h"
 class TDatLink : public TRootLink {
  protected:
-    PTDatValue pValue;  //  Value
+    PTDatValue pValue_;  //  Value
  public:
      explicit TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL)
          : TRootLink(pN) {
-        pValue = pVal;
+        pValue_ = pVal;
     }
-    TDatLink(TDatLink &Link) : TRootLink(Link.pNext) {
-        pValue = Link.GetDatValue();
+    TDatLink(TDatLink &Link) : TRootLink(Link.pNext_) {
+        pValue_ = Link.GetDatValue();
     }
     ~TDatLink() {}
     virtual void SetDatValue(PTDatValue pVal) {
-        pValue = pVal;
+        pValue_ = pVal;
     }
     virtual PTDatValue GetDatValue() {
-        return pValue;
+        return pValue_;
     }
     TDatLink* GetNextDatLink() {
-        return reinterpret_cast<TDatLink*>(pNext);
+        return reinterpret_cast<TDatLink*>(pNext_);
     }
     friend class TDatList;
 };

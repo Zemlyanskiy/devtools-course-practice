@@ -1,7 +1,7 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TDatList.h"
 PTDatValue TDatList::GetDatValue() {
-    return pCurrLink->pValue;
+    return pCurrLink->pValue_;
 }
 
 TDatList::TDatList() {
@@ -29,7 +29,7 @@ TDatList::TDatList(const TDatList &list) {
         that = that->GetNextDatLink();
         GoNext();
     }
-    pLast = new TDatLink(that->GetDatValue(), that->pNext);
+    pLast = new TDatLink(that->GetDatValue(), that->pNext_);
     ListLen = k;
 }
 void TDatList::Reset(void) {
@@ -56,7 +56,7 @@ void TDatList::InsFirst(PTDatValue pVal) {
 }
 
 void TDatList::InsLast(PTDatValue pVal) {
-    if (pFirst->pValue == NULL) {
+    if (pFirst->pValue_ == NULL) {
         InsFirst(pVal);
     } else {
         while (GoNext() != 1) {}
