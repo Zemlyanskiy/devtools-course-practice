@@ -807,7 +807,7 @@ TEST(THeadRing, THeadRing_destructor) {
 TEST(TDatList, TDatList_destructor) {
     TDatList list;
     int i;
-    
+
     i = list.IsEmpty();
     EXPECT_EQ(1, i);
     GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
@@ -815,7 +815,7 @@ TEST(TDatList, TDatList_destructor) {
 
 TEST(TDatLink, TDatLink_functional) {
     TDatLink link2;
-    TDatLink link(NULL,&link2);
+    TDatLink link(NULL, &link2);
     TMonom monom(1, 0, 0, 0);
     PTDatValue pVal = reinterpret_cast<PTDatValue> (&monom);
 
