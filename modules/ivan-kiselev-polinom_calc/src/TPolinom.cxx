@@ -74,11 +74,6 @@ TPolinom & TPolinom::operator=(TPolinom *q) {
         Reset();
         q->Reset();
         return *this;
-    } else {
-        TPolinom* that = new TPolinom(q);
-        this->pFirst = that->pFirst;
-        pHead->SetNextLink(pFirst);
-        return *this;
     }
 }
 

@@ -686,14 +686,18 @@ TEST(TMonom, Equality1) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
     TMonom* mon2 = new TMonom(3, 1, 1, 5);
 
-    EXPECT_FALSE(*mon2 < *mon1);
+    bool res = (*mon2 < *mon1);
+
+    EXPECT_FALSE(res);
 }
 
 TEST(TMonom, Equality2) {
     TMonom* mon1 = new TMonom(2, 1, 1, 1);
     TMonom* mon2 = new TMonom(3, 1, 1, 5);
 
-    EXPECT_FALSE(*mon1 > *mon2);
+    bool res = (*mon1 > *mon2);
+
+    EXPECT_FALSE(res);
 }
 
 TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
@@ -727,7 +731,9 @@ TEST(TPolinom, Not_Equal_polinoms2) {
     TPolinom pol(mon, size);
     TPolinom res(resmon, ressize);
 
-    EXPECT_FALSE(pol == &res);
+    bool result = (pol == &res);
+    
+    EXPECT_FALSE(result);
 }
 
 TEST(TPolinom, cout_polinom) {
