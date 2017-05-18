@@ -13,16 +13,10 @@ class TRootLink {
     explicit TRootLink(PTRootLink pN = NULL);
 
  public:
-    ~TRootLink() {}
-    PTRootLink GetNextLink() {
-        return pNext_;
-    }
+    ~TRootLink();
+    PTRootLink GetNextLink();
     void SetNextLink(PTRootLink pLink);
-    void InsNextLink(PTRootLink pLink) {
-        PTRootLink p = pNext_;
-        pNext_ = pLink;
-        if (pLink != NULL) pLink->pNext_ = p;
-    }
+    void InsNextLink(PTRootLink pLink);
     virtual void SetDatValue(PTDatValue pVal) = 0;
     virtual PTDatValue GetDatValue() = 0;
     friend class TDatList;

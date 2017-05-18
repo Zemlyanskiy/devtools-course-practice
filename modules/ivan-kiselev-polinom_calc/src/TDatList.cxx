@@ -1,5 +1,9 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TDatList.h"
+PTDatLink TDatList::GetLink(PTDatValue pVal, PTDatLink pLink) {
+    return new TDatLink(pVal, pLink);
+}
+
 PTDatValue TDatList::GetDatValue() {
     return pCurrLink->pValue_;
 }
@@ -32,6 +36,19 @@ TDatList::TDatList(const TDatList &list) {
     pLast = new TDatLink(that->GetDatValue(), that->pNext_);
     ListLen = k;
 }
+
+TDatList::~TDatList() {
+    DelList();
+}
+
+int TDatList::IsEmpty() const {
+    return pFirst == pLast;
+}
+
+int TDatList::GetListLength() const {
+    return ListLen;
+}
+
 void TDatList::Reset(void) {
     pCurrLink = pFirst;
     pPrevLink = NULL;

@@ -11,13 +11,8 @@ class TMonom : public TDatValue {
     int ZInd_;  //  index Z
 
  public:
-     explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0) {
-        Coeff_ = cval;
-        XInd_ = x;
-        YInd_ = y;
-        ZInd_ = z;
-    }
-    ~TMonom() {}
+    explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0);
+    ~TMonom();
     virtual TDatValue * GetCopy();
     void SetCoeff_(int cval);
     int  GetCoeff_(void);

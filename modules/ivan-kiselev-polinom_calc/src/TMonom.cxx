@@ -1,6 +1,15 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TMonom.h"
 #include <iostream>
+TMonom::TMonom(int cval, int x, int y, int z) {
+    Coeff_ = cval;
+    XInd_ = x;
+    YInd_ = y;
+    ZInd_ = z;
+}
+
+TMonom::~TMonom() {}
+
 void TMonom::SetCoeff_(int cval) {
     Coeff_ = cval;
 }

@@ -11,23 +11,15 @@ class TDatList {
     PTDatLink pStop;
     int CurrPos;
     int ListLen;
-    PTDatLink GetLink(PTDatValue pVal = NULL, PTDatLink pLink = NULL) {
-        return new TDatLink(pVal, pLink);
-    }
+    PTDatLink GetLink(PTDatValue pVal = NULL, PTDatLink pLink = NULL);
 
  public:
     TDatList();
     TDatList(const TDatList &list);
-    ~TDatList() {
-        DelList();
-    }
+    ~TDatList();
     PTDatValue GetDatValue();
-    virtual int IsEmpty() const {
-        return pFirst == pLast;
-    }
-    int GetListLength() const {
-        return ListLen;
-    }
+    virtual int IsEmpty() const;
+    int GetListLength() const;
     virtual void Reset(void);
     virtual bool IsListEnded(void) const;
     int GoNext(void);

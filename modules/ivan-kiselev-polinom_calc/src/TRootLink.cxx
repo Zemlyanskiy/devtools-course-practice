@@ -7,3 +7,15 @@ TRootLink::TRootLink(PTRootLink pN) {
 void TRootLink::SetNextLink(PTRootLink pLink) {
     pNext_ = pLink;
 }
+
+TRootLink::~TRootLink() {}
+
+PTRootLink TRootLink::GetNextLink() {
+    return pNext_;
+}
+
+void TRootLink::InsNextLink(PTRootLink pLink) {
+    PTRootLink p = pNext_;
+    pNext_ = pLink;
+    if (pLink != NULL) pLink->pNext_ = p;
+}

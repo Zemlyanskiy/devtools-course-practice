@@ -6,23 +6,12 @@ class TDatLink : public TRootLink {
  protected:
     PTDatValue pValue_;  //  Value
  public:
-     explicit TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL)
-         : TRootLink(pN) {
-        pValue_ = pVal;
-    }
-    TDatLink(TDatLink &Link) : TRootLink(Link.pNext_) {
-        pValue_ = Link.GetDatValue();
-    }
-    ~TDatLink() {}
-    virtual void SetDatValue(PTDatValue pVal) {
-        pValue_ = pVal;
-    }
-    virtual PTDatValue GetDatValue() {
-        return pValue_;
-    }
-    TDatLink* GetNextDatLink() {
-        return reinterpret_cast<TDatLink*>(pNext_);
-    }
+     explicit TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL);
+     TDatLink(TDatLink &Link);
+     ~TDatLink();
+     virtual void SetDatValue(PTDatValue pVal);
+     virtual PTDatValue GetDatValue();
+     TDatLink* GetNextDatLink();
     friend class TDatList;
 };
 typedef TDatLink *PTDatLink;
