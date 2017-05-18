@@ -847,3 +847,11 @@ TEST(TDatLink, TDatLink_functional) {
 
     EXPECT_TRUE(link.GetDatValue() == pVal);
 }
+
+TEST(TDatList, GetLength) {
+    int mon[][4] = { { 1, 0, 1, 0 } ,{ 2, 0, 0, 2 } };
+    int size = 2;
+    TPolinom pol(mon, size);
+
+    EXPECT_TRUE(pol.GetListLength() == 2);
+}
