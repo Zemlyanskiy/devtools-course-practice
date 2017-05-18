@@ -12,8 +12,8 @@ class TDatLink : public TRootLink {
      TDatLink* GetNextDatLink();
     friend class TDatList;
 
-protected:
-	PTDatValue pValue_;  //  Value
+ protected:
+    PTDatValue pValue_;  //  Value
 };
 typedef TDatLink *PTDatLink;
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_

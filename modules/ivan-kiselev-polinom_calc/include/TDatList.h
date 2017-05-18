@@ -3,22 +3,22 @@
 #define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLIST_H_
 #include "TDatLink.h"
 class TDatList {
-public:
-	TDatList();
-	TDatList(const TDatList &list);
-	~TDatList();
-	PTDatValue GetDatValue();
-	virtual int IsEmpty() const;
-	int GetListLength() const;
-	virtual void Reset(void);
-	virtual bool IsListEnded(void) const;
-	int GoNext(void);
-	virtual void InsFirst(PTDatValue pVal = NULL);
-	virtual void InsLast(PTDatValue pVal = NULL);
-	virtual void InsCurrent(PTDatValue pVal = NULL);
-	virtual void DelFirst(void);
-	virtual void DelCurrent(void);
-	virtual void DelList(void);
+ public:
+    TDatList();
+    TDatList(const TDatList &list);
+    ~TDatList();
+    PTDatValue GetDatValue();
+    virtual int IsEmpty() const;
+    int GetListLength() const;
+    virtual void Reset(void);
+    virtual bool IsListEnded(void) const;
+    int GoNext(void);
+    virtual void InsFirst(PTDatValue pVal = NULL);
+    virtual void InsLast(PTDatValue pVal = NULL);
+    virtual void InsCurrent(PTDatValue pVal = NULL);
+    virtual void DelFirst(void);
+    virtual void DelCurrent(void);
+    virtual void DelList(void);
 
  protected:
     PTDatLink pFirst;
