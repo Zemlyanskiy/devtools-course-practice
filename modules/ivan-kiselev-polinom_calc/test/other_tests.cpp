@@ -808,8 +808,6 @@ TEST(TPolinom, mylt_on_int) {
     EXPECT_TRUE(pol == &res);
 }
 
-//  test for .h files
-
 TEST(THeadRing, THeadRing_destructor) {
     THeadRing THR;
 
