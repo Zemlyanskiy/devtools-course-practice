@@ -25,12 +25,10 @@ class TMonom : public TDatValue {
     friend std::ostream& operator<<(std::ostream &os, TMonom * tm);
     friend class TPolinom;
 
-protected:
+ protected:
     int Coeff_;  //  monom's Coeff_
     int XInd_;  //  index X
     int YInd_;  //  index Y
     int ZInd_;  //  index Z
-
- 
 };
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_

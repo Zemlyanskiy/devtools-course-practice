@@ -19,6 +19,6 @@ class TRootLink {
 
  protected:
     PTRootLink pNext_;  //  next point
-    explicit TRootLink(PTRootLink pN = NULL); 
+    explicit TRootLink(PTRootLink pN = NULL);
 };
 #endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TROOTLINK_H_
