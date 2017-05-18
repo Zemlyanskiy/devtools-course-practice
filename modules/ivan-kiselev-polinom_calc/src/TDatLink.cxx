@@ -5,8 +5,8 @@ TDatLink::TDatLink(PTDatValue pVal, PTRootLink pN) : TRootLink(pN) {
     pValue_ = pVal;
 }
 
-TDatLink::TDatLink(TDatLink &Link) : TRootLink(Link.pNext_) {
-    pValue_ = Link.GetDatValue();
+TDatLink::TDatLink(const TDatLink &Link) : TRootLink(Link.pNext_) {
+	pValue_ = Link.pValue_;
 }
 
 TDatLink::~TDatLink() {}

@@ -7,7 +7,7 @@ class TDatLink : public TRootLink {
     PTDatValue pValue_;  //  Value
  public:
      explicit TDatLink(PTDatValue pVal = NULL, PTRootLink pN = NULL);
-     TDatLink(TDatLink &Link);
+     TDatLink(const TDatLink &Link);
      ~TDatLink();
      virtual void SetDatValue(PTDatValue pVal);
      virtual PTDatValue GetDatValue();
