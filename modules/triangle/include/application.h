@@ -9,6 +9,7 @@ class Application {
  public:
     Application();
     std::string operator()(int argc, const char** argv);
+	bool validateNumberOfArguments(int argc, const char** argv);
 };
 
 #endif  // MODULES_TRIANGLE_INCLUDE_APPLICATION_H_

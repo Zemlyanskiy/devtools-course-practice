@@ -12,6 +12,105 @@
 
 Application::Application() {}
 
+bool Application::validateNumberOfArguments(int argc, const char** argv) {
+	if (argc == 1) {
+		help(argv[0]);
+		return false;
+	}
+	else if (argc != 6) {
+		help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+		return false;
+	}
+	return true;
+}
+
+double parseDouble(const char* arg) {
+	char* end;
+	double value = strtod(arg, &end);
+
+	if (end[0]) {
+		throw std::string("Wrong number format!");
+	}
+
+	return value;
+}
+
+char parseOperation(const char* arg) {
+	int op;
+	if (strcmp(arg, "+") == 0) {
+		op = '+';
+	}
+	else if (strcmp(arg, "-") == 0) {
+		op = '-';
+	}
+	else if (strcmp(arg, "*") == 0) {
+		op = '*';
+	}
+	else if (strcmp(arg, "/") == 0) {
+		op = '/';
+	}
+	else {
+		throw std::string("Wrong operation format!");
+	}
+	return op;
+}
+
 std::string Application::operator()(int argc, const char** argv) {
-    return "test";
+	Arguments args;
+
+	if (!validateNumberOfArguments(argc, argv)) {
+		return message_;
+	}
+	try {
+		args.z1_real = parseDouble(argv[1]);
+		args.z1_imaginary = parseDouble(argv[2]);
+		args.z2_real = parseDouble(argv[3]);
+		args.z2_imaginary = parseDouble(argv[4]);
+		args.operation = parseOperation(argv[5]);
+	}
+	catch (std::string& str) {
+		return str;
+	}
+
+	ComplexNumber z1;
+	ComplexNumber z2;
+
+	z1.setRe(args.z1_real);
+	z1.setIm(args.z1_imaginary);
+	z2.setRe(args.z2_real);
+	z2.setIm(args.z2_imaginary);
+
+	ComplexNumber z;
+	std::ostringstream stream;
+	switch (args.operation) {
+	case '+':
+		z = z1 + z2;
+		stream << "Real = " << z.getRe() << " "
+			<< "Imaginary = " << z.getIm();
+		break;
+	case '-':
+		z = z1 - z2;
+		stream << "Real = " << z.getRe() << " "
+			<< "Imaginary = " << z.getIm();
+		break;
+	case '*':
+		z = z1 * z2;
+		stream << "Real = " << z.getRe() << " "
+			<< "Imaginary = " << z.getIm();
+		break;
+	case '/':
+		try {
+			z = z1 / z2;
+			stream << "Real = " << z.getRe() << " "
+				<< "Imaginary = " << z.getIm();
+			break;
+		}
+		catch (std::string& str) {
+			return str;
+		}
+	}
+
+	message_ = stream.str();
+
+	return message_;
 }
