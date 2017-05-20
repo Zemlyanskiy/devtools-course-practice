@@ -1,6 +1,6 @@
 //  Copyright 2017 Ivan Kiselev
-#ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
-#define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
+#ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLINK_H_
+#define MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLINK_H_
 #include "TRootLink.h"
 class TDatLink : public TRootLink {
  public:
@@ -16,4 +16,4 @@ class TDatLink : public TRootLink {
     PTDatValue pValue_;  //  Value
 };
 typedef TDatLink *PTDatLink;
-#endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TDATLINK_H_
+#endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLINK_H_

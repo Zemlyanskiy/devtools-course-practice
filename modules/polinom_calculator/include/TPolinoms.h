@@ -1,6 +1,6 @@
 //  Copyright 2017 Ivan Kiselev
-#ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TPOLINOMS_H_
-#define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TPOLINOMS_H_
+#ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TPOLINOMS_H_
+#define MODULES_POLINOM_CALCULATOR_CALC_INCLUDE_TPOLINOMS_H_
 #include "THeadRing.h"
 #include "TMonom.h"
 class TPolinom : public THeadRing {
@@ -24,4 +24,4 @@ class TPolinom : public THeadRing {
     void SubMonom(TMonom* monom);  //  - Monom
     friend std::ostream& operator<<(std::ostream &os, TPolinom &q);
 };
-#endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TPOLINOMS_H_
+#endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_TPOLINOMS_H_

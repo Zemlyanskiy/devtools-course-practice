@@ -1,6 +1,6 @@
 //  Copyright 2017 Ivan Kiselev
-#ifndef MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
-#define MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
+#ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TMONOM_H_
+#define MODULES_POLINOM_CALCULATOR_INCLUDE_TMONOM_H_
 #include "TDatValue.h"
 #include <iostream>
 class TMonom : public TDatValue {
@@ -31,4 +31,4 @@ class TMonom : public TDatValue {
     int YInd_;  //  index Y
     int ZInd_;  //  index Z
 };
-#endif  //  MODULES_IVAN_KISELEV_POLINOM_CALC_INCLUDE_TMONOM_H_
+#endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_TMONOM_H_
