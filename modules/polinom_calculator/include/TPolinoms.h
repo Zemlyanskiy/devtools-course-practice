@@ -1,6 +1,6 @@
 //  Copyright 2017 Ivan Kiselev
 #ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TPOLINOMS_H_
-#define MODULES_POLINOM_CALCULATOR_CALC_INCLUDE_TPOLINOMS_H_
+#define MODULES_POLINOM_CALCULATOR_INCLUDE_TPOLINOMS_H_
 #include "THeadRing.h"
 #include "TMonom.h"
 class TPolinom : public THeadRing {
