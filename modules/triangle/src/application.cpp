@@ -12,12 +12,57 @@
 
 Application::Application() {}
 
+int parseOperation(const char* arg) {
+	int op = 0;
+	if (strcmp(arg, "side") == 0) {
+		op = 1;
+	}
+	else if (strcmp(arg, "corner") == 0) {
+		op = 2;
+	}
+	else if (strcmp(arg, "perimeter") == 0) {
+		op = 3;
+	}
+	else if (strcmp(arg, "square") == 0) {
+		op = 4;
+	}
+	else if (strcmp(arg, "median") == 0) {
+		op = 5;
+	}
+	else if (strcmp(arg, "circumscribed_circle") == 0) {
+		op = 6;
+	}
+	else if (strcmp(arg, "inscribed_circle") == 0) {
+		op = 7;
+	}
+	else {
+		throw std::string("Wrong operation name!");
+	}
+	return op;
+}
+
+void Application::help(const char* appname, const char* message) {
+	message_ =
+		std::string(message) +
+		"This is a triangle calculator application.\n\n" +
+		"Please choose an operation and provide arguments in the following format:\n\n" +
+
+		"  $ " + appname + " <z1_real> <z1_imaginary> " +
+		"<z2_real> <z2_imaginary> <operation>\n\n" +
+
+		"All arguments should be double-precision numbers, ";
+}
+
+
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
 	if (argc == 1) {
 		help(argv[0]);
 		return false;
 	}
-	else if (argc != 6) {
+	else if (argc < 8 || argc > 9 || 
+		parseOperation(argv[7]) >= 1 && 
+		parseOperation(argv[7]) <= 2 && argc != 9 
+		|| parseOperation(argv[7]) > 2 && argc != 8) {
 		help(argv[0], "ERROR: Incorrect arguments num.\n\n");
 		return false;
 	}
@@ -35,82 +80,75 @@ double parseDouble(const char* arg) {
 	return value;
 }
 
-char parseOperation(const char* arg) {
-	int op;
-	if (strcmp(arg, "+") == 0) {
-		op = '+';
+int parseInt(const char* arg) {
+	int value = atoi(arg);
+
+	if (value <= 0 || value > 3) {
+		throw std::string("Wrong number format!");
 	}
-	else if (strcmp(arg, "-") == 0) {
-		op = '-';
-	}
-	else if (strcmp(arg, "*") == 0) {
-		op = '*';
-	}
-	else if (strcmp(arg, "/") == 0) {
-		op = '/';
-	}
-	else {
-		throw std::string("Wrong operation format!");
-	}
-	return op;
+	return value;
 }
+
+
 
 std::string Application::operator()(int argc, const char** argv) {
 	Arguments args;
+	double result;
 
 	if (!validateNumberOfArguments(argc, argv)) {
 		return message_;
 	}
 	try {
-		args.z1_real = parseDouble(argv[1]);
-		args.z1_imaginary = parseDouble(argv[2]);
-		args.z2_real = parseDouble(argv[3]);
-		args.z2_imaginary = parseDouble(argv[4]);
-		args.operation = parseOperation(argv[5]);
+		args.point1_coordx = parseDouble(argv[1]);
+		args.point1_coordy = parseDouble(argv[2]);
+		args.point2_coordx = parseDouble(argv[3]);
+		args.point2_coordy = parseDouble(argv[4]);
+		args.point3_coordx = parseDouble(argv[5]);
+		args.point3_coordy = parseDouble(argv[6]);
+		args.operation = parseOperation(argv[7]);
+		if(args.operation >= 1 && args.operation <= 2) args.num = parseInt(argv[8]);
 	}
 	catch (std::string& str) {
 		return str;
 	}
 
-	ComplexNumber z1;
-	ComplexNumber z2;
+	Triangle triangle(args.point1_coordx, args.point1_coordy, args.point2_coordx, args.point2_coordy, args.point3_coordx, args.point3_coordy);
 
-	z1.setRe(args.z1_real);
-	z1.setIm(args.z1_imaginary);
-	z2.setRe(args.z2_real);
-	z2.setIm(args.z2_imaginary);
-
-	ComplexNumber z;
 	std::ostringstream stream;
 	switch (args.operation) {
-	case '+':
-		z = z1 + z2;
-		stream << "Real = " << z.getRe() << " "
-			<< "Imaginary = " << z.getIm();
+	case 1:
+		result = triangle.CalculateSide(args.num);
+		stream << "Triangle Side #" << args.num << " = " << result;
 		break;
-	case '-':
-		z = z1 - z2;
-		stream << "Real = " << z.getRe() << " "
-			<< "Imaginary = " << z.getIm();
+	case 2:
+		result = triangle.CalculateCorner(args.num);
+		stream << "Triangle Corner #" << args.num << " = " << result;
 		break;
-	case '*':
-		z = z1 * z2;
-		stream << "Real = " << z.getRe() << " "
-			<< "Imaginary = " << z.getIm();
+	case 3:
+		result = triangle.CalculatePerimeter();
+		stream << "Triangle Perimeter = " << result;
 		break;
-	case '/':
-		try {
-			z = z1 / z2;
-			stream << "Real = " << z.getRe() << " "
-				<< "Imaginary = " << z.getIm();
-			break;
-		}
-		catch (std::string& str) {
-			return str;
-		}
+	case 4:
+		result = triangle.CalculateSquare();
+		stream << "Triangle Square = " << result;
+		break;
+	case 5:
+		stream << "Triangle Median Coords = (" << 
+			triangle.GetCoordXMedian() << ", " << 
+			triangle.GetCoordYMedian() << ")";
+		break;
+	case 6:
+		stream << "Triangle Circumscribed Circle Center = (" << 
+			triangle.GetCoordXCircumscribedCircle() << ", " << 
+			triangle.GetCoordYCircumscribedCircle() << ")";
+		break;
+	case 7:
+		stream << "Triangle Inscibed Circle Center = (" <<
+			triangle.GetCoordXInscribedCircle() << ", " <<
+			triangle.GetCoordYInscribedCircle() << ")";
+		break;
 	}
 
 	message_ = stream.str();
-
 	return message_;
 }
