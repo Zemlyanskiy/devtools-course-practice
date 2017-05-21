@@ -16,26 +16,19 @@ int parseOperation(const char* arg) {
     int op = 0;
     if (strcmp(arg, "side") == 0) {
         op = 1;
-    }
-    else if (strcmp(arg, "corner") == 0) {
+    } else if (strcmp(arg, "corner") == 0) {
         op = 2;
-    }
-    else if (strcmp(arg, "perimeter") == 0) {
+    } else if (strcmp(arg, "perimeter") == 0) {
         op = 3;
-    }
-    else if (strcmp(arg, "square") == 0) {
+    } else if (strcmp(arg, "square") == 0) {
         op = 4;
-    }
-    else if (strcmp(arg, "median") == 0) {
+    } else if (strcmp(arg, "median") == 0) {
         op = 5;
-    }
-    else if (strcmp(arg, "circumscribed_circle") == 0) {
+    } else if (strcmp(arg, "circumscribed_circle") == 0) {
         op = 6;
-    }
-    else if (strcmp(arg, "inscribed_circle") == 0) {
+    } else if (strcmp(arg, "inscribed_circle") == 0) {
         op = 7;
-    }
-    else {
+    } else {
         throw std::string("Wrong operation name!");
     }
     return op;
@@ -47,10 +40,12 @@ void Application::help(const char* appname, const char* message) {
         "This is a triangle calculator application.\n\n" +
         "Please choose an operation and provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <z1_real> <z1_imaginary> " +
-        "<z2_real> <z2_imaginary> <operation>\n\n" +
+        "  $ " + appname + " <coord1_x> <coord1_y> " +
+        "<coord2_x> <coord2_y> <coord3_x> <coord3_y> <operation> [<num>]\n\n" +
 
-        "All arguments should be double-precision numbers, ";
+        "All arguments should be double-precision numbers\n" +
+		
+		"You can use next operations: side, corner, perimeter, square, median, circumscribed_circle, inscribed_circle";
 }
 
 
@@ -58,11 +53,10 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc < 8 || argc > 9 || 
-        parseOperation(argv[7]) >= 1 && 
-        parseOperation(argv[7]) <= 2 && argc != 9 
-        || parseOperation(argv[7]) > 2 && argc != 8) {
+    } else if (argc < 8 || argc > 9 ||
+        (parseOperation(argv[7]) >= 1 &&
+        parseOperation(argv[7]) <= 2 && argc != 9)
+        || (parseOperation(argv[7]) > 2 && argc != 8)) {
         help(argv[0], "ERROR: Incorrect arguments num.\n\n");
         return false;
     }
@@ -133,13 +127,13 @@ std::string Application::operator()(int argc, const char** argv) {
         stream << "Triangle Square = " << result;
         break;
     case 5:
-        stream << "Triangle Median Coords = " << 
-            triangle.GetCoordXMedian() << ", " << 
+        stream << "Triangle Median Coords = " <<
+            triangle.GetCoordXMedian() << ", " <<
             triangle.GetCoordYMedian();
         break;
     case 6:
-        stream << "Triangle Circumscribed Circle Center = " << 
-            triangle.GetCoordXCircumscribedCircle() << ", " << 
+        stream << "Triangle Circumscribed Circle Center = " <<
+            triangle.GetCoordXCircumscribedCircle() << ", " <<
             triangle.GetCoordYCircumscribedCircle();
         break;
     case 7:

@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class ApplicationTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -28,14 +28,14 @@ protected:
         int argc = static_cast<int>(args_.size()) + 1;
 
         output_ = app_(argc, argv);
-        //std::cout << output_ << std::endl;
+        // std::cout << output_ << std::endl;
     }
 
     void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     Application app_;
     string output_;
 };
@@ -65,7 +65,8 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_8args) {
 }
 
 TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_7args) {
-    vector<string> args = { "1.1", "2.0", "3.4", "4.1", "8.0", "-1.9", "median", "2" };
+    vector<string> args = { "1.1", "2.0", "3.4", "4.1", "8.0", "-1.9",
+		"median", "2" };
 
     Act(args);
 
@@ -73,7 +74,8 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_7args) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Side) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "side", "1" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"side", "1" };
 
     Act(args);
 
@@ -81,15 +83,17 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Side) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Corner) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "corner", "1" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"corner", "1" };
 
     Act(args);
 
-    Assert("Triangle Corner #1 = 1.5708.*");  // 90 градусов в радианах
+    Assert("Triangle Corner #1 = 1.5708.*");  // 90 degrees in radians
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Perimeter) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "perimeter" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"perimeter" };
 
     Act(args);
 
@@ -97,7 +101,8 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Perimeter) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Median) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "median" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"median" };
 
     Act(args);
 
@@ -105,7 +110,8 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Median) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Circumscribed_Circle) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "circumscribed_circle" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", 
+		"circumscribed_circle" };
 
     Act(args);
 
@@ -113,7 +119,8 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Circumscribed_Circle) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Inscribed_Circle) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", "inscribed_circle" };
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"inscribed_circle" };
 
     Act(args);
 
