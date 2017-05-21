@@ -38,14 +38,14 @@ void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a triangle calculator application.\n\n" +
-        "Please choose an operation and provide arguments in the following format:\n\n" +
+        "Please choose an operation and provide arguments \
+        in the following format:\n\n" +
 
         "  $ " + appname + " <coord1_x> <coord1_y> " +
         "<coord2_x> <coord2_y> <coord3_x> <coord3_y> <operation> [<num>]\n\n" +
 
         "All arguments should be double-precision numbers\n" +
-		
-		"You can use next operations: side, corner, perimeter, square, median, circumscribed_circle, inscribed_circle";
+        "You can use next operations: side, corner, perimeter, square, median, circumscribed_circle, inscribed_circle";
 }
 
 
@@ -100,13 +100,16 @@ std::string Application::operator()(int argc, const char** argv) {
         args.point3_coordx = parseDouble(argv[5]);
         args.point3_coordy = parseDouble(argv[6]);
         args.operation = parseOperation(argv[7]);
-        if(args.operation >= 1 && args.operation <= 2) args.num = parseInt(argv[8]);
+        if (args.operation >= 1 && args.operation <= 2)
+            args.num = parseInt(argv[8]);
     }
     catch (std::string& str) {
         return str;
     }
 
-    Triangle triangle(args.point1_coordx, args.point1_coordy, args.point2_coordx, args.point2_coordy, args.point3_coordx, args.point3_coordy);
+    Triangle triangle(args.point1_coordx, args.point1_coordy,
+        args.point2_coordx, args.point2_coordy,
+        args.point3_coordx, args.point3_coordy);
 
     std::ostringstream stream;
     switch (args.operation) {

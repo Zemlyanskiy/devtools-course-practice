@@ -66,7 +66,7 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_8args) {
 
 TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_7args) {
     vector<string> args = { "1.1", "2.0", "3.4", "4.1", "8.0", "-1.9",
-		"median", "2" };
+        "median", "2" };
 
     Act(args);
 
@@ -75,7 +75,7 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format_7args) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Side) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
-		"side", "1" };
+        "side", "1" };
 
     Act(args);
 
@@ -84,7 +84,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Side) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Corner) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
-		"corner", "1" };
+        "corner", "1" };
 
     Act(args);
 
@@ -93,7 +93,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Corner) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Perimeter) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
-		"perimeter" };
+        "perimeter" };
 
     Act(args);
 
@@ -102,7 +102,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Perimeter) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Median) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
-		"median" };
+        "median" };
 
     Act(args);
 
@@ -111,7 +111,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Median) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Circumscribed_Circle) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", 
-		"circumscribed_circle" };
+        "circumscribed_circle" };
 
     Act(args);
 
@@ -120,7 +120,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Circumscribed_Circle) {
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Inscribed_Circle) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
-		"inscribed_circle" };
+        "inscribed_circle" };
 
     Act(args);
 
