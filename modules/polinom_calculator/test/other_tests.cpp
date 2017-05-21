@@ -17,7 +17,7 @@ TEST(TRootLink, Set_Next_Link) {
 
     TDatLink first(NULL, pdv1);
 
-    EXPECT_EQ(&sec, first.GetNextLink());
+    ASSERT_EQ(&sec, first.GetNextLink());
 }
 
 TEST(TRootLink, Get_Next_Link) {
@@ -25,7 +25,7 @@ TEST(TRootLink, Get_Next_Link) {
     PTDatLink pdv1 = &sec;
     TDatLink first(NULL, pdv1);
 
-    EXPECT_EQ(&sec, first.GetNextLink());
+    ASSERT_EQ(&sec, first.GetNextLink());
 }
 
 TEST(TRootLink, Ins_Next_Link) {
@@ -36,24 +36,24 @@ TEST(TRootLink, Ins_Next_Link) {
 
     first.InsNextLink(&third);
 
-    EXPECT_EQ(&third, first.GetNextLink());
+    ASSERT_EQ(&third, first.GetNextLink());
 }
 
 TEST(TDatLink, create_DatLink_with_parametr) {
-    EXPECT_NO_FATAL_FAILURE(TDatLink sec(NULL, NULL));
+    ASSERT_NO_FATAL_FAILURE(TDatLink sec(NULL, NULL));
 }
 
 TEST(TDatLink, create_DatLink) {
     TDatLink sec(NULL);
 
-    EXPECT_NO_FATAL_FAILURE(TDatLink first(NULL, &sec));
+    ASSERT_NO_FATAL_FAILURE(TDatLink first(NULL, &sec));
 }
 
 TEST(TDatLink, Set_DatLalue) {
     PTDatValue pdv = NULL;
     TDatLink dl(NULL, NULL);
 
-    EXPECT_NO_FATAL_FAILURE(dl.SetDatValue(pdv));
+    ASSERT_NO_FATAL_FAILURE(dl.SetDatValue(pdv));
 }
 
 TEST(TDatLink, Get_DatValue) {
@@ -62,7 +62,7 @@ TEST(TDatLink, Get_DatValue) {
 
     dl.SetDatValue(pdv);
 
-    EXPECT_EQ(dl.GetDatValue(), pdv);
+    ASSERT_EQ(dl.GetDatValue(), pdv);
 }
 
 TEST(TDatLink, Get_Next_DatLink) {
@@ -71,133 +71,133 @@ TEST(TDatLink, Get_Next_DatLink) {
 
     dl1.SetNextLink(&dl2);
 
-    EXPECT_EQ(&dl2, dl1.GetNextDatLink());
+    ASSERT_EQ(&dl2, dl1.GetNextDatLink());
 }
 
 TEST(TMonom, Equal) {
     TMonom first(10, 20);
     TMonom second(10, 20);
 
-    EXPECT_TRUE(first == second);
+    ASSERT_TRUE(first == second);
 }
 
 TEST(TMonom, Not_equal) {
     TMonom first(10, 20);
     TMonom second(10, 25);
 
-    EXPECT_TRUE(!(first == second));
+    ASSERT_TRUE(!(first == second));
 }
 
 TEST(TMonom, EqualityExponent_1) {
     TMonom* first = new TMonom(5, 1, 4, 3);
     TMonom* second = new TMonom(7, 1, 4, 3);
 
-    EXPECT_TRUE(first->EqualityExponent(*second));
+    ASSERT_TRUE(first->EqualityExponent(*second));
 }
 
 TEST(TMonom, EqualityExponent_2) {
     TMonom* first = new TMonom(5, 1, 4, 3);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(first->EqualityExponent(*second));
+    ASSERT_FALSE(first->EqualityExponent(*second));
 }
 
 TEST(TMonom, Comparison_of_monomials_1) {
     TMonom* first = new TMonom(5, 1, 4, 3);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_TRUE(*second < *first);
+    ASSERT_TRUE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_2) {
     TMonom* first = new TMonom(5, 1, 3, 3);
     TMonom* second = new TMonom(7, 1, 4, 4);
 
-    EXPECT_FALSE(*second < *first);
+    ASSERT_FALSE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_3) {
     TMonom* first = new TMonom(5, 1, 3, 3);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second < *first);
+    ASSERT_FALSE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_4) {
     TMonom* first = new TMonom(5, 1, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 3);
 
-    EXPECT_TRUE(*second < *first);
+    ASSERT_TRUE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_5) {
     TMonom* first = new TMonom(5, 2, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_TRUE(*second < *first);
+    ASSERT_TRUE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_6) {
     TMonom* first = new TMonom(5, 0, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second < *first);
+    ASSERT_FALSE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_7) {
     TMonom* first = new TMonom(5, 1, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second < *first);
+    ASSERT_FALSE(*second < *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_21) {
     TMonom* first = new TMonom(5, 1, 4, 3);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second > *first);
+    ASSERT_FALSE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_22) {
     TMonom* first = new TMonom(5, 1, 3, 3);
     TMonom* second = new TMonom(7, 1, 4, 4);
 
-    EXPECT_TRUE(*second > *first);
+    ASSERT_TRUE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_23) {
     TMonom* first = new TMonom(5, 1, 3, 3);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_TRUE(*second > *first);
+    ASSERT_TRUE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_24) {
     TMonom* first = new TMonom(5, 1, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 3);
 
-    EXPECT_FALSE(*second > *first);
+    ASSERT_FALSE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_25) {
     TMonom* first = new TMonom(5, 2, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second > *first);
+    ASSERT_FALSE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_26) {
     TMonom* first = new TMonom(5, 0, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_TRUE(*second > *first);
+    ASSERT_TRUE(*second > *first);
 }
 
 TEST(TMonom, Comparison_of_monomials_27) {
     TMonom* first = new TMonom(5, 1, 3, 4);
     TMonom* second = new TMonom(7, 1, 3, 4);
 
-    EXPECT_FALSE(*second > *first);
+    ASSERT_FALSE(*second > *first);
 }
 
 TEST(TMonom, multiplication_Monom) {
@@ -207,7 +207,7 @@ TEST(TMonom, multiplication_Monom) {
 
     first = first * second;
 
-    EXPECT_TRUE(result == first);
+    ASSERT_TRUE(result == first);
 }
 
 TEST(THeadRing, Ins_First) {
@@ -220,7 +220,7 @@ TEST(THeadRing, Ins_First) {
     TPolinom res(resmon, res_size);
     old.InsFirst(dynamic_cast<PTDatValue> (&Mon));
 
-    EXPECT_TRUE(old == &res);
+    ASSERT_TRUE(old == &res);
 }
 
 TEST(THeadRing, Del_First) {
@@ -232,7 +232,7 @@ TEST(THeadRing, Del_First) {
     TPolinom res(resmon, res_size);
     old.DelFirst();
 
-    EXPECT_TRUE(old == &res);
+    ASSERT_TRUE(old == &res);
 }
 
 TEST(TPolinom, Auto_Equal) {
@@ -240,7 +240,7 @@ TEST(TPolinom, Auto_Equal) {
     int mon[][4] = { { 1, 0, 0, 3 } };
     TPolinom old(mon, size);
 
-    EXPECT_TRUE(old == &old);
+    ASSERT_TRUE(old == &old);
 }
 
 TEST(TPolinom, can_compare_the_polynoms) {
@@ -249,7 +249,7 @@ TEST(TPolinom, can_compare_the_polynoms) {
     TPolinom Pol1(mon, size);
     TPolinom Pol2(mon, size);
 
-    EXPECT_TRUE(Pol1 == &Pol2);
+    ASSERT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_copy_polinoms) {
@@ -258,7 +258,7 @@ TEST(TPolinom, can_copy_polinoms) {
     TPolinom Pol1(mon, size);
     TPolinom Pol2(Pol1);
 
-    EXPECT_TRUE(Pol1 == &Pol2);
+    ASSERT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_assign_polynoms) {
@@ -269,7 +269,7 @@ TEST(TPolinom, can_assign_polynoms) {
 
     Pol2 = &Pol1;
 
-    EXPECT_TRUE(Pol1 == &Pol2);
+    ASSERT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_assign_empty_polynom) {
@@ -278,7 +278,7 @@ TEST(TPolinom, can_assign_empty_polynom) {
 
     Pol2 = &Pol1;
 
-    EXPECT_TRUE(Pol1 == &Pol2);
+    ASSERT_TRUE(Pol1 == &Pol2);
 }
 
 TEST(TPolinom, can_add_Monom_1) {
@@ -292,7 +292,7 @@ TEST(TPolinom, can_add_Monom_1) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_2) {
@@ -306,7 +306,7 @@ TEST(TPolinom, can_add_Monom_2) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_3) {
@@ -320,7 +320,7 @@ TEST(TPolinom, can_add_Monom_3) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_Monom_4) {
@@ -335,7 +335,7 @@ TEST(TPolinom, can_add_Monom_4) {
 
     Pol.AddMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_1) {
@@ -349,7 +349,7 @@ TEST(TPolinom, can_subtract_Monom_1) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_2) {
@@ -363,7 +363,7 @@ TEST(TPolinom, can_subtract_Monom_2) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_subtract_Monom_3) {
@@ -377,152 +377,152 @@ TEST(TPolinom, can_subtract_Monom_3) {
 
     Pol.SubMonom(&monom);
 
-    EXPECT_TRUE(res == &Pol);
+    ASSERT_TRUE(res == &Pol);
 }
 
 TEST(TPolinom, can_add_up_linear_polynoms) {
     const int size = 1;
-    const int expected_size = 1;
+    const int ASSERTed_size = 1;
     int mon1[][4] = { { 2, 0, 0, 1 } };
     int mon2[][4] = { { 1, 0, 0, 1 } };
-    int expected_mon[][4] = { { 3, 0, 0, 1 } };
+    int ASSERTed_mon[][4] = { { 3, 0, 0, 1 } };
     TPolinom Pol1(mon1, size);
     TPolinom Pol2(mon2, size);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, can_add_up_simple_polynoms_A_plus_B) {
     const int size1 = 3;
     const int size2 = 4;
-    const int expected_size = 4;
+    const int ASSERTed_size = 4;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
-    int expected_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { 1, 0, 0, 1 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(expected_Pol == &Pol);
+    ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
 TEST(TPolinom, can_add_up_simple_polynoms_B_plus_A) {
     const int size1 = 3;
     const int size2 = 4;
-    const int expected_size = 4;
+    const int ASSERTed_size = 4;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
-    int expected_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { 1, 0, 0, 1 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol2 + &Pol1;
 
-    EXPECT_TRUE(expected_Pol == &Pol);
+    ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
 TEST(TPolinom, can_add_up_polynoms) {
     const int size1 = 5;
     const int size2 = 4;
-    const int expected_size = 6;
+    const int ASSERTed_size = 6;
     int mon1[][4] = { { 10, 9, 9, 9 } , { -21, 5, 0, 0 } ,
     { 10, 4, 3, 2 } , { 8, 3, 2, 1 } , { 5, 2, 1, 3 } };
     int mon2[][4] = { { 20, 7, 0, 2 } , { 1, 5, 0, 0 } ,
     { -8, 3, 2, 1 } , { 15, 0 } };
-    int expected_mon[][4] = { { 10, 9, 9, 9 } , { 20, 7, 0, 2 } ,
+    int ASSERTed_mon[][4] = { { 10, 9, 9, 9 } , { 20, 7, 0, 2 } ,
     { -20, 5, 0, 0 } , { 10, 4, 3, 2 } , { 5, 2, 1, 3 } ,
     { 15, 0, 0, 0 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol1 + &Pol2;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_1) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
-    const int expected_size = 6;
+    const int ASSERTed_size = 6;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int mon3[][4] = { { 8, 0, 0, 5 } , { 2, 0, 0, 3 } ,
     { 10, 0, 0, 0 } };
-    int expected_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
     TPolinom Pol3(mon3, size3);
     TPolinom Pol;
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol1 + &Pol2 + &Pol3;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_2) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
-    const int expected_size = 6;
+    const int ASSERTed_size = 6;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int mon3[][4] = { { 8, 0, 0, 5 } , { 2, 0, 0, 3 } ,
     { 10, 0, 0, 0 } };
-    int expected_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
     TPolinom Pol3(mon3, size3);
     TPolinom Pol;
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol2 + &Pol3 + &Pol1;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, can_add_up_many_polynoms_3) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
-    const int expected_size = 6;
+    const int ASSERTed_size = 6;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int mon3[][4] = { { 8, 0, 0, 5 } , { 2, 0, 0, 3 } ,
     { 10, 0, 0, 0 } };
-    int expected_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
     TPolinom Pol3(mon3, size3);
     TPolinom Pol;
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol2 + &Pol1 + &Pol3;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, can_subtract_simple_polinom) {
@@ -541,7 +541,7 @@ TEST(TPolinom, can_subtract_simple_polinom) {
 
     first = first - &second;
 
-    EXPECT_TRUE(res == &first);
+    ASSERT_TRUE(res == &first);
 }
 
 
@@ -559,67 +559,67 @@ TEST(TPolinom, can_subtract_polinom) {
 
     first = first - &second;
 
-    EXPECT_TRUE(res == &first);
+    ASSERT_TRUE(res == &first);
 }
 
 TEST(TPolinom, can_subtract_up_simple_polynoms_A_minus_B) {
     const int size1 = 3;
     const int size2 = 4;
-    const int expected_size = 4;
+    const int ASSERTed_size = 4;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 7, 0, 0, 4 } ,
     { 8, 0, 0, 3 } , { 1, 0, 0, 1 } };
-    int expected_mon[][4] = { { -2, 0, 0, 5 } , { 2, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { -2, 0, 0, 5 } , { 2, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { -1, 0, 0, 1 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol1 - &Pol2;
 
-    EXPECT_TRUE(expected_Pol == &Pol);
+    ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
 TEST(TPolinom, can_subtract_up_simple_polynoms_B_minus_A) {
     const int size1 = 3;
     const int size2 = 4;
-    const int expected_size = 4;
+    const int ASSERTed_size = 4;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 5 } , { 7, 0, 0, 4 } ,
     { 8, 0, 0, 3 } , { 1, 0, 0, 1 } };
-    int expected_mon[][4] = { { 2, 0, 0, 5 } , { -2, 0, 0, 4 } ,
+    int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { -2, 0, 0, 4 } ,
     { -5, 0, 0, 2 } , { 1, 0, 0, 1 } };
     TPolinom Pol1(mon1, size1);
     TPolinom Pol2(mon2, size2);
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol2 - &Pol1;
 
-    EXPECT_TRUE(expected_Pol == &Pol);
+    ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
 TEST(TPolinom, can_subtract_up_polynoms) {
     const int size1 = 5;
     const int size2 = 4;
-    const int expected_size = 6;
+    const int ASSERTed_size = 6;
     int mon1[][4] = { { 10, 9, 9, 9 } , { -21, 5, 0, 0 } ,
     { 10, 4, 3, 2 } , { 8, 3, 2, 1 } , { 5, 2, 1, 3 } };
     int mon2[][4] = { { 20, 7, 0, 2 } , { 1, 5, 0, 0 } ,
     { 8, 3, 2, 1 } , { 15, 0, 0, 0 } };
-    int expected_mon[][4] = { { 10, 9, 9, 9 } , { -20, 7, 0, 2 } ,
+    int ASSERTed_mon[][4] = { { 10, 9, 9, 9 } , { -20, 7, 0, 2 } ,
     { -22, 5, 0, 0 } , { 10, 4, 3, 2 } , { 5, 2, 1, 3 } , { -15, 0, 0, 0 } };
     // 5x^2yz^3+8x^3y^2z+10x^4y^3z^2-21x^5+10x^9y^9z^9
     TPolinom Pol1(mon1, size1);
     // 15-8x^3y^2z+x^5+20x^7z^2
     TPolinom Pol2(mon2, size2);
     // 15+5x^2yz^3+10x^4y^3z^2-20x^5+20x^7z^2+10x^9y^9z^9
-    TPolinom expected_Pol(expected_mon, expected_size);
+    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     TPolinom Pol = Pol1 - &Pol2;
 
-    EXPECT_TRUE(Pol == &expected_Pol);
+    ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
 TEST(TPolinom, multiplication_with_simple_polinom) {
@@ -639,7 +639,7 @@ TEST(TPolinom, multiplication_with_simple_polinom) {
 
     answer = (first * &second);
 
-    EXPECT_TRUE(result == &answer);
+    ASSERT_TRUE(result == &answer);
 }
 
 TEST(TPolinom, multiplication_with_big_polinom_4x4) {
@@ -665,7 +665,7 @@ TEST(TPolinom, multiplication_with_big_polinom_4x4) {
     TPolinom second(mon2, size);
     TPolinom result(res_Mon, res_size);
 
-    EXPECT_TRUE(result == &(first * &second));
+    ASSERT_TRUE(result == &(first * &second));
 }
 
 //  Additional tests
@@ -681,7 +681,7 @@ TEST(TDatList, DelCurrent) {
     pol.Reset();
     pol.DelCurrent();
 
-    EXPECT_TRUE(pol == &res);
+    ASSERT_TRUE(pol == &res);
 }
 
 TEST(TMonom, cout_test1) {
@@ -700,7 +700,7 @@ TEST(TMonom, Equality1) {
 
     bool res = (*mon2 < *mon1);
 
-    EXPECT_FALSE(res);
+    ASSERT_FALSE(res);
 }
 
 TEST(TMonom, Equality2) {
@@ -709,7 +709,7 @@ TEST(TMonom, Equality2) {
 
     bool res = (*mon1 > *mon2);
 
-    EXPECT_FALSE(res);
+    ASSERT_FALSE(res);
 }
 
 TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
@@ -721,7 +721,7 @@ TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
 
     pol2 = pol;
 
-    EXPECT_TRUE(pol == &pol2);
+    ASSERT_TRUE(pol == &pol2);
 }
 
 TEST(TPolinom, Not_Equal_polinoms1) {
@@ -732,7 +732,7 @@ TEST(TPolinom, Not_Equal_polinoms1) {
     TPolinom pol(mon, size);
     TPolinom pol2(resmon, ressize);
 
-    EXPECT_FALSE(pol == &pol2);
+    ASSERT_FALSE(pol == &pol2);
 }
 
 TEST(TPolinom, Not_Equal_polinoms2) {
@@ -745,7 +745,7 @@ TEST(TPolinom, Not_Equal_polinoms2) {
 
     result = (pol == &pol2);
 
-    EXPECT_FALSE(result);
+    ASSERT_FALSE(result);
 }
 
 TEST(TPolinom, cout_polinom) {
@@ -774,7 +774,7 @@ TEST(TRootLink, can_set_next_link) {
     TDL->SetNextLink(reinterpret_cast<TRootLink*> (link));
     TRootLink* reslink = TDL->GetNextLink();
 
-    EXPECT_TRUE(reslink == link);
+    ASSERT_TRUE(reslink == link);
 }
 
 TEST(TDatList, list_ended) {
@@ -782,7 +782,7 @@ TEST(TDatList, list_ended) {
 
     int i = list.IsEmpty();
 
-    EXPECT_EQ(1, i);
+    ASSERT_EQ(1, i);
 }
 
 TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
@@ -792,8 +792,8 @@ TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
 
     MyLink.SetDatValue(reinterpret_cast<TDatValue*> (&mon));
 
-    EXPECT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GetDatValue())));
-    EXPECT_TRUE(&MyLink == MyLink2.GetNextDatLink());
+    ASSERT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GetDatValue())));
+    ASSERT_TRUE(&MyLink == MyLink2.GetNextDatLink());
 }
 
 TEST(TPolinom, mylt_on_int) {
@@ -805,7 +805,7 @@ TEST(TPolinom, mylt_on_int) {
 
     pol = pol * size;
 
-    EXPECT_TRUE(pol == &res);
+    ASSERT_TRUE(pol == &res);
 }
 
 TEST(THeadRing, THeadRing_destructor) {
@@ -820,7 +820,7 @@ TEST(TDatList, TDatList_IsEmpty) {
 
     i = list.IsEmpty();
 
-    EXPECT_EQ(1, i);
+    ASSERT_EQ(1, i);
 }
 
 TEST(TDatList, TDatList_destructor) {
@@ -843,7 +843,7 @@ TEST(TDatLink, TDatLink_functional) {
 
     link.SetDatValue(pVal);
 
-    EXPECT_TRUE(link.GetDatValue() == pVal);
+    ASSERT_TRUE(link.GetDatValue() == pVal);
 }
 
 TEST(TDatList, GetLength) {
@@ -851,5 +851,5 @@ TEST(TDatList, GetLength) {
     int size = 2;
     TPolinom pol(mon, size);
 
-    EXPECT_EQ(pol.GetListLength() , 2);
+    ASSERT_EQ(pol.GetListLength() , 2);
 }
