@@ -45,8 +45,8 @@ void Application::help(const char* appname, const char* message) {
         "<coord2_x> <coord2_y> <coord3_x> <coord3_y> <operation> [<num>]\n\n" +
 
         "All arguments should be double-precision numbers\n" +
-        "You can use next operations: side, corner, perimeter, square, median," +
-        "    circumscribed_circle, inscribed_circle";
+        "You can use next operations: side, corner, perimeter, square," +
+        "    median, circumscribed_circle, inscribed_circle";
 }
 
 
