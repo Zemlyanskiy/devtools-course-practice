@@ -1,14 +1,14 @@
 // Copyright 2017 Tarasov Oleg
 
-#include "include/triangle.h"
-#include "include/application.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/triangle.h"
+#include "include/application.h"
 
 Application::Application() {}
 
@@ -38,14 +38,15 @@ void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a triangle calculator application.\n\n" +
-        "Please choose an operation and provide arguments \
-        in the following format:\n\n" +
+        "Please choose an operation and provide arguments " +
+        "in the following format:\n\n" +
 
         "  $ " + appname + " <coord1_x> <coord1_y> " +
         "<coord2_x> <coord2_y> <coord3_x> <coord3_y> <operation> [<num>]\n\n" +
 
         "All arguments should be double-precision numbers\n" +
-        "You can use next operations: side, corner, perimeter, square, median, circumscribed_circle, inscribed_circle";
+        "You can use next operations: side, corner, perimeter, square, median," +
+        "    circumscribed_circle, inscribed_circle";
 }
 
 

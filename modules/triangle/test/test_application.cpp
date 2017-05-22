@@ -110,7 +110,7 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Median) {
 }
 
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Circumscribed_Circle) {
-    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0", 
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
         "circumscribed_circle" };
 
     Act(args);
