@@ -47,7 +47,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Side
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 side 1
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Side
+set_tests_properties (${prefix}_can_Calculate_Triangle_Side PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Side #1 = 5"
     LABELS "${MODULE}")
 
@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Corner
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 corner 1
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Corner
+set_tests_properties (${prefix}_can_Calculate_Triangle_Corner PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Corner #1 = 1.5708"
     LABELS "${MODULE}")
 	
@@ -63,7 +63,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Perimeter
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 perimeter
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Perimeter
+set_tests_properties (${prefix}_can_Calculate_Triangle_Perimeter PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Perimeter = 12"
     LABELS "${MODULE}")
 	
@@ -71,7 +71,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Median
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 median
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Median
+set_tests_properties (${prefix}_can_Calculate_Triangle_Median PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Median Coords = 1, 1.33"
     LABELS "${MODULE}")
 	
@@ -79,7 +79,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Circumscribed_Circle
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 circumscribed_circle
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Circumscribed_Circle
+set_tests_properties (${prefix}_can_Calculate_Triangle_Circumscribed_Circle PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Circumscribed Circle Center = 1.5, 2"
     LABELS "${MODULE}")
 
@@ -87,7 +87,7 @@ add_test(
     NAME ${prefix}_can_Calculate_Triangle_Inscribed_Circle
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 inscribed_circle
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Inscribed_Circle
+set_tests_properties (${prefix}_can_Calculate_Triangle_Inscribed_Circle PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Inscribed Circle Center = 1, 1"
     LABELS "${MODULE}")
 	
