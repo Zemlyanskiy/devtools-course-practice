@@ -91,6 +91,15 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Corner) {
     Assert("Triangle Corner #1 = 1.5708.*");  // 90 degrees in radians
 }
 
+TEST_F(ApplicationTest, Can_Calculate_Triangle_Square) {
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+        "square" };
+
+    Act(args);
+
+    Assert("Triangle Square = 6.*");
+}
+
 TEST_F(ApplicationTest, Can_Calculate_Triangle_Perimeter) {
     vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
         "perimeter" };
