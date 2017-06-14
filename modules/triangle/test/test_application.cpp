@@ -135,3 +135,10 @@ TEST_F(ApplicationTest, Can_Calculate_Triangle_Inscribed_Circle) {
 
     Assert("Triangle Inscribed Circle Center = 1, 1*");
 }
+
+TEST_F(ApplicationTest, Can_Throw_Exception) {
+    vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+        "incorrect_type" };
+
+    EXPECT_ANY_THROW(Act(args));
+}
