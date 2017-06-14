@@ -66,6 +66,14 @@ add_test(
 set_tests_properties (${prefix}_can_Calculate_Triangle_Perimeter PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Perimeter = 12"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Triangle_Square
+    COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 square
+)
+set_tests_properties (${prefix}_can_Calculate_Triangle_Square PROPERTIES
+    PASS_REGULAR_EXPRESSION "Triangle Square = 6"
+    LABELS "${MODULE}")
 	
 add_test(
     NAME ${prefix}_can_Calculate_Triangle_Median
