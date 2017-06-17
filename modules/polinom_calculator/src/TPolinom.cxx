@@ -2,7 +2,7 @@
 #include "../include/TPolinoms.h"
 TPolinom::TPolinom(int monoms[][4], int km) {
     TMonom* Monom = new TMonom(0, 0, 0, 0);
-    pHead_->SetDatValue(Monom);
+    pHead_->SeValue(Monom);
     for (int i = 0; i < km; i++) {
         Monom = new TMonom(monoms[i][0], monoms[i][1],
         monoms[i][2], monoms[i][3]);
@@ -13,9 +13,9 @@ TPolinom::TPolinom(int monoms[][4], int km) {
 
 TPolinom::TPolinom(TPolinom * q) {
     TMonom* Monom = new TMonom(0, 0, 0, 0);
-    pHead_->SetDatValue(Monom);
+    pHead_->SeValue(Monom);
     for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
-        InsLast(q->GetDatValue());
+        InsLast(q->GeValue());
     }
     pHead_->SetNextLink(pFirst);
     Reset();
@@ -67,7 +67,7 @@ TPolinom & TPolinom::operator*(TPolinom *q) {
 
 TPolinom & TPolinom::operator=(TPolinom *q) {
         for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
-            InsLast(q->GetDatValue());
+            InsLast(q->GeValue());
         }
         pHead_->SetNextLink(pFirst);
         Reset();

@@ -1,7 +1,7 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TDatLink.h"
 
-TDatLink::TDatLink(PTDatValue pVal, PTRootLink pN) : TRootLink(pN) {
+TDatLink::TDatLink(PValue pVal, PTRootLink pN) : TRootLink(pN) {
     pValue_ = pVal;
 }
 
@@ -11,11 +11,11 @@ TDatLink::TDatLink(const TDatLink &Link) : TRootLink(Link.pNext_) {
 
 TDatLink::~TDatLink() {}
 
-void TDatLink::SetDatValue(PTDatValue pVal) {
+void TDatLink::SeValue(PValue pVal) {
     pValue_ = pVal;
 }
 
-PTDatValue TDatLink::GetDatValue() {
+PValue TDatLink::GeValue() {
     return pValue_;
 }
 

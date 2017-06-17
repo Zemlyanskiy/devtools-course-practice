@@ -1,13 +1,13 @@
 //  Copyright 2017 Ivan Kiselev
 #ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TMONOM_H_
 #define MODULES_POLINOM_CALCULATOR_INCLUDE_TMONOM_H_
-#include "TDatValue.h"
+#include "Value.h"
 #include <iostream>
-class TMonom : public TDatValue {
+class TMonom : public Value {
  public:
     explicit TMonom(int cval = 1, int x = 0, int y = 0, int z = 0);
     ~TMonom();
-    virtual TDatValue * GetCopy();
+    virtual Value * GetCopy();
     void SetCoeff_(int cval);
     int  GetCoeff_(void);
     void SetIndexX(int ival);

@@ -6,7 +6,7 @@
 class THeadRing : public TDatList {
  public:
     THeadRing();
-    virtual void InsFirst(PTDatValue pVal = NULL);
+    virtual void InsFirst(PValue pVal = NULL);
     virtual void DelFirst(void);
 
  protected:

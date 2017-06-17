@@ -12,7 +12,7 @@ class TPolinom : public THeadRing {
     explicit TPolinom(TPolinom *q);  // constructor
     ~TPolinom() {}
     TMonom* GetMonom() {
-        return dynamic_cast<TMonom*>(GetDatValue());
+        return dynamic_cast<TMonom*>(GeValue());
     }
     TPolinom& operator+(TPolinom *q);  //  Add Polinoms
     TPolinom& operator-(TPolinom *q);  //  Sub Polinoms

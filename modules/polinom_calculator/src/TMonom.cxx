@@ -114,6 +114,6 @@ bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
     return true;
 }
 
-TDatValue* TMonom::GetCopy() {
+Value* TMonom::GetCopy() {
     return new TMonom(Coeff_, XInd_, YInd_, ZInd_);
 }

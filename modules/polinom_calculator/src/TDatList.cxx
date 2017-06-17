@@ -1,10 +1,10 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/TDatList.h"
-PTDatLink TDatList::GetLink(PTDatValue pVal, PTDatLink pLink) {
+PTDatLink TDatList::GetLink(PValue pVal, PTDatLink pLink) {
     return new TDatLink(pVal, pLink);
 }
 
-PTDatValue TDatList::GetDatValue() {
+PValue TDatList::GeValue() {
     return pCurrLink->pValue_;
 }
 
@@ -33,7 +33,7 @@ TDatList::TDatList(const TDatList &list) {
         that = that->GetNextDatLink();
         GoNext();
     }
-    pLast = new TDatLink(that->GetDatValue(), that->pNext_);
+    pLast = new TDatLink(that->GeValue(), that->pNext_);
     ListLen = k;
 }
 
@@ -67,12 +67,12 @@ int TDatList::GoNext(void) {
     return 0;
 }
 
-void TDatList::InsFirst(PTDatValue pVal) {
+void TDatList::InsFirst(PValue pVal) {
     pFirst = GetLink(pVal, pFirst);
     ListLen++;
 }
 
-void TDatList::InsLast(PTDatValue pVal) {
+void TDatList::InsLast(PValue pVal) {
     if (pFirst->pValue_ == NULL) {
         InsFirst(pVal);
     } else {
@@ -83,7 +83,7 @@ void TDatList::InsLast(PTDatValue pVal) {
     }
 }
 
-void TDatList::InsCurrent(PTDatValue pVal) {
+void TDatList::InsCurrent(PValue pVal) {
     if (pPrevLink != NULL) {
         pPrevLink->SetNextLink(GetLink(pVal, pCurrLink));
         pCurrLink = pPrevLink->GetNextDatLink();

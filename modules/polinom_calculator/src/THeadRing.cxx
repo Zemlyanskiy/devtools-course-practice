@@ -7,7 +7,7 @@ THeadRing::THeadRing() {
     pLast->SetNextLink(pHead_);
 }
 
-void THeadRing::InsFirst(PTDatValue pVal) {
+void THeadRing::InsFirst(PValue pVal) {
     TDatList::InsFirst(pVal);
     pHead_->SetNextLink(pFirst);
     if (pCurrLink == pFirst->GetNextDatLink()) {
