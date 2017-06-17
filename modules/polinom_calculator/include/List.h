@@ -1,12 +1,12 @@
 //  Copyright 2017 Ivan Kiselev
-#ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLIST_H_
-#define MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLIST_H_
-#include "TDatLink.h"
-class TDatList {
+#ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_LIST_H_
+#define MODULES_POLINOM_CALCULATOR_INCLUDE_LIST_H_
+#include "Link.h"
+class List {
  public:
-    TDatList();
-    TDatList(const TDatList &list);
-    ~TDatList();
+    List();
+    List(const List &list);
+    ~List();
     PValue GeValue();
     virtual int IsEmpty() const;
     int GetListLength() const;
@@ -21,14 +21,14 @@ class TDatList {
     virtual void DelList(void);
 
  protected:
-    PTDatLink pFirst;
-    PTDatLink pLast;
-    PTDatLink pCurrLink;
-    PTDatLink pPrevLink;
-    PTDatLink pStop;
+    PLink pFirst;
+    PLink pLast;
+    PLink pCurrLink;
+    PLink pPrevLink;
+    PLink pStop;
     int CurrPos;
     int ListLen;
-    PTDatLink GetLink(PValue pVal = NULL, PTDatLink pLink = NULL);
+    PLink GetLink(PValue pVal = NULL, PLink pLink = NULL);
 };
-#endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_TDATLIST_H_
+#endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_LIST_H_
 

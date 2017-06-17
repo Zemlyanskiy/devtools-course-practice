@@ -2,76 +2,76 @@
 #include "../3rdparty/gtest/gtest.h"
 #include "../include/TPolinoms.h"
 
-TEST(TRootLink, Set_Next_Link_test) {
-    TDatLink sec(NULL);
-    PTDatLink pdv1 = &sec;
-    TDatLink first(NULL);
+TEST(RootLink, Set_Next_Link_test) {
+    Link sec(NULL);
+    PLink pdv1 = &sec;
+    Link first(NULL);
 
     GTEST_TEST_NO_FATAL_FAILURE_(first.SetNextLink(pdv1) ,
         GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TRootLink, Set_Next_Link) {
-    TDatLink sec(NULL);
-    PTDatLink pdv1 = &sec;
+TEST(RootLink, Set_Next_Link) {
+    Link sec(NULL);
+    PLink pdv1 = &sec;
 
-    TDatLink first(NULL, pdv1);
-
-    ASSERT_EQ(&sec, first.GetNextLink());
-}
-
-TEST(TRootLink, Get_Next_Link) {
-    TDatLink sec(NULL);
-    PTDatLink pdv1 = &sec;
-    TDatLink first(NULL, pdv1);
+    Link first(NULL, pdv1);
 
     ASSERT_EQ(&sec, first.GetNextLink());
 }
 
-TEST(TRootLink, Ins_Next_Link) {
-    TDatLink sec(NULL);
-    PTDatLink pdv1 = &sec;
-    TDatLink first(NULL, pdv1);
-    TDatLink third(NULL);
+TEST(RootLink, Get_Next_Link) {
+    Link sec(NULL);
+    PLink pdv1 = &sec;
+    Link first(NULL, pdv1);
+
+    ASSERT_EQ(&sec, first.GetNextLink());
+}
+
+TEST(RootLink, Ins_Next_Link) {
+    Link sec(NULL);
+    PLink pdv1 = &sec;
+    Link first(NULL, pdv1);
+    Link third(NULL);
 
     first.InsNextLink(&third);
 
     ASSERT_EQ(&third, first.GetNextLink());
 }
 
-TEST(TDatLink, create_DatLink_with_parametr) {
-    ASSERT_NO_FATAL_FAILURE(TDatLink sec(NULL, NULL));
+TEST(Link, create_DatLink_with_parametr) {
+    ASSERT_NO_FATAL_FAILURE(Link sec(NULL, NULL));
 }
 
-TEST(TDatLink, create_DatLink) {
-    TDatLink sec(NULL);
+TEST(Link, create_DatLink) {
+    Link sec(NULL);
 
-    ASSERT_NO_FATAL_FAILURE(TDatLink first(NULL, &sec));
+    ASSERT_NO_FATAL_FAILURE(Link first(NULL, &sec));
 }
 
-TEST(TDatLink, Set_DatLalue) {
-    PTDatValue pdv = NULL;
-    TDatLink dl(NULL, NULL);
+TEST(Link, Set_DatLalue) {
+    PValue pdv = NULL;
+    Link dl(NULL, NULL);
 
-    ASSERT_NO_FATAL_FAILURE(dl.SetDatValue(pdv));
+    ASSERT_NO_FATAL_FAILURE(dl.SeValue(pdv));
 }
 
-TEST(TDatLink, Get_DatValue) {
-    PTDatValue pdv = NULL;
-    TDatLink dl;
+TEST(Link, Get_DatValue) {
+    PValue pdv = NULL;
+    Link dl;
 
-    dl.SetDatValue(pdv);
+    dl.SeValue(pdv);
 
-    ASSERT_EQ(dl.GetDatValue(), pdv);
+    ASSERT_EQ(dl.GeValue(), pdv);
 }
 
-TEST(TDatLink, Get_Next_DatLink) {
-    TDatLink dl1;
-    TDatLink dl2;
+TEST(Link, Get_Next_DatLink) {
+    Link dl1;
+    Link dl2;
 
     dl1.SetNextLink(&dl2);
 
-    ASSERT_EQ(&dl2, dl1.GetNextDatLink());
+    ASSERT_EQ(&dl2, dl1.GetNexLink());
 }
 
 TEST(TMonom, Equal) {
@@ -218,7 +218,7 @@ TEST(THeadRing, Ins_First) {
     TMonom Mon(2, 1, 0, 0);
     TPolinom old(mon, size);
     TPolinom res(resmon, res_size);
-    old.InsFirst(dynamic_cast<PTDatValue> (&Mon));
+    old.InsFirst(dynamic_cast<PValue> (&Mon));
 
     ASSERT_TRUE(old == &res);
 }
@@ -670,7 +670,7 @@ TEST(TPolinom, multiplication_with_big_polinom_4x4) {
 
 //  Additional tests
 
-TEST(TDatList, DelCurrent) {
+TEST(List, DelCurrent) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
@@ -760,40 +760,40 @@ TEST(THeadRing, can_create_THeadRing) {
     GTEST_TEST_NO_FATAL_FAILURE_(THeadRing thead, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TRootLink, can_create_TRootLink) {
-    TDatList list;
+TEST(RootLink, can_create_RootLink) {
+    List list;
 
-    GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(list.~List(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TRootLink, can_set_next_link) {
-    TDatLink* link = new TDatLink();
-    TDatLink* TDL = new TDatLink();
+TEST(RootLink, can_set_next_link) {
+    Link* link = new Link();
+    Link* TDL = new Link();
 
 
-    TDL->SetNextLink(reinterpret_cast<TRootLink*> (link));
-    TRootLink* reslink = TDL->GetNextLink();
+    TDL->SetNextLink(reinterpret_cast<RootLink*> (link));
+    RootLink* reslink = TDL->GetNextLink();
 
     ASSERT_TRUE(reslink == link);
 }
 
-TEST(TDatList, list_ended) {
-    TDatList list;
+TEST(List, list_ended) {
+    List list;
 
     int i = list.IsEmpty();
 
     ASSERT_EQ(1, i);
 }
 
-TEST(TDatLink, SetDatValue_and_GetDatValue_and_GetNextDatLink) {
-    TDatLink MyLink;
-    TDatLink MyLink2(NULL, &MyLink);
+TEST(Link, SeValue_and_GeValue_and_GetNexLink) {
+    Link MyLink;
+    Link MyLink2(NULL, &MyLink);
     TMonom mon(1, 0, 0, 0);
 
-    MyLink.SetDatValue(reinterpret_cast<TDatValue*> (&mon));
+    MyLink.SeValue(reinterpret_cast<Value*> (&mon));
 
-    ASSERT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GetDatValue())));
-    ASSERT_TRUE(&MyLink == MyLink2.GetNextDatLink());
+    ASSERT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GeValue())));
+    ASSERT_TRUE(&MyLink == MyLink2.GetNexLink());
 }
 
 TEST(TPolinom, mylt_on_int) {
@@ -814,8 +814,8 @@ TEST(THeadRing, THeadRing_destructor) {
     GTEST_TEST_NO_FATAL_FAILURE_(THR.~THeadRing(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TDatList, TDatList_IsEmpty) {
-    TDatList list;
+TEST(List, List_IsEmpty) {
+    List list;
     int i;
 
     i = list.IsEmpty();
@@ -823,10 +823,10 @@ TEST(TDatList, TDatList_IsEmpty) {
     ASSERT_EQ(1, i);
 }
 
-TEST(TDatList, TDatList_destructor) {
-    TDatList list;
+TEST(List, List_destructor) {
+    List list;
 
-    GTEST_TEST_NO_FATAL_FAILURE_(list.~TDatList(), GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(list.~List(), GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(TMonom, TMonom_destructor) {
@@ -835,18 +835,18 @@ TEST(TMonom, TMonom_destructor) {
     GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TDatLink, TDatLink_functional) {
-    TDatLink link2;
-    TDatLink link(NULL, &link2);
+TEST(Link, Link_functional) {
+    Link link2;
+    Link link(NULL, &link2);
     TMonom monom(1, 0, 0, 0);
-    PTDatValue pVal = reinterpret_cast<PTDatValue> (&monom);
+    PValue pVal = reinterpret_cast<PValue> (&monom);
 
-    link.SetDatValue(pVal);
+    link.SeValue(pVal);
 
-    ASSERT_TRUE(link.GetDatValue() == pVal);
+    ASSERT_TRUE(link.GeValue() == pVal);
 }
 
-TEST(TDatList, GetLength) {
+TEST(List, GetLength) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int size = 2;
     TPolinom pol(mon, size);
