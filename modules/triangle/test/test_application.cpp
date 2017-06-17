@@ -28,7 +28,7 @@ class ApplicationTest : public ::testing::Test {
         int argc = static_cast<int>(args_.size()) + 1;
 
         output_ = app_(argc, argv);
-        // std::cout << output_ << std::endl;
+        //std::cout << output_ << std::endl;
     }
 
     void Assert(std::string expected) {
@@ -141,4 +141,13 @@ TEST_F(ApplicationTest, Can_Throw_Exception) {
         "incorrect_type" };
 
     EXPECT_ANY_THROW(Act(args));
+}
+
+TEST_F(ApplicationTest, Can_Throw_Exception_Parse_Int) {
+	vector<string> args = { "0.0", "0.0", "3.0", "0.0", "0.0", "4.0",
+		"side", "none" };
+
+	Act(args);
+
+	Assert("Wrong number format*");
 }

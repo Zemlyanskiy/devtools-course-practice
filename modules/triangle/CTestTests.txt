@@ -98,4 +98,12 @@ add_test(
 set_tests_properties (${prefix}_can_Calculate_Triangle_Inscribed_Circle PROPERTIES
     PASS_REGULAR_EXPRESSION "Triangle Inscribed Circle Center = 1, 1"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Throw_Exception_Parse_Int
+    COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 side none
+)
+set_tests_properties (${prefix}_can_Calculate_Triangle_Side PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format"
+    LABELS "${MODULE}")
 	

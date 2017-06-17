@@ -68,10 +68,6 @@ double parseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
 
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
     return value;
 }
 
@@ -83,7 +79,6 @@ int parseInt(const char* arg) {
     }
     return value;
 }
-
 
 
 std::string Application::operator()(int argc, const char** argv) {
