@@ -103,7 +103,7 @@ add_test(
     NAME ${prefix}_can_Throw_Exception_Parse_Int
     COMMAND ${APPLICATION} 0.0 0.0 3.0 0.0 0.0 4.0 side none
 )
-set_tests_properties (${prefix}_can_Calculate_Triangle_Side PROPERTIES
+set_tests_properties (${prefix}_can_Throw_Exception_Parse_Int PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format"
     LABELS "${MODULE}")
 	
