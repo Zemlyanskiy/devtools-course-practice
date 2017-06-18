@@ -6,13 +6,13 @@ Link::Link(PValue pval, PRootLink pn) : RootLink(pn) {
 }
 
 Link::Link(const Link &val) : RootLink(val.pnext_) {
-	pvalue_ = val.pvalue_;
+    pvalue_ = val.pvalue_;
 }
 
 Link::~Link() {}
 
 void Link::SetValue(PValue pval) {
-	pvalue_ = pval;
+    pvalue_ = pval;
 }
 
 PValue Link::GetValue() {
