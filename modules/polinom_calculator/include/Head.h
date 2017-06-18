@@ -10,7 +10,7 @@ class Head : public List {
     virtual void DelFirst(void);
 
  protected:
-    PLink pHead_;
+    PLink phead_;
 };
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_HEAD_H_
 

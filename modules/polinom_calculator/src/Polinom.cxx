@@ -2,7 +2,7 @@
 #include "../include/Polinom.h"
 Polinom::Polinom(int monoms[][4], int km) {
     Monom* mon = new Monom(0, 0, 0, 0);
-    pHead_->SeValue(mon);
+    phead_->SeValue(mon);
     for (int i = 0; i < km; i++) {
 		mon = new Monom(monoms[i][0], monoms[i][1],
         monoms[i][2], monoms[i][3]);
@@ -13,11 +13,11 @@ Polinom::Polinom(int monoms[][4], int km) {
 
 Polinom::Polinom(Polinom * q) {
     Monom* mon = new Monom(0, 0, 0, 0);
-    pHead_->SeValue(mon);
+    phead_->SeValue(mon);
     for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
-        InsLast(q->GeValue());
+        InsLast(q->GetValue());
     }
-    pHead_->SetNextLink(pFirst);
+    phead_->SetNextLink(pfirst);
     Reset();
     q->Reset();
 }
@@ -67,17 +67,17 @@ Polinom & Polinom::operator*(Polinom *q) {
 
 Polinom & Polinom::operator=(Polinom *q) {
         for (q->Reset(); !q->IsListEnded(); q->GoNext()) {
-            InsLast(q->GeValue());
+            InsLast(q->GetValue());
         }
-        pHead_->SetNextLink(pFirst);
+        phead_->SetNextLink(pfirst);
         Reset();
         q->Reset();
         return *this;
 }
 
 bool Polinom::operator==(Polinom *q) {
-    if (pFirst == q->pFirst) return true;
-    if (this->ListLen != q->ListLen) {
+    if (pfirst == q->pfirst) return true;
+    if (this->listlen != q->listlen) {
         return false;
     } else {
         Reset();

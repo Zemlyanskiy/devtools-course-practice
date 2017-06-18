@@ -1,22 +1,22 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/Head.h"
 Head::Head() {
-    pHead_ = new Link();
-    pHead_->SetNextLink(pFirst);
-    pStop = pHead_;
-    pLast->SetNextLink(pHead_);
+    phead_ = new Link();
+    phead_->SetNextLink(pfirst);
+    pstop = phead_;
+	plast->SetNextLink(phead_);
 }
 
 void Head::InsFirst(PValue pVal) {
     List::InsFirst(pVal);
-    pHead_->SetNextLink(pFirst);
-    if (pCurrLink == pFirst->GetNexLink()) {
-        pPrevLink = pFirst;
-        CurrPos = 1;
+    phead_->SetNextLink(pfirst);
+    if (pcurrlink == pfirst->GetNexLink()) {
+        pprevlink = pfirst;
+        currpos = 1;
     }
 }
 
 void Head::DelFirst(void) {
     List::DelFirst();
-    pHead_->SetNextLink(pFirst);
+    phead_->SetNextLink(pfirst);
 }

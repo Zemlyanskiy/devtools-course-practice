@@ -12,7 +12,7 @@ class Polinom : public Head {
     explicit Polinom(Polinom *q);  // constructor
     ~Polinom() {}
     Monom* GeMonom() {
-        return dynamic_cast<Monom*>(GeValue());
+        return dynamic_cast<Monom*>(GetValue());
     }
     Polinom& operator+(Polinom *q);  //  Add Polinoms
     Polinom& operator-(Polinom *q);  //  Sub Polinoms

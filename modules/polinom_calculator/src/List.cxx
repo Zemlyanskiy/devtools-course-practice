@@ -4,37 +4,37 @@ PLink List::GetLink(PValue pVal, PLink pLink) {
     return new Link(pVal, pLink);
 }
 
-PValue List::GeValue() {
-    return pCurrLink->pValue_;
+PValue List::GetValue() {
+    return pcurrlink->pvalue_;
 }
 
 List::List() {
-    pFirst = new Link(NULL, NULL);
-    pLast = pFirst;
-    pCurrLink = pFirst;
-    pPrevLink = NULL;
-    pStop = pFirst;
-    CurrPos = 0;
-    ListLen = 0;
+    pfirst = new Link(NULL, NULL);
+    plast = pfirst;
+    pcurrlink = pfirst;
+    pprevlink = NULL;
+    pstop = pfirst;
+    currpos = 0;
+    listlen = 0;
 }
 List::List(const List &list) {
     int k = 1;
-    pFirst = new Link(*list.pFirst);
-    pLast = pFirst;
-    pCurrLink = pFirst;
-    pPrevLink = NULL;
-    pStop = pFirst;
-    CurrPos = 0;
-    ListLen = 0;
-    Link * that = list.pFirst;
-    while (k < list.ListLen) {
-        pCurrLink = new Link(*that);
+    pfirst = new Link(*list.pfirst);
+    plast = pfirst;
+    pcurrlink = pfirst;
+    pprevlink = NULL;
+    pstop = pfirst;
+    currpos = 0;
+    listlen = 0;
+    Link * that = list.pfirst;
+    while (k < list.listlen) {
+        pcurrlink = new Link(*that);
         k++;
         that = that->GetNexLink();
         GoNext();
     }
-    pLast = new Link(that->GeValue(), that->pNext_);
-    ListLen = k;
+    plast = new Link(that->GeValue(), that->pnext_);
+    listlen = k;
 }
 
 List::~List() {
@@ -42,76 +42,76 @@ List::~List() {
 }
 
 int List::IsEmpty() const {
-    return pFirst == pLast;
+    return pfirst == plast;
 }
 
-int List::GetListLength() const {
-    return ListLen;
+int List::GetListlength() const {
+    return listlen;
 }
 
 void List::Reset(void) {
-    pCurrLink = pFirst;
-    pPrevLink = NULL;
-    CurrPos = 0;
+    pcurrlink = pfirst;
+    pprevlink = NULL;
+    currpos = 0;
 }
 
 bool List::IsListEnded(void) const {
-    return ((CurrPos >= ListLen) || (pCurrLink == pLast));
+    return ((currpos >= listlen) || (pcurrlink == plast));
 }
 
 int List::GoNext(void) {
     if (IsListEnded()) return 1;
-    pPrevLink = pCurrLink;
-    pCurrLink = pCurrLink->GetNexLink();
-    CurrPos++;
+    pprevlink = pcurrlink;
+    pcurrlink = pcurrlink->GetNexLink();
+    currpos++;
     return 0;
 }
 
 void List::InsFirst(PValue pVal) {
-    pFirst = GetLink(pVal, pFirst);
-    ListLen++;
+    pfirst = GetLink(pVal, pfirst);
+    listlen++;
 }
 
 void List::InsLast(PValue pVal) {
-    if (pFirst->pValue_ == NULL) {
+    if (pfirst->pvalue_ == NULL) {
         InsFirst(pVal);
     } else {
         while (GoNext() != 1) {}
-        pPrevLink->SetNextLink(GetLink(pVal, pLast));
-        pCurrLink = pPrevLink->GetNexLink();
-        ListLen++;
+        pprevlink->SetNextLink(GetLink(pVal, plast));
+        pcurrlink = pprevlink->GetNexLink();
+        listlen++;
     }
 }
 
 void List::InsCurrent(PValue pVal) {
-    if (pPrevLink != NULL) {
-        pPrevLink->SetNextLink(GetLink(pVal, pCurrLink));
-        pCurrLink = pPrevLink->GetNexLink();
-        ListLen++;
+    if (pprevlink != NULL) {
+        pprevlink->SetNextLink(GetLink(pVal, pcurrlink));
+        pcurrlink = pprevlink->GetNexLink();
+        listlen++;
     } else {
         InsFirst(pVal);
     }
 }
 
 void List::DelFirst(void) {
-    PLink old = pFirst;
-    pFirst = pFirst->GetNexLink();
-    ListLen--;
+    PLink old = pfirst;
+    pfirst = pfirst->GetNexLink();
+    listlen--;
     old->~Link();
 }
 
 void List::DelCurrent(void) {
-    if (pCurrLink == pFirst) {
+    if (pcurrlink == pfirst) {
         DelFirst();
     } else {
-        PLink old = pCurrLink;
-        pPrevLink->SetNextLink(pCurrLink->GetNextLink());
-        pCurrLink = pCurrLink->GetNexLink();
+        PLink old = pcurrlink;
+        pprevlink->SetNextLink(pcurrlink->GetNextLink());
+        pcurrlink = pcurrlink->GetNexLink();
         old->~Link();
-        ListLen--;
+        listlen--;
     }
 }
 
 void List::DelList(void) {
-    while (ListLen > 0) DelFirst();
+    while (listlen > 0) DelFirst();
 }

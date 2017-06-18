@@ -2,23 +2,23 @@
 #include "../include/Link.h"
 
 Link::Link(PValue pVal, PRootLink pN) : RootLink(pN) {
-    pValue_ = pVal;
+    pvalue_ = pVal;
 }
 
-Link::Link(const Link &val) : RootLink(val.pNext_) {
-    pValue_ = val.pValue_;
+Link::Link(const Link &val) : RootLink(val.pnext_) {
+    pvalue_ = val.pvalue_;
 }
 
 Link::~Link() {}
 
 void Link::SeValue(PValue pVal) {
-    pValue_ = pVal;
+    pvalue_ = pVal;
 }
 
 PValue Link::GeValue() {
-    return pValue_;
+    return pvalue_;
 }
 
 Link* Link::GetNexLink() {
-    return reinterpret_cast<Link*>(pNext_);
+    return reinterpret_cast<Link*>(pnext_);
 }

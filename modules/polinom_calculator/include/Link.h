@@ -13,7 +13,7 @@ class Link : public RootLink {
     friend class List;
 
  protected:
-    PValue pValue_;  //  Value
+    PValue pvalue_;  //  Value
 };
 typedef Link *PLink;
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_LINK_H_

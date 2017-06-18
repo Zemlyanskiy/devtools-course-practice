@@ -7,9 +7,9 @@ class List {
     List();
     List(const List &list);
     ~List();
-    PValue GeValue();
+    PValue GetValue();
     virtual int IsEmpty() const;
-    int GetListLength() const;
+    int GetListlength() const;
     virtual void Reset(void);
     virtual bool IsListEnded(void) const;
     int GoNext(void);
@@ -21,13 +21,13 @@ class List {
     virtual void DelList(void);
 
  protected:
-    PLink pFirst;
-    PLink pLast;
-    PLink pCurrLink;
-    PLink pPrevLink;
-    PLink pStop;
-    int CurrPos;
-    int ListLen;
+    PLink pfirst;
+    PLink plast;
+    PLink pcurrlink;
+    PLink pprevlink;
+    PLink pstop;
+    int currpos;
+    int listlen;
     PLink GetLink(PValue pVal = NULL, PLink pLink = NULL);
 };
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_LIST_H_

@@ -851,5 +851,5 @@ TEST(List, GetLength) {
     int size = 2;
     Polinom pol(mon, size);
 
-    ASSERT_EQ(pol.GetListLength() , 2);
+    ASSERT_EQ(pol.GetListlength() , 2);
 }

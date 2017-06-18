@@ -18,7 +18,7 @@ class RootLink {
     friend class List;
 
  protected:
-    PRootLink pNext_;  //  next point
+    PRootLink pnext_;  //  next point
     explicit RootLink(PRootLink pN = NULL);
 };
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_ROOTLINK_H_
