@@ -4,7 +4,7 @@ Head::Head() {
     phead_ = new Link();
     phead_->SetNextLink(pfirst);
     pstop = phead_;
-	plast->SetNextLink(phead_);
+    plast->SetNextLink(phead_);
 }
 
 void Head::InsFirst(PValue pVal) {

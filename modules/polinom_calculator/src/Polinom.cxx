@@ -4,7 +4,7 @@ Polinom::Polinom(int monoms[][4], int km) {
     Monom* mon = new Monom(0, 0, 0, 0);
     phead_->SeValue(mon);
     for (int i = 0; i < km; i++) {
-		mon = new Monom(monoms[i][0], monoms[i][1],
+        mon = new Monom(monoms[i][0], monoms[i][1],
         monoms[i][2], monoms[i][3]);
         InsLast(mon);
     }
