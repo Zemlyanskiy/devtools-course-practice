@@ -3,6 +3,7 @@
 #define MODULES_POLINOM_CALCULATOR_INCLUDE_MONOM_H_
 #include "Value.h"
 #include <iostream>
+
 class Monom : public Value {
  public:
     explicit Monom(int cval = 1, int x = 0, int y = 0, int z = 0);

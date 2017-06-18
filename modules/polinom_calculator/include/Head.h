@@ -3,6 +3,7 @@
 #ifndef MODULES_POLINOM_CALCULATOR_INCLUDE_HEAD_H_
 #define MODULES_POLINOM_CALCULATOR_INCLUDE_HEAD_H_
 #include "List.h"
+
 class Head : public List {
  public:
     Head();
