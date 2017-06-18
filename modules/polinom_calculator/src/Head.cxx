@@ -1,13 +1,13 @@
 //  Copyright 2017 Ivan Kiselev
-#include "../include/THeadRing.h"
-THeadRing::THeadRing() {
+#include "../include/Head.h"
+Head::Head() {
     pHead_ = new Link();
     pHead_->SetNextLink(pFirst);
     pStop = pHead_;
     pLast->SetNextLink(pHead_);
 }
 
-void THeadRing::InsFirst(PValue pVal) {
+void Head::InsFirst(PValue pVal) {
     List::InsFirst(pVal);
     pHead_->SetNextLink(pFirst);
     if (pCurrLink == pFirst->GetNexLink()) {
@@ -16,7 +16,7 @@ void THeadRing::InsFirst(PValue pVal) {
     }
 }
 
-void THeadRing::DelFirst(void) {
+void Head::DelFirst(void) {
     List::DelFirst();
     pHead_->SetNextLink(pFirst);
 }

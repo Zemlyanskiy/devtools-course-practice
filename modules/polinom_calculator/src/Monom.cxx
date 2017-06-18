@@ -1,48 +1,48 @@
 //  Copyright 2017 Ivan Kiselev
-#include "../include/TMonom.h"
+#include "../include/Monom.h"
 #include <iostream>
-TMonom::TMonom(int cval, int x, int y, int z) {
+Monom::Monom(int cval, int x, int y, int z) {
     Coeff_ = cval;
     XInd_ = x;
     YInd_ = y;
     ZInd_ = z;
 }
 
-TMonom::~TMonom() {}
+Monom::~Monom() {}
 
-void TMonom::SetCoeff_(int cval) {
+void Monom::SetCoeff_(int cval) {
     Coeff_ = cval;
 }
 
-int TMonom::GetCoeff_(void) {
+int Monom::GetCoeff_(void) {
     return Coeff_;
 }
 
-void TMonom::SetIndexX(int ival) {
+void Monom::SetIndexX(int ival) {
     XInd_ = ival;
 }
 
-void TMonom::SetIndexY(int ival) {
+void Monom::SetIndexY(int ival) {
     YInd_ = ival;
 }
 
-void TMonom::SetIndexZ(int ival) {
+void Monom::SetIndexZ(int ival) {
     ZInd_ = ival;
 }
 
-int TMonom::GetIndexX(void) {
+int Monom::GetIndexX(void) {
     return XInd_;
 }
 
-int TMonom::GetIndexY(void) {
+int Monom::GetIndexY(void) {
     return YInd_;
 }
 
-int TMonom::GetIndexZ(void) {
+int Monom::GetIndexZ(void) {
     return ZInd_;
 }
 
-TMonom& TMonom::operator=(const TMonom &tm) {
+Monom& Monom::operator=(const Monom &tm) {
     Coeff_ = tm.Coeff_;
     XInd_ = tm.XInd_;
     YInd_ = tm.YInd_;
@@ -50,7 +50,7 @@ TMonom& TMonom::operator=(const TMonom &tm) {
     return *this;
 }
 
-std::ostream& operator<<(std::ostream &os, TMonom * tm) {
+std::ostream& operator<<(std::ostream &os, Monom * tm) {
     if (tm->GetCoeff_() > 0)
         os << " + " << tm->GetCoeff_();
     else
@@ -61,8 +61,8 @@ std::ostream& operator<<(std::ostream &os, TMonom * tm) {
     return os;
 }
 
-TMonom TMonom::operator*(TMonom mon) {
-    TMonom* that = new TMonom(0, 0, 0, 0);
+Monom Monom::operator*(Monom mon) {
+    Monom* that = new Monom(0, 0, 0, 0);
     that->Coeff_ = this->Coeff_ * mon.Coeff_;
     that->SetIndexX(this->GetIndexX() + mon.GetIndexX());
     that->SetIndexY(this->GetIndexY() + mon.GetIndexY());
@@ -70,17 +70,17 @@ TMonom TMonom::operator*(TMonom mon) {
     return *that;
 }
 
-bool TMonom::operator==(const TMonom &tm) {
+bool Monom::operator==(const Monom &tm) {
     return ((Coeff_ == tm.Coeff_) && (XInd_ == tm.XInd_)
         && (YInd_ == tm.YInd_) && (ZInd_ == tm.ZInd_));
 }
 
-bool TMonom::EqualityExponent(TMonom tm) {
+bool Monom::EqualityExponent(Monom tm) {
     return (XInd_ == tm.XInd_) && (YInd_ == tm.YInd_)
         && (ZInd_ == tm.ZInd_);
 }
 
-bool TMonom::operator<(TMonom tm) {  //  prioritet x > y > z
+bool Monom::operator<(Monom tm) {  //  prioritet x > y > z
     if (EqualityExponent(tm)) return false;
     if (XInd_ > tm.XInd_)
         return false;
@@ -97,7 +97,7 @@ bool TMonom::operator<(TMonom tm) {  //  prioritet x > y > z
     return true;
 }
 
-bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
+bool Monom::operator>(Monom tm) {  //  prioritet x > y > z
     if (EqualityExponent(tm)) return false;
     if (XInd_ < tm.XInd_)
         return false;
@@ -114,6 +114,6 @@ bool TMonom::operator>(TMonom tm) {  //  prioritet x > y > z
     return true;
 }
 
-Value* TMonom::GetCopy() {
-    return new TMonom(Coeff_, XInd_, YInd_, ZInd_);
+Value* Monom::GetCopy() {
+    return new Monom(Coeff_, XInd_, YInd_, ZInd_);
 }

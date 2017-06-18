@@ -1,6 +1,6 @@
 // Copyright 2017 Ivan Kiselev
 #include "../3rdparty/gtest/gtest.h"
-#include "../include/TPolinoms.h"
+#include "../include/Polinom.h"
 
 TEST(RootLink, Set_Next_Link_test) {
     Link sec(NULL);
@@ -74,328 +74,328 @@ TEST(Link, Get_Next_DatLink) {
     ASSERT_EQ(&dl2, dl1.GetNexLink());
 }
 
-TEST(TMonom, Equal) {
-    TMonom first(10, 20);
-    TMonom second(10, 20);
+TEST(Monom, Equal) {
+    Monom first(10, 20);
+    Monom second(10, 20);
 
     ASSERT_TRUE(first == second);
 }
 
-TEST(TMonom, Not_equal) {
-    TMonom first(10, 20);
-    TMonom second(10, 25);
+TEST(Monom, Not_equal) {
+    Monom first(10, 20);
+    Monom second(10, 25);
 
     ASSERT_TRUE(!(first == second));
 }
 
-TEST(TMonom, EqualityExponent_1) {
-    TMonom* first = new TMonom(5, 1, 4, 3);
-    TMonom* second = new TMonom(7, 1, 4, 3);
+TEST(Monom, EqualityExponent_1) {
+    Monom* first = new Monom(5, 1, 4, 3);
+    Monom* second = new Monom(7, 1, 4, 3);
 
     ASSERT_TRUE(first->EqualityExponent(*second));
 }
 
-TEST(TMonom, EqualityExponent_2) {
-    TMonom* first = new TMonom(5, 1, 4, 3);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, EqualityExponent_2) {
+    Monom* first = new Monom(5, 1, 4, 3);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(first->EqualityExponent(*second));
 }
 
-TEST(TMonom, Comparison_of_monomials_1) {
-    TMonom* first = new TMonom(5, 1, 4, 3);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_1) {
+    Monom* first = new Monom(5, 1, 4, 3);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_TRUE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_2) {
-    TMonom* first = new TMonom(5, 1, 3, 3);
-    TMonom* second = new TMonom(7, 1, 4, 4);
+TEST(Monom, Comparison_of_monomials_2) {
+    Monom* first = new Monom(5, 1, 3, 3);
+    Monom* second = new Monom(7, 1, 4, 4);
 
     ASSERT_FALSE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_3) {
-    TMonom* first = new TMonom(5, 1, 3, 3);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_3) {
+    Monom* first = new Monom(5, 1, 3, 3);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_4) {
-    TMonom* first = new TMonom(5, 1, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 3);
+TEST(Monom, Comparison_of_monomials_4) {
+    Monom* first = new Monom(5, 1, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 3);
 
     ASSERT_TRUE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_5) {
-    TMonom* first = new TMonom(5, 2, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_5) {
+    Monom* first = new Monom(5, 2, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_TRUE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_6) {
-    TMonom* first = new TMonom(5, 0, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_6) {
+    Monom* first = new Monom(5, 0, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_7) {
-    TMonom* first = new TMonom(5, 1, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_7) {
+    Monom* first = new Monom(5, 1, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second < *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_21) {
-    TMonom* first = new TMonom(5, 1, 4, 3);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_21) {
+    Monom* first = new Monom(5, 1, 4, 3);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_22) {
-    TMonom* first = new TMonom(5, 1, 3, 3);
-    TMonom* second = new TMonom(7, 1, 4, 4);
+TEST(Monom, Comparison_of_monomials_22) {
+    Monom* first = new Monom(5, 1, 3, 3);
+    Monom* second = new Monom(7, 1, 4, 4);
 
     ASSERT_TRUE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_23) {
-    TMonom* first = new TMonom(5, 1, 3, 3);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_23) {
+    Monom* first = new Monom(5, 1, 3, 3);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_TRUE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_24) {
-    TMonom* first = new TMonom(5, 1, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 3);
+TEST(Monom, Comparison_of_monomials_24) {
+    Monom* first = new Monom(5, 1, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 3);
 
     ASSERT_FALSE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_25) {
-    TMonom* first = new TMonom(5, 2, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_25) {
+    Monom* first = new Monom(5, 2, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_26) {
-    TMonom* first = new TMonom(5, 0, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_26) {
+    Monom* first = new Monom(5, 0, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_TRUE(*second > *first);
 }
 
-TEST(TMonom, Comparison_of_monomials_27) {
-    TMonom* first = new TMonom(5, 1, 3, 4);
-    TMonom* second = new TMonom(7, 1, 3, 4);
+TEST(Monom, Comparison_of_monomials_27) {
+    Monom* first = new Monom(5, 1, 3, 4);
+    Monom* second = new Monom(7, 1, 3, 4);
 
     ASSERT_FALSE(*second > *first);
 }
 
-TEST(TMonom, multiplication_Monom) {
-    TMonom first(3, 1, 3, 5);
-    TMonom second(4, 0, -3, 1);
-    TMonom result(12, 1, 0, 6);
+TEST(Monom, multiplication_Monom) {
+    Monom first(3, 1, 3, 5);
+    Monom second(4, 0, -3, 1);
+    Monom result(12, 1, 0, 6);
 
     first = first * second;
 
     ASSERT_TRUE(result == first);
 }
 
-TEST(THeadRing, Ins_First) {
+TEST(Head, Ins_First) {
     int size = 1;
     int res_size = 2;
     int mon[][4] = { { 1, 0, 0, 3 } };
     int resmon[][4] = { { 2, 1, 0, 0 } , { 1, 0, 0, 3 } };
-    TMonom Mon(2, 1, 0, 0);
-    TPolinom old(mon, size);
-    TPolinom res(resmon, res_size);
+    Monom Mon(2, 1, 0, 0);
+    Polinom old(mon, size);
+    Polinom res(resmon, res_size);
     old.InsFirst(dynamic_cast<PValue> (&Mon));
 
     ASSERT_TRUE(old == &res);
 }
 
-TEST(THeadRing, Del_First) {
+TEST(Head, Del_First) {
     int size = 2;
     int res_size = 1;
     int mon[][4] = { { 2, 1, 0, 0 } , { 1, 0, 0, 3 } };
     int resmon[][4] = { { 1, 0, 0, 3 } };
-    TPolinom old(mon, size);
-    TPolinom res(resmon, res_size);
+    Polinom old(mon, size);
+    Polinom res(resmon, res_size);
     old.DelFirst();
 
     ASSERT_TRUE(old == &res);
 }
 
-TEST(TPolinom, Auto_Equal) {
+TEST(Polinom, Auto_Equal) {
     int size = 1;
     int mon[][4] = { { 1, 0, 0, 3 } };
-    TPolinom old(mon, size);
+    Polinom old(mon, size);
 
     ASSERT_TRUE(old == &old);
 }
 
-TEST(TPolinom, can_compare_the_polynoms) {
+TEST(Polinom, can_compare_the_polynoms) {
     int size = 3;
     int mon[][4] = { { 2, 1, 0, 0 } , { 2, 0, 0, 4 } , { 1, 0, 0, 3 } };
-    TPolinom Pol1(mon, size);
-    TPolinom Pol2(mon, size);
+    Polinom Pol1(mon, size);
+    Polinom Pol2(mon, size);
 
     ASSERT_TRUE(Pol1 == &Pol2);
 }
 
-TEST(TPolinom, can_copy_polinoms) {
+TEST(Polinom, can_copy_polinoms) {
     const int size = 2;
     int mon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } };
-    TPolinom Pol1(mon, size);
-    TPolinom Pol2(Pol1);
+    Polinom Pol1(mon, size);
+    Polinom Pol2(Pol1);
 
     ASSERT_TRUE(Pol1 == &Pol2);
 }
 
-TEST(TPolinom, can_assign_polynoms) {
+TEST(Polinom, can_assign_polynoms) {
     const int size = 2;
     int mon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } };
-    TPolinom Pol1(mon, size);
-    TPolinom Pol2;
+    Polinom Pol1(mon, size);
+    Polinom Pol2;
 
     Pol2 = &Pol1;
 
     ASSERT_TRUE(Pol1 == &Pol2);
 }
 
-TEST(TPolinom, can_assign_empty_polynom) {
-    TPolinom Pol1;
-    TPolinom Pol2;
+TEST(Polinom, can_assign_empty_polynom) {
+    Polinom Pol1;
+    Polinom Pol2;
 
     Pol2 = &Pol1;
 
     ASSERT_TRUE(Pol1 == &Pol2);
 }
 
-TEST(TPolinom, can_add_Monom_1) {
+TEST(Polinom, can_add_Monom_1) {
     const int Size = 2;
     const int resSize = 3;
     int Mon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } };
     int resMon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } , { 10, 0, 0, 2 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(10, 0, 0, 2);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(10, 0, 0, 2);
+    Polinom res(resMon, resSize);
 
     Pol.AddMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_add_Monom_2) {
+TEST(Polinom, can_add_Monom_2) {
     const int Size = 2;
     const int resSize = 1;
     int Mon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } };
     int resMon[][4] = { { 2, 0, 0, 4 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(-5, 0, 0, 3);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(-5, 0, 0, 3);
+    Polinom res(resMon, resSize);
 
     Pol.AddMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_add_Monom_3) {
+TEST(Polinom, can_add_Monom_3) {
     const int Size = 2;
     const int resSize = 2;
     int Mon[][4] = { { 2, 0, 0, 4 } , { 5, 0, 0, 3 } };
     int resMon[][4] = { { 6, 0, 0, 4 } , { 5, 0, 0, 3 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(4, 0, 0, 4);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(4, 0, 0, 4);
+    Polinom res(resMon, resSize);
 
     Pol.AddMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_add_Monom_4) {
+TEST(Polinom, can_add_Monom_4) {
     const int Size = 2;
     const int resSize = 3;
     int Mon[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } , { 1, 0, 0, 1 } };
     int resMon[][4] = { { 2, 0, 0, 5 } , { 1, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { 1, 0, 0, 1 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(5, 0, 0, 2);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(5, 0, 0, 2);
+    Polinom res(resMon, resSize);
 
     Pol.AddMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_subtract_Monom_1) {
+TEST(Polinom, can_subtract_Monom_1) {
     const int Size = 2;
     const int resSize = 2;
     int Mon[][4] = { { 4, 0, 0, 5 } , { 5, 0, 0, 4 } };
     int resMon[][4] = { { 4, 0, 0, 5 } , { 2, 0, 0, 4 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(3, 0, 0, 4);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(3, 0, 0, 4);
+    Polinom res(resMon, resSize);
 
     Pol.SubMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_subtract_Monom_2) {
+TEST(Polinom, can_subtract_Monom_2) {
     const int Size = 2;
     const int resSize = 2;
     int Mon[][4] = { { 4, 0, 0, 5 } , { 3, 0, 0, 4 } };
     int resMon[][4] = { { 1, 0, 0, 5 } , { 3, 0, 0, 4 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(3, 0, 0, 5);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(3, 0, 0, 5);
+    Polinom res(resMon, resSize);
 
     Pol.SubMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_subtract_Monom_3) {
+TEST(Polinom, can_subtract_Monom_3) {
     const int Size = 3;
     const int resSize = 2;
     int Mon[][4] = { { 4, 0, 0, 5 } , { 3, 0, 0, 4 } , { 2 , 0 , 0 , 2 } };
     int resMon[][4] = { { 4, 0, 0, 5 } , { 2, 0, 0, 2 } };
-    TPolinom Pol(Mon, Size);
-    TMonom monom(3, 0, 0, 4);
-    TPolinom res(resMon, resSize);
+    Polinom Pol(Mon, Size);
+    Monom monom(3, 0, 0, 4);
+    Polinom res(resMon, resSize);
 
     Pol.SubMonom(&monom);
 
     ASSERT_TRUE(res == &Pol);
 }
 
-TEST(TPolinom, can_add_up_linear_polynoms) {
+TEST(Polinom, can_add_up_linear_polynoms) {
     const int size = 1;
     const int ASSERTed_size = 1;
     int mon1[][4] = { { 2, 0, 0, 1 } };
     int mon2[][4] = { { 1, 0, 0, 1 } };
     int ASSERTed_mon[][4] = { { 3, 0, 0, 1 } };
-    TPolinom Pol1(mon1, size);
-    TPolinom Pol2(mon2, size);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size);
+    Polinom Pol2(mon2, size);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol1 + &Pol2;
+    Polinom Pol = Pol1 + &Pol2;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, can_add_up_simple_polynoms_A_plus_B) {
+TEST(Polinom, can_add_up_simple_polynoms_A_plus_B) {
     const int size1 = 3;
     const int size2 = 4;
     const int ASSERTed_size = 4;
@@ -405,16 +405,16 @@ TEST(TPolinom, can_add_up_simple_polynoms_A_plus_B) {
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { 1, 0, 0, 1 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol1 + &Pol2;
+    Polinom Pol = Pol1 + &Pol2;
 
     ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
-TEST(TPolinom, can_add_up_simple_polynoms_B_plus_A) {
+TEST(Polinom, can_add_up_simple_polynoms_B_plus_A) {
     const int size1 = 3;
     const int size2 = 4;
     const int ASSERTed_size = 4;
@@ -424,16 +424,16 @@ TEST(TPolinom, can_add_up_simple_polynoms_B_plus_A) {
     { -8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { 1, 0, 0, 1 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol2 + &Pol1;
+    Polinom Pol = Pol2 + &Pol1;
 
     ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
-TEST(TPolinom, can_add_up_polynoms) {
+TEST(Polinom, can_add_up_polynoms) {
     const int size1 = 5;
     const int size2 = 4;
     const int ASSERTed_size = 6;
@@ -444,16 +444,16 @@ TEST(TPolinom, can_add_up_polynoms) {
     int ASSERTed_mon[][4] = { { 10, 9, 9, 9 } , { 20, 7, 0, 2 } ,
     { -20, 5, 0, 0 } , { 10, 4, 3, 2 } , { 5, 2, 1, 3 } ,
     { 15, 0, 0, 0 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol1 + &Pol2;
+    Polinom Pol = Pol1 + &Pol2;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, can_add_up_many_polynoms_1) {
+TEST(Polinom, can_add_up_many_polynoms_1) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
@@ -466,18 +466,18 @@ TEST(TPolinom, can_add_up_many_polynoms_1) {
     { 10, 0, 0, 0 } };
     int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom Pol3(mon3, size3);
-    TPolinom Pol;
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom Pol3(mon3, size3);
+    Polinom Pol;
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol1 + &Pol2 + &Pol3;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, can_add_up_many_polynoms_2) {
+TEST(Polinom, can_add_up_many_polynoms_2) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
@@ -490,18 +490,18 @@ TEST(TPolinom, can_add_up_many_polynoms_2) {
     { 10, 0, 0, 0 } };
     int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom Pol3(mon3, size3);
-    TPolinom Pol;
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom Pol3(mon3, size3);
+    Polinom Pol;
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol2 + &Pol3 + &Pol1;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, can_add_up_many_polynoms_3) {
+TEST(Polinom, can_add_up_many_polynoms_3) {
     const int size1 = 3;
     const int size2 = 4;
     const int size3 = 3;
@@ -514,18 +514,18 @@ TEST(TPolinom, can_add_up_many_polynoms_3) {
     { 10, 0, 0, 0 } };
     int ASSERTed_mon[][4] = { { 10, 0, 0, 5 } , { 10, 0, 0, 4 } ,
     { 2, 0, 0, 3 } , { 5, 0, 0, 2 } , { 1, 0, 0, 1 } , { 10, 0, 0, 0 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom Pol3(mon3, size3);
-    TPolinom Pol;
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom Pol3(mon3, size3);
+    Polinom Pol;
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
     Pol = Pol2 + &Pol1 + &Pol3;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, can_subtract_simple_polinom) {
+TEST(Polinom, can_subtract_simple_polinom) {
     int size1 = 3;
     int size2 = 1;
     int res_size = 3;
@@ -534,10 +534,10 @@ TEST(TPolinom, can_subtract_simple_polinom) {
     int mon2[][4] = { { 7, 0, 0, 4 } };
     int resmon[][4] = { { 2, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { 5, 0, 0, 2 } };
-    TPolinom first(mon1, size1);
-    TPolinom second(mon2, size2);
-    TPolinom third(mon1, size1);
-    TPolinom res(resmon, res_size);
+    Polinom first(mon1, size1);
+    Polinom second(mon2, size2);
+    Polinom third(mon1, size1);
+    Polinom res(resmon, res_size);
 
     first = first - &second;
 
@@ -545,7 +545,7 @@ TEST(TPolinom, can_subtract_simple_polinom) {
 }
 
 
-TEST(TPolinom, can_subtract_polinom) {
+TEST(Polinom, can_subtract_polinom) {
     int size1 = 3;
     int res_size = 2;
     int mon1[][4] = { { 9, 0, 0, 4 } , { 8, 0, 0, 3 } ,
@@ -553,16 +553,16 @@ TEST(TPolinom, can_subtract_polinom) {
     int mon2[][4] = { { 7, 0, 0, 4 } , { 8, 0, 0, 3 } ,
     { -2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 4 } , { 7, 0, 0, 2 } };
-    TPolinom first(mon1, size1);
-    TPolinom second(mon2, size1);
-    TPolinom res(resmon, res_size);
+    Polinom first(mon1, size1);
+    Polinom second(mon2, size1);
+    Polinom res(resmon, res_size);
 
     first = first - &second;
 
     ASSERT_TRUE(res == &first);
 }
 
-TEST(TPolinom, can_subtract_up_simple_polynoms_A_minus_B) {
+TEST(Polinom, can_subtract_up_simple_polynoms_A_minus_B) {
     const int size1 = 3;
     const int size2 = 4;
     const int ASSERTed_size = 4;
@@ -572,16 +572,16 @@ TEST(TPolinom, can_subtract_up_simple_polynoms_A_minus_B) {
     { 8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int ASSERTed_mon[][4] = { { -2, 0, 0, 5 } , { 2, 0, 0, 4 } ,
     { 5, 0, 0, 2 } , { -1, 0, 0, 1 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol1 - &Pol2;
+    Polinom Pol = Pol1 - &Pol2;
 
     ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
-TEST(TPolinom, can_subtract_up_simple_polynoms_B_minus_A) {
+TEST(Polinom, can_subtract_up_simple_polynoms_B_minus_A) {
     const int size1 = 3;
     const int size2 = 4;
     const int ASSERTed_size = 4;
@@ -591,16 +591,16 @@ TEST(TPolinom, can_subtract_up_simple_polynoms_B_minus_A) {
     { 8, 0, 0, 3 } , { 1, 0, 0, 1 } };
     int ASSERTed_mon[][4] = { { 2, 0, 0, 5 } , { -2, 0, 0, 4 } ,
     { -5, 0, 0, 2 } , { 1, 0, 0, 1 } };
-    TPolinom Pol1(mon1, size1);
-    TPolinom Pol2(mon2, size2);
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom Pol1(mon1, size1);
+    Polinom Pol2(mon2, size2);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol2 - &Pol1;
+    Polinom Pol = Pol2 - &Pol1;
 
     ASSERT_TRUE(ASSERTed_Pol == &Pol);
 }
 
-TEST(TPolinom, can_subtract_up_polynoms) {
+TEST(Polinom, can_subtract_up_polynoms) {
     const int size1 = 5;
     const int size2 = 4;
     const int ASSERTed_size = 6;
@@ -611,18 +611,18 @@ TEST(TPolinom, can_subtract_up_polynoms) {
     int ASSERTed_mon[][4] = { { 10, 9, 9, 9 } , { -20, 7, 0, 2 } ,
     { -22, 5, 0, 0 } , { 10, 4, 3, 2 } , { 5, 2, 1, 3 } , { -15, 0, 0, 0 } };
     // 5x^2yz^3+8x^3y^2z+10x^4y^3z^2-21x^5+10x^9y^9z^9
-    TPolinom Pol1(mon1, size1);
+    Polinom Pol1(mon1, size1);
     // 15-8x^3y^2z+x^5+20x^7z^2
-    TPolinom Pol2(mon2, size2);
+    Polinom Pol2(mon2, size2);
     // 15+5x^2yz^3+10x^4y^3z^2-20x^5+20x^7z^2+10x^9y^9z^9
-    TPolinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
+    Polinom ASSERTed_Pol(ASSERTed_mon, ASSERTed_size);
 
-    TPolinom Pol = Pol1 - &Pol2;
+    Polinom Pol = Pol1 - &Pol2;
 
     ASSERT_TRUE(Pol == &ASSERTed_Pol);
 }
 
-TEST(TPolinom, multiplication_with_simple_polinom) {
+TEST(Polinom, multiplication_with_simple_polinom) {
     int size1 = 4;
     int size2 = 1;
     int mon1[][4] = { { 5, 3, 0, 6 } , { 4, 2, 4, 3 } ,
@@ -631,18 +631,18 @@ TEST(TPolinom, multiplication_with_simple_polinom) {
     // 5*x^3*z^6 + 4*x^2*y^4*z^4 + 10*x^2*y^3*z^5 + 10
     int resMon[][4] = { { 10, 4, 1, 7 } , { 8, 3, 5, 4 } ,
     { 20, 3, 4, 6 } , { 20, 1, 1, 1 } };
-    TPolinom first(mon1, size1);
+    Polinom first(mon1, size1);
     // (2*x*y*z)
-    TPolinom second(mon2, size2);
-    TPolinom result(resMon, size1);
-    TPolinom answer;
+    Polinom second(mon2, size2);
+    Polinom result(resMon, size1);
+    Polinom answer;
 
     answer = (first * &second);
 
     ASSERT_TRUE(result == &answer);
 }
 
-TEST(TPolinom, multiplication_with_big_polinom_4x4) {
+TEST(Polinom, multiplication_with_big_polinom_4x4) {
     int size = 4;
     int res_size = 16;
     int mon1[][4] = { { 5, 3, 0, 6 } , { 5, 2, 4, 3 } ,
@@ -660,10 +660,10 @@ TEST(TPolinom, multiplication_with_big_polinom_4x4) {
         { 120, 4, 6, 1 } , { 30, 4, 2, 0 }
     };
     // 5*x^3*z^6 + 5*x^2*y^4*z^3 + 10*x^2*y^3*z^5 + 10
-    TPolinom first(mon1, size);
+    Polinom first(mon1, size);
     // 2*x^7*y^5*z^6 + 7*x^5*y^3*z^8 + 12*x^4*y^6*z + 3*x^4*y^2
-    TPolinom second(mon2, size);
-    TPolinom result(res_Mon, res_size);
+    Polinom second(mon2, size);
+    Polinom result(res_Mon, res_size);
 
     ASSERT_TRUE(result == &(first * &second));
 }
@@ -675,8 +675,8 @@ TEST(List, DelCurrent) {
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
     int ressize = 1;
-    TPolinom pol(mon, size);
-    TPolinom res(resmon, ressize);
+    Polinom pol(mon, size);
+    Polinom res(resmon, ressize);
 
     pol.Reset();
     pol.DelCurrent();
@@ -684,63 +684,63 @@ TEST(List, DelCurrent) {
     ASSERT_TRUE(pol == &res);
 }
 
-TEST(TMonom, cout_test1) {
-    TMonom* mon = new TMonom(2, 1, 1, 1);
+TEST(Monom, cout_test1) {
+    Monom* mon = new Monom(2, 1, 1, 1);
     GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TMonom, cout_test2) {
-    TMonom* mon = new TMonom(-2, 1, 1, 1);
+TEST(Monom, cout_test2) {
+    Monom* mon = new Monom(-2, 1, 1, 1);
     GTEST_TEST_NO_FATAL_FAILURE_(std::cout << mon, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TMonom, Equality1) {
-    TMonom* mon1 = new TMonom(2, 1, 1, 1);
-    TMonom* mon2 = new TMonom(3, 1, 1, 5);
+TEST(Monom, Equality1) {
+    Monom* mon1 = new Monom(2, 1, 1, 1);
+    Monom* mon2 = new Monom(3, 1, 1, 5);
 
     bool res = (*mon2 < *mon1);
 
     ASSERT_FALSE(res);
 }
 
-TEST(TMonom, Equality2) {
-    TMonom* mon1 = new TMonom(2, 1, 1, 1);
-    TMonom* mon2 = new TMonom(3, 1, 1, 5);
+TEST(Monom, Equality2) {
+    Monom* mon1 = new Monom(2, 1, 1, 1);
+    Monom* mon2 = new Monom(3, 1, 1, 5);
 
     bool res = (*mon1 > *mon2);
 
     ASSERT_FALSE(res);
 }
 
-TEST(TPolinom, Assignment_to_a_nonzero_polynom) {
+TEST(Polinom, Assignment_to_a_nonzero_polynom) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int mon2[][4] = { { 1, 0, 1, 0 } , { 3, 0, 0, 2 } };
     int size = 2;
-    TPolinom pol(mon, size);
-    TPolinom pol2(mon2, size);
+    Polinom pol(mon, size);
+    Polinom pol2(mon2, size);
 
     pol2 = pol;
 
     ASSERT_TRUE(pol == &pol2);
 }
 
-TEST(TPolinom, Not_Equal_polinoms1) {
+TEST(Polinom, Not_Equal_polinoms1) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int resmon[][4] = { { 2, 0, 0, 2 } };
     int size = 2;
     int ressize = 1;
-    TPolinom pol(mon, size);
-    TPolinom pol2(resmon, ressize);
+    Polinom pol(mon, size);
+    Polinom pol2(resmon, ressize);
 
     ASSERT_FALSE(pol == &pol2);
 }
 
-TEST(TPolinom, Not_Equal_polinoms2) {
+TEST(Polinom, Not_Equal_polinoms2) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 0, 2 } , { 10, 0, 0, 1 } };
     int size = 2;
-    TPolinom pol(mon, size);
-    TPolinom pol2(mon2, size);
+    Polinom pol(mon, size);
+    Polinom pol2(mon2, size);
     bool result;
 
     result = (pol == &pol2);
@@ -748,16 +748,16 @@ TEST(TPolinom, Not_Equal_polinoms2) {
     ASSERT_FALSE(result);
 }
 
-TEST(TPolinom, cout_polinom) {
+TEST(Polinom, cout_polinom) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int size = 2;
-    TPolinom pol(mon, size);
+    Polinom pol(mon, size);
 
     GTEST_TEST_NO_FATAL_FAILURE_(std::cout << pol, GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(THeadRing, can_create_THeadRing) {
-    GTEST_TEST_NO_FATAL_FAILURE_(THeadRing thead, GTEST_NONFATAL_FAILURE_);
+TEST(Head, can_create_Head) {
+    GTEST_TEST_NO_FATAL_FAILURE_(Head thead, GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(RootLink, can_create_RootLink) {
@@ -788,30 +788,30 @@ TEST(List, list_ended) {
 TEST(Link, SeValue_and_GeValue_and_GetNexLink) {
     Link MyLink;
     Link MyLink2(NULL, &MyLink);
-    TMonom mon(1, 0, 0, 0);
+    Monom mon(1, 0, 0, 0);
 
     MyLink.SeValue(reinterpret_cast<Value*> (&mon));
 
-    ASSERT_TRUE(mon == *(reinterpret_cast<TMonom*> (MyLink.GeValue())));
+    ASSERT_TRUE(mon == *(reinterpret_cast<Monom*> (MyLink.GeValue())));
     ASSERT_TRUE(&MyLink == MyLink2.GetNexLink());
 }
 
-TEST(TPolinom, mylt_on_int) {
+TEST(Polinom, mylt_on_int) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int mon2[][4] = { { 2, 0, 1, 0 } , { 4, 0, 0, 2 } };
     int size = 2;
-    TPolinom pol(mon, size);
-    TPolinom res(mon2, size);
+    Polinom pol(mon, size);
+    Polinom res(mon2, size);
 
     pol = pol * size;
 
     ASSERT_TRUE(pol == &res);
 }
 
-TEST(THeadRing, THeadRing_destructor) {
-    THeadRing THR;
+TEST(Head, Head_destructor) {
+    Head THR;
 
-    GTEST_TEST_NO_FATAL_FAILURE_(THR.~THeadRing(), GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(THR.~Head(), GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(List, List_IsEmpty) {
@@ -829,16 +829,16 @@ TEST(List, List_destructor) {
     GTEST_TEST_NO_FATAL_FAILURE_(list.~List(), GTEST_NONFATAL_FAILURE_);
 }
 
-TEST(TMonom, TMonom_destructor) {
-    TMonom monom(1, 0, 0, 0);
+TEST(Monom, Monom_destructor) {
+    Monom monom(1, 0, 0, 0);
 
-    GTEST_TEST_NO_FATAL_FAILURE_(monom.~TMonom(), GTEST_NONFATAL_FAILURE_);
+    GTEST_TEST_NO_FATAL_FAILURE_(monom.~Monom(), GTEST_NONFATAL_FAILURE_);
 }
 
 TEST(Link, Link_functional) {
     Link link2;
     Link link(NULL, &link2);
-    TMonom monom(1, 0, 0, 0);
+    Monom monom(1, 0, 0, 0);
     PValue pVal = reinterpret_cast<PValue> (&monom);
 
     link.SeValue(pVal);
@@ -849,7 +849,7 @@ TEST(Link, Link_functional) {
 TEST(List, GetLength) {
     int mon[][4] = { { 1, 0, 1, 0 } , { 2, 0, 0, 2 } };
     int size = 2;
-    TPolinom pol(mon, size);
+    Polinom pol(mon, size);
 
     ASSERT_EQ(pol.GetListLength() , 2);
 }
