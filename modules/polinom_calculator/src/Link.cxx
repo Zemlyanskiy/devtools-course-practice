@@ -1,18 +1,18 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/Link.h"
 
-Link::Link(PValue pVal, PRootLink pN) : RootLink(pN) {
-    pvalue_ = pVal;
+Link::Link(PValue pval, PRootLink pn) : RootLink(pn) {
+    pvalue_ = pval;
 }
 
 Link::Link(const Link &val) : RootLink(val.pnext_) {
-    pvalue_ = val.pvalue_;
+	pvalue_ = val.pvalue_;
 }
 
 Link::~Link() {}
 
-void Link::SetValue(PValue pVal) {
-    pvalue_ = pVal;
+void Link::SetValue(PValue pval) {
+	pvalue_ = pval;
 }
 
 PValue Link::GetValue() {

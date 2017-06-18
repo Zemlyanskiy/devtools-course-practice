@@ -4,10 +4,10 @@
 #include "RootLink.h"
 class Link : public RootLink {
  public:
-     explicit Link(PValue pVal = NULL, PRootLink pN = NULL);
+     explicit Link(PValue pval = NULL, PRootLink pn = NULL);
      Link(const Link &Link);
      ~Link();
-     virtual void SetValue(PValue pVal);
+     virtual void SetValue(PValue pval);
      virtual PValue GetValue();
      Link* GetNexLink();
     friend class List;

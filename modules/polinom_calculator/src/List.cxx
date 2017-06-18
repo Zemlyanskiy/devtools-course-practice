@@ -1,7 +1,7 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/List.h"
-PLink List::GetLink(PValue pVal, PLink pLink) {
-    return new Link(pVal, pLink);
+PLink List::GetLink(PValue pval, PLink plink) {
+    return new Link(pval, plink);
 }
 
 PValue List::GetValue() {
@@ -67,29 +67,29 @@ int List::GoNext(void) {
     return 0;
 }
 
-void List::InsFirst(PValue pVal) {
-    pfirst = GetLink(pVal, pfirst);
+void List::InsFirst(PValue pval) {
+    pfirst = GetLink(pval, pfirst);
     listlen++;
 }
 
-void List::InsLast(PValue pVal) {
+void List::InsLast(PValue pval) {
     if (pfirst->pvalue_ == NULL) {
-        InsFirst(pVal);
+        InsFirst(pval);
     } else {
         while (GoNext() != 1) {}
-        pprevlink->SetNextLink(GetLink(pVal, plast));
+        pprevlink->SetNextLink(GetLink(pval, plast));
         pcurrlink = pprevlink->GetNexLink();
         listlen++;
     }
 }
 
-void List::InsCurrent(PValue pVal) {
+void List::InsCurrent(PValue pval) {
     if (pprevlink != NULL) {
-        pprevlink->SetNextLink(GetLink(pVal, pcurrlink));
+        pprevlink->SetNextLink(GetLink(pval, pcurrlink));
         pcurrlink = pprevlink->GetNexLink();
         listlen++;
     } else {
-        InsFirst(pVal);
+        InsFirst(pval);
     }
 }
 

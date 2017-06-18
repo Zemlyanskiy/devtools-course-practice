@@ -7,7 +7,7 @@
 class Head : public List {
  public:
     Head();
-    virtual void InsFirst(PValue pVal = NULL);
+    virtual void InsFirst(PValue pval = NULL);
     virtual void DelFirst(void);
 
  protected:

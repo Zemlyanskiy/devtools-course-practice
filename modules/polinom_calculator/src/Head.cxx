@@ -7,8 +7,8 @@ Head::Head() {
     plast->SetNextLink(phead_);
 }
 
-void Head::InsFirst(PValue pVal) {
-    List::InsFirst(pVal);
+void Head::InsFirst(PValue pval) {
+    List::InsFirst(pval);
     phead_->SetNextLink(pfirst);
     if (pcurrlink == pfirst->GetNexLink()) {
         pprevlink = pfirst;

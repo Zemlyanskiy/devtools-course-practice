@@ -1,11 +1,11 @@
 //  Copyright 2017 Ivan Kiselev
 #include "../include/RootLink.h"
-RootLink::RootLink(PRootLink pN) {
-    pnext_ = pN;
+RootLink::RootLink(PRootLink pn) {
+    pnext_ = pn;
 }
 
-void RootLink::SetNextLink(PRootLink pLink) {
-    pnext_ = pLink;
+void RootLink::SetNextLink(PRootLink plink) {
+    pnext_ = plink;
 }
 
 RootLink::~RootLink() {}
@@ -14,8 +14,8 @@ PRootLink RootLink::GetNextLink() {
     return pnext_;
 }
 
-void RootLink::InsNextLink(PRootLink pLink) {
+void RootLink::InsNextLink(PRootLink plink) {
     PRootLink p = pnext_;
-    pnext_ = pLink;
-    if (pLink != NULL) pLink->pnext_ = p;
+    pnext_ = plink;
+    if (plink != NULL) plink->pnext_ = p;
 }
