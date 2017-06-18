@@ -33,7 +33,7 @@ List::List(const List &list) {
         that = that->GetNexLink();
         GoNext();
     }
-    plast = new Link(that->GeValue(), that->pnext_);
+    plast = new Link(that->GetValue(), that->pnext_);
     listlen = k;
 }
 

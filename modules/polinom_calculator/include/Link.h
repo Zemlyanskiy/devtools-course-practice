@@ -7,8 +7,8 @@ class Link : public RootLink {
      explicit Link(PValue pVal = NULL, PRootLink pN = NULL);
      Link(const Link &Link);
      ~Link();
-     virtual void SeValue(PValue pVal);
-     virtual PValue GeValue();
+     virtual void SetValue(PValue pVal);
+     virtual PValue GetValue();
      Link* GetNexLink();
     friend class List;
 

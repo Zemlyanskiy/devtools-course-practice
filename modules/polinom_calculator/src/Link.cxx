@@ -11,11 +11,11 @@ Link::Link(const Link &val) : RootLink(val.pnext_) {
 
 Link::~Link() {}
 
-void Link::SeValue(PValue pVal) {
+void Link::SetValue(PValue pVal) {
     pvalue_ = pVal;
 }
 
-PValue Link::GeValue() {
+PValue Link::GetValue() {
     return pvalue_;
 }
 

@@ -13,8 +13,8 @@ class RootLink {
     PRootLink GetNextLink();
     void SetNextLink(PRootLink pLink);
     void InsNextLink(PRootLink pLink);
-    virtual void SeValue(PValue pVal) = 0;
-    virtual PValue GeValue() = 0;
+    virtual void SetValue(PValue pVal) = 0;
+    virtual PValue GetValue() = 0;
     friend class List;
 
  protected:

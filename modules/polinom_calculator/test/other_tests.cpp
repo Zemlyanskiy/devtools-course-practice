@@ -53,16 +53,16 @@ TEST(Link, Set_DatLalue) {
     PValue pdv = NULL;
     Link dl(NULL, NULL);
 
-    ASSERT_NO_FATAL_FAILURE(dl.SeValue(pdv));
+    ASSERT_NO_FATAL_FAILURE(dl.SetValue(pdv));
 }
 
 TEST(Link, Get_DatValue) {
     PValue pdv = NULL;
     Link dl;
 
-    dl.SeValue(pdv);
+    dl.SetValue(pdv);
 
-    ASSERT_EQ(dl.GeValue(), pdv);
+    ASSERT_EQ(dl.GetValue(), pdv);
 }
 
 TEST(Link, Get_Next_DatLink) {
@@ -785,14 +785,14 @@ TEST(List, list_ended) {
     ASSERT_EQ(1, i);
 }
 
-TEST(Link, SeValue_and_GeValue_and_GetNexLink) {
+TEST(Link, SetValue_and_GetValue_and_GetNexLink) {
     Link MyLink;
     Link MyLink2(NULL, &MyLink);
     Monom mon(1, 0, 0, 0);
 
-    MyLink.SeValue(reinterpret_cast<Value*> (&mon));
+    MyLink.SetValue(reinterpret_cast<Value*> (&mon));
 
-    ASSERT_TRUE(mon == *(reinterpret_cast<Monom*> (MyLink.GeValue())));
+    ASSERT_TRUE(mon == *(reinterpret_cast<Monom*> (MyLink.GetValue())));
     ASSERT_TRUE(&MyLink == MyLink2.GetNexLink());
 }
 
@@ -841,9 +841,9 @@ TEST(Link, Link_functional) {
     Monom monom(1, 0, 0, 0);
     PValue pVal = reinterpret_cast<PValue> (&monom);
 
-    link.SeValue(pVal);
+    link.SetValue(pVal);
 
-    ASSERT_TRUE(link.GeValue() == pVal);
+    ASSERT_TRUE(link.GetValue() == pVal);
 }
 
 TEST(List, GetLength) {
