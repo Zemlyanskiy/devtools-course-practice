@@ -63,14 +63,17 @@ LengthType ParseLength(const char* arg) {
 void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-        "This is a converter of a length application.\n\n" +
-        "Please choose a size of a length, old and new length names and" +
+        "This is a converter of a length application.\n" +
+        "Please choose a size of a length, old and new length names and\n" +
         "provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <length's size> " +
         "<old length name> <new length name>\n\n" +
 
-        "First argument should be double-precision number";
+        "Where first argument should be double-precision number,\n" +
+        "second and third arguments are something like MILLIMETRE,\n" +
+        "CENTIMETRE, DECIMETRE, METRE, KILOMETRE, INCH, HAND, LINK,\n" + 
+        "FOOT, YARD, ROD, CHAIN, FURHLONG, MILE, LEAGUE"
 }
 
 
