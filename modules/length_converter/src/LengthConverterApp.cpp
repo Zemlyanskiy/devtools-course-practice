@@ -72,7 +72,7 @@ void Application::help(const char* appname, const char* message) {
 
         "Where first argument should be double-precision number,\n" +
         "second and third arguments are something like MILLIMETRE,\n" +
-        "CENTIMETRE, DECIMETRE, METRE, KILOMETRE, INCH, HAND, LINK,\n" + 
+        "CENTIMETRE, DECIMETRE, METRE, KILOMETRE, INCH, HAND, LINK,\n" +
         "FOOT, YARD, ROD, CHAIN, FURHLONG, MILE, LEAGUE"
 }
 
