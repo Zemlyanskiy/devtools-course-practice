@@ -16,105 +16,105 @@ using std::string;
 
 class LengthConverterAppTest : public ::testing::Test {
 protected:
-	void Act(vector<string> args_) {
-		vector<const char*> options;
+    void Act(vector<string> args_) {
+        vector<const char*> options;
 
-		options.push_back("appname");
-		for (size_t i = 0; i < args_.size(); ++i) {
-			options.push_back(args_[i].c_str());
-		}
+        options.push_back("appname");
+        for (size_t i = 0; i < args_.size(); ++i) {
+            options.push_back(args_[i].c_str());
+        }
 
-		const char** argv = &options.front();
-		int argc = static_cast<int>(args_.size()) + 1;
+        const char** argv = &options.front();
+        int argc = static_cast<int>(args_.size()) + 1;
 
-		output_ = app_(argc, argv);
-	}
+        output_ = app_(argc, argv);
+    }
 
-	void Assert(std::string expected) {
-		EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
-	}
+    void Assert(std::string expected) {
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+    }
 
 private:
-	Application app_;
-	string output_;
+    Application app_;
+    string output_;
 };
 
 TEST_F(LengthConverterAppTest, Do_Print_Help_Without_Arguments) {
-	vector<string> args = {};
+    vector<string> args = {};
 
-	Act(args);
+    Act(args);
 
-	Assert("This is a converter of a length application\\..*");
+    Assert("This is a converter of a length application\\..*");
 }
 
 TEST_F(LengthConverterAppTest, Is_Checking_Number_Of_Arguments) {
-	vector<string> args = { "1", "CENTIMETRE" };
+    vector<string> args = { "1", "CENTIMETRE" };
 
-	Act(args);
+    Act(args);
 
-	Assert("ERROR: Should be 3 arguments.*");
+    Assert("ERROR: Should be 3 arguments.*");
 }
 
 TEST_F(LengthConverterAppTest, If_Arguments_Are_Right_Is_All_Right) {
-	vector<string> args = { "1", "DECIMETRE", "METRE"};
+    vector<string> args = { "1", "DECIMETRE", "METRE"};
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = 0.1");
+    Assert("Result of conversation = 0.1");
 }
 
 TEST_F(LengthConverterAppTest, Can_Detect_Wrong_Length_Name_Format) {
-	vector<string> args = { "2", "MILLIMETRE", "MC"};
+    vector<string> args = { "2", "MILLIMETRE", "MC"};
 
-	Act(args);
+    Act(args);
 
-	Assert("Wrong length's name format!");
+    Assert("Wrong length's name format!");
 }
 
 TEST_F(LengthConverterAppTest, Can_Detect_Wrong_Number_Format) {
-	vector<string> args = { "two", "MICROMETRE", "KILOMETRE" };
+    vector<string> args = { "two", "MICROMETRE", "KILOMETRE" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Wrong number format!");
+    Assert("Wrong number format!");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_INCH_to_HAND) {
-	vector<string> args = { "1", "INCH", "HAND" };
+    vector<string> args = { "1", "INCH", "HAND" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = 0.25");
+    Assert("Result of conversation = 0.25");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_LINK_to_FOOT) {
-	vector<string> args = { "-1", "LINK", "FOOT" };
+    vector<string> args = { "-1", "LINK", "FOOT" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = -0.66");
+    Assert("Result of conversation = -0.66");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_YARD_to_ROD) {
-	vector<string> args = { "0", "YARD", "ROD" };
+    vector<string> args = { "0", "YARD", "ROD" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = 0");
+    Assert("Result of conversation = 0");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_CHAIN_to_FURHLONG) {
-	vector<string> args = { "15", "CHAIN", "FURHLONG" };
+    vector<string> args = { "15", "CHAIN", "FURHLONG" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = 1.5");
+    Assert("Result of conversation = 1.5");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_MILE_to_LEAGUE) {
-	vector<string> args = { "-0.131", "MILE", "LEAGUE" };
+    vector<string> args = { "-0.131", "MILE", "LEAGUE" };
 
-	Act(args);
+    Act(args);
 
-	Assert("Result of conversation = -0.0436667");
+    Assert("Result of conversation = -0.0436667");
 }
