@@ -1,12 +1,13 @@
 // Copyright 2017 Dmitrichev Nikita
 
+#include <gtest/gtest.h>
+
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <functional>
 #include <iterator>
 
-#include <gtest/gtest.h>
 #include "include/LengthConverterApp.h"
 
 using ::testing::internal::RE;
