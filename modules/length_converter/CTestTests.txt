@@ -50,3 +50,4 @@ add_test(
 set_tests_properties (${prefix}_if_Arguments_Are_Right_Is_All_Right PROPERTIES
     PASS_REGULAR_EXPRESSION "Result of conversation = 0.1"
     LABELS "${MODULE}")
+
