@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "include/LengthConverterApp.h"
+#include "include/length_converter_app.h"
 
 int main(int argc, const char** argv) {
     Application app;
