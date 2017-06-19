@@ -27,7 +27,7 @@ LengthType ParseLength(const char* arg) {
         length_name = MICROMETRE;
     else if (strcmp(arg, "MILLIMETRE") == 0)
         length_name = MILLIMETRE;
-    else if (strcmp(arg, " CENTIMETRE") == 0)
+    else if (strcmp(arg, "CENTIMETRE") == 0)
         length_name = CENTIMETRE;
     else if (strcmp(arg, "DECIMETRE") == 0)
         length_name = DECIMETRE;

@@ -118,3 +118,19 @@ TEST_F(LengthConverterAppTest, Can_Convert_MILE_to_LEAGUE) {
 
     Assert("Result of conversation = -0.0436667");
 }
+
+TEST_F(LengthConverterAppTest, Can_Convert_MICROMETRE_to_CENTIMETRE) {
+    vector<string> args = { "500", "MICROMETRE", "CENTIMETRE" };
+
+    Act(args);
+
+    Assert("Result of conversation = 0.05");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_CENTIMETRE_to_KILOMETRE) {
+    vector<string> args = { "100000", "CENTIMETRE", "KILOMETRE" };
+
+    Act(args);
+
+    Assert("Result of conversation = 1");
+}
