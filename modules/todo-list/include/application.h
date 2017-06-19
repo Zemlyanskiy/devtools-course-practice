@@ -4,7 +4,7 @@
 #define MODULES_TODO_LIST_INCLUDE_APPLICATION_H_
 
 class Application {
-
+    Application();
 };
 
 #endif  // MODULES_TODO_LIST_INCLUDE_APPLICATION_H_
