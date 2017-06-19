@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/LengthConverterApp.h"
+#include "include/length_converter_app.h"
 
 using ::testing::internal::RE;
 using std::vector;

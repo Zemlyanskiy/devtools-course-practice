@@ -8,7 +8,7 @@
 #include <sstream>
 
 #include "include/length_converter.h"
-#include "include/LengthConverterApp.h"
+#include "include/length_converter_app.h"
 
 Application::Application() :message_("") {}
 
