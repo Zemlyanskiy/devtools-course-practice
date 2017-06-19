@@ -1,13 +1,13 @@
 // Copyright 2017 Dmitrichev Nikita
 
-#include "include/LengthConverterApp.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/LengthConverterApp.h"
 
 Application::Application() :message_("") {}
 
