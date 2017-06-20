@@ -8,7 +8,7 @@
 
 Application::Application() {}
 
-void Application::ReadList(TODOList *list, std::ifstream *fin) {
+/*void Application::ReadList(TODOList *list, std::ifstream *fin) {
     int number_of_tasks;
 
     *fin >> number_of_tasks;
@@ -22,9 +22,9 @@ void Application::ReadList(TODOList *list, std::ifstream *fin) {
         if (is_done == 1)
             list->SetTaskDone(i);
     }
-}
+}*/
 
-void Application::WriteList(TODOList *list, std::ofstream *fout) {
+/*void Application::WriteList(TODOList *list, std::ofstream *fout) {
     *fout << list->GetCurrentTasksValue();
 
     for (int i = 0; i < list->GetCurrentTasksValue(); i++) {
@@ -37,12 +37,14 @@ void Application::WriteList(TODOList *list, std::ofstream *fout) {
         *fout << task_name;
         *fout << is_done;
     }
-}
+}*/
 
 std::string Application::operator()(int argc, const char** argv) {
     TODOList list();
 
     std::ifstream fin("data.txt");
-
+    
+    
+    fin.close();
     return "";
 }

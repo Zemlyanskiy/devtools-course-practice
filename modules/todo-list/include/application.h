@@ -14,8 +14,8 @@ class Application {
 
  private:
     void help(const char* appname, const char* message = "");
-    void ReadList(TODOList *list, std::ifstream *fin);
-    void WriteList(TODOList *list, std::ofstream *fout);
+    //void ReadList(TODOList *list, std::ifstream *fin);
+    //void WriteList(TODOList *list, std::ofstream *fout);
     std::string message_;
 };
 
