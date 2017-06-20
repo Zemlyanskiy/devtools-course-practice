@@ -39,7 +39,7 @@ void Application::WriteList(TODOList *list, std::ofstream *fout) {
     }
 }
 
-void Application::help(const char* appname, const char* message = "") {}
+void Application::help(const char* appname, const char* message) {}
 
 std::string Application::operator()(int argc, const char** argv) {
     TODOList list();
