@@ -13,9 +13,10 @@ class Application {
     std::string operator()(int argc, const char** argv);
 
  private:
+    void help(const char* appname, const char* message = "");
+    void ReadList(TODOList *list, std::ifstream *fin);
+    void WriteList(TODOList *list, std::ofstream *fout);
     std::string message_;
-    void ReadList(TODOList &list, std::ifstream &fin);
-    void WriteList(TODOList &list, std::ofstream &fout);
 };
 
 #endif  // MODULES_TODO_LIST_INCLUDE_APPLICATION_H_
