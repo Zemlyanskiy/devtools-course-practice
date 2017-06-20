@@ -7,11 +7,11 @@
 #include "include/todo_list.h"
 
 class Application {
-  public:
+ public:
     Application();
     std::string operator()(int argc, const char** argv);
 
-  private:
+ private:
     std::string message_;
 };
 
