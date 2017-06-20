@@ -45,8 +45,7 @@ std::string Application::operator()(int argc, const char** argv) {
     TODOList list();
 
     std::ifstream fin("data.txt");
-    
-    
+
     fin.close();
     return "";
 }
