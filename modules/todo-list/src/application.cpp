@@ -4,3 +4,7 @@
 #include "include/application.h"
 
 Application::Application() {}
+
+std::string Application::operator()(int argc, const char** argv) {
+    return "";
+}
