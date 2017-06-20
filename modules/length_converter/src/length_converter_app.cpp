@@ -65,7 +65,7 @@ void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a converter of a length application.\n" +
-        "Please choose a size of a length, old and new length names and\n" +
+        "Please choose value of length, old and new length names and\n" +
         "provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <length's size> " +
