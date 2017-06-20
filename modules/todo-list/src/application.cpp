@@ -39,7 +39,7 @@ void Application::WriteList(TODOList *list, std::ofstream *fout) {
     }
 }
 
-void Application::help(const char* appname, const char* message) {
+void Application::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
           "This is a TODO-list application.\n\n" +
@@ -53,8 +53,17 @@ void Application::help(const char* appname, const char* message) {
           "  $ " + appname + " clear";
 }
 
+bool Application::CheckCorrectnessOfCommand(int argc, const char** argv) {
+    if (argc == 1) {
+        Help(argv[0]);
+        return false;
+    }
+
+    return true;
+}
+
 std::string Application::operator()(int argc, const char** argv) {
-    TODOList list();
+    TODOList list;
 
     std::ifstream fin("data.txt");
 
