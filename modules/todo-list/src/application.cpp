@@ -9,10 +9,10 @@
 Application::Application() {}
 
 void Application::ReadList(TODOList *list, std::ifstream *fin) {
-    int number_of_tasks;
+    size_t number_of_tasks;
 
     *fin >> number_of_tasks;
-    for (int i = 0; i < number_of_tasks; i++) {
+    for (size_t i = 0; i < number_of_tasks; i++) {
         std::string task_name;
         int is_done;
         *fin >> task_name;
@@ -27,7 +27,7 @@ void Application::ReadList(TODOList *list, std::ifstream *fin) {
 void Application::WriteList(TODOList *list, std::ofstream *fout) {
     *fout << list->GetCurrentTasksValue();
 
-    for (int i = 0; i < list->GetCurrentTasksValue(); i++) {
+    for (size_t i = 0; i < list->GetCurrentTasksValue(); i++) {
         std::string task_name = list->GetTaskName(i);
         int is_done = 0;
 
@@ -39,7 +39,19 @@ void Application::WriteList(TODOList *list, std::ofstream *fout) {
     }
 }
 
-void Application::help(const char* appname, const char* message) {}
+void Application::help(const char* appname, const char* message) {
+    message_ =
+        std::string(message) +
+          "This is a TODO-list application.\n\n" +
+          "You can choose one of this commands:\n\n"+
+
+          "  $ " + appname + " show \n"+
+          "  $ " + appname + " add <task name> \n"+
+          "  $ " + appname + " delete <task index> \n"+
+          "  $ " + appname + " done <task index> \n"+
+          "  $ " + appname + " undone <task index> \n"+
+          "  $ " + appname + " clear";
+}
 
 std::string Application::operator()(int argc, const char** argv) {
     TODOList list();
