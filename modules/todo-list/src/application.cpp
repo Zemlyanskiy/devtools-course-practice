@@ -59,6 +59,23 @@ bool Application::CheckCorrectnessOfCommand(int argc, const char** argv) {
         return false;
     }
 
+    std::string command = argv[1];
+
+    if (command == "delete" || command == "done" || command == "undone") {
+        if (argc != 3) {
+            Help(argv[0], "ERROR: unknown command format");
+            return false;
+        }
+    } else if (command == "add") {
+        if (argc == 2) {
+            Help(argv[0], "ERROR: please enter a name");
+            return false;
+        }
+    } else if (command != "show" && command != "clear") {
+        Help(argv[0], "ERROR: unknown command");
+        return false;
+    }
+
     return true;
 }
 
@@ -66,7 +83,14 @@ std::string Application::operator()(int argc, const char** argv) {
     TODOList list;
 
     std::ifstream fin("data.txt");
-
+    if (fin.is_open()) {
+        ReadList(&list, &fin);
+    }
     fin.close();
+
+    if (!CheckCorrectnessOfCommand(argc, argv)) {
+        return message_;
+    }
+
     return "";
 }
