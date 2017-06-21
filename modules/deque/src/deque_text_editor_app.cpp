@@ -182,4 +182,5 @@ bool DequeTextEditorApp::argValidate(int argc, const char** argv) {
         help(argv[0], "wrong numbers of arguments");
         return false;
     }
+    return true;
 }

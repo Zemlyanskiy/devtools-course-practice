@@ -125,18 +125,14 @@ void Deque::Save(const char *FileName) {
 
 void Deque::Load(const char *FileName) {
     std::ifstream filestream(FileName);
-    char string_from_file[255];
+    std::string string_from_file;
 
     Clear();
     if (filestream) {
         while (!filestream.eof() && !IsFull()) {
-            filestream.getline(string_from_file, 255);
-            if (string_from_file != ""
-                && string_from_file != " "
-                && string_from_file != "\0"
-                && string_from_file != "\n"
-                && std::string(string_from_file).size() != 0)
-                InsFront(std::string(string_from_file));
+            std::getline(filestream, string_from_file);
+            if (string_from_file.size() != 0)
+                InsFront(string_from_file);
         }
     } else {
         throw "File stream error";
