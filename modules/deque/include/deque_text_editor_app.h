@@ -1,7 +1,7 @@
 // Copyright 2017 Nazarov Aleksandr
 
-#ifndef MODULES_DEQUE_INCLUDE_APPLICATION_H_
-#define MODULES_DEQUE_INCLUDE_APPLICATION_H_
+#ifndef MODULES_DEQUE_INCLUDE_DEQUE_TEXT_EDITOR_APP_H_
+#define MODULES_DEQUE_INCLUDE_DEQUE_TEXT_EDITOR_APP_H_
 
 #include <string>
 #include <iostream>
@@ -22,4 +22,4 @@ class DequeTextEditorApp {
     
 };
 
-#endif  // MODULES_DEQUE_INCLUDE_APPLICATION_H_
+#endif  // MODULES_DEQUE_INCLUDE_DEQUE_TEXT_EDITOR_APP_H_
