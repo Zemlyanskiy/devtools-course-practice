@@ -6,7 +6,7 @@
 #include "include/todo_list.h"
 #include "include/application.h"
 
-Application::Application() {}
+Application::Application() : message_("") {}
 
 void Application::ReadList(TODOList *list, std::ifstream *fin) {
     size_t number_of_tasks;
@@ -88,12 +88,13 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     fin.close();
 
-    std::ofstream fout("data.txt", std::ofstream::out);
-    fout.close();
-
     if (!CheckCorrectnessOfCommand(argc, argv)) {
         return message_;
     }
+
+    std::ofstream fout("data.txt", std::ofstream::out);
+    WriteList(&list, &fout);
+    fout.close();
 
     return "";
 }

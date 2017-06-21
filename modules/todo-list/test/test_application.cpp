@@ -54,3 +54,12 @@ TEST_F(ApplicationTest, Can_Detect_Unknown_Command_Format) {
 
     Assert("ERROR: unknown command format!*");
 }
+
+TEST_F(ApplicationTest, Can_Show_TODO_List) {
+    vector<string> args = {"show"};
+
+    Act(args);
+
+    Assert("");
+}
+
