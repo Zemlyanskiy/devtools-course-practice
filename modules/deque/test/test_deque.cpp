@@ -193,6 +193,7 @@ TEST(Deque, can_save_into_file) {
     std::ifstream file_test_stream;
     char line_buffer[255];
 
+    deq.InsBack("test\n");
     deq.InsBack("test");
     deq.Save("FileTesting.test");
     file_test_stream.open("FileTesting.test");
