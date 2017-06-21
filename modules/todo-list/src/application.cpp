@@ -88,12 +88,12 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     fin.close();
 
+    std::fstream fout("data.txt", std::ios::out);
+    fout.close();
+
     if (!CheckCorrectnessOfCommand(argc, argv)) {
         return message_;
     }
-
-    std::fstream fout("data.txt", std::ios::out);
-    fout.close();
 
     return "";
 }
