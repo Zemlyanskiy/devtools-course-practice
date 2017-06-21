@@ -105,7 +105,7 @@ bool Deque::IsFull(void) const {
 void Deque::Save(const char *FileName) {
     std::ofstream filestream(FileName, std::ios_base::trunc);
 
-    if (filestream)
+    if (filestream.is_open())
     {
         for (int i = back_, f = 0; f < data_count_; f++,
             i = GetNextFrontIndex(i)) {
@@ -128,7 +128,7 @@ void Deque::Load(const char *FileName) {
     std::string string_from_file;
 
     Clear();
-    if (filestream) {
+    if (filestream.is_open()) {
         while (!filestream.eof() && !IsFull()) {
             std::getline(filestream, string_from_file);
             if (string_from_file.size() != 0)
