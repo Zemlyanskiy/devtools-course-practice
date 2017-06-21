@@ -1,4 +1,4 @@
-// Copyright 2017 Nazarov Aleksandr
+// Copyright 2017 Nazarov Aleksandr and Vinogradova Ekaterina
 
 #ifndef MODULES_DEQUE_INCLUDE_DEQUE_H_
 #define MODULES_DEQUE_INCLUDE_DEQUE_H_

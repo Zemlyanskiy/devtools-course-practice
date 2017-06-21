@@ -1,4 +1,4 @@
-// Copyright 2017 Nazarov Aleksandr
+// Copyright 2017 Nazarov Aleksandr and Vinogradova Ekaterina
 
 #include <gtest/gtest.h>
 #include <string>
