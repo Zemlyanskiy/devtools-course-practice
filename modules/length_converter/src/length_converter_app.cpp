@@ -16,9 +16,11 @@ double ParseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
 
-    if (end[0]) {
+    if (end[0])
         throw std::string("Wrong number format!");
-    }
+    else if (value < 0)
+        throw std::string("The length can't be less than 0!");
+
     return value;
 }
 
@@ -68,13 +70,13 @@ void Application::help(const char* appname, const char* message) {
         "Please choose value of length, old and new length names and\n" +
         "provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <length's size> " +
+        "  $ " + appname + " <value of length> " +
         "<old length name> <new length name>\n\n" +
 
-        "Where first argument should be double-precision number,\n" +
-        "second and third arguments are something like MILLIMETRE,\n" +
-        "CENTIMETRE, DECIMETRE, METRE, KILOMETRE, INCH, HAND, LINK,\n" +
-        "FOOT, YARD, ROD, CHAIN, FURHLONG, MILE, LEAGUE";
+        "Where first argument should be double-precision nonnegative \n" +
+        "number, second and third arguments are something like:\n" +
+        "MILLIMETRE, CENTIMETRE, DECIMETRE, METRE, KILOMETRE, INCH,\n" +
+        "HAND, LINK, FOOT, YARD, ROD, CHAIN, FURHLONG, MILE, LEAGUE";
 }
 
 

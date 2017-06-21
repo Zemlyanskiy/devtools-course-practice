@@ -1,4 +1,4 @@
-// Copyright 2017 Tarasov Oleg
+﻿// Copyright 2017 Tarasov Oleg
 
 #include <gtest/gtest.h>
 #include "include/length_converter.h"
@@ -10,6 +10,11 @@ TEST(LengthConverterTest, Can_Create_Length_Object) {
 
     // Act & Assert
     ASSERT_NO_THROW(new Length(type, value));
+}
+
+TEST(LengthConverterTest, Can_Not_Set_Negative_Length) {
+    // Act & Assert
+    ASSERT_ANY_THROW(new Length(KILOMETRE, -1.0));
 }
 
 TEST(LengthConverterTest, Can_Conver_Into_SM) {

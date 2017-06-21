@@ -79,6 +79,14 @@ TEST_F(LengthConverterAppTest, Can_Detect_Wrong_Number_Format) {
     Assert("Wrong number format!");
 }
 
+TEST_F(LengthConverterAppTest, Can_Detect_Negative_Length) {
+    vector<string> args = { "-1", "MICROMETRE", "KILOMETRE" };
+
+    Act(args);
+
+    Assert("The length can't be less than 0!");
+}
+
 TEST_F(LengthConverterAppTest, Can_Convert_INCH_to_HAND) {
     vector<string> args = { "1", "INCH", "HAND" };
 
@@ -88,11 +96,11 @@ TEST_F(LengthConverterAppTest, Can_Convert_INCH_to_HAND) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_LINK_to_FOOT) {
-    vector<string> args = { "-1", "LINK", "FOOT" };
+    vector<string> args = { "1", "LINK", "FOOT" };
 
     Act(args);
 
-    Assert("Result of conversation = -0.66");
+    Assert("Result of conversation = 0.66");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_YARD_to_ROD) {
@@ -112,11 +120,11 @@ TEST_F(LengthConverterAppTest, Can_Convert_CHAIN_to_FURHLONG) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_MILE_to_LEAGUE) {
-    vector<string> args = { "-0.131", "MILE", "LEAGUE" };
+    vector<string> args = { "0.131", "MILE", "LEAGUE" };
 
     Act(args);
 
-    Assert("Result of conversation = -0.0436667");
+    Assert("Result of conversation = 0.0436667");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_MICROMETRE_to_CENTIMETRE) {

@@ -36,6 +36,14 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Length_Name_Format PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Detect_Negative_Length
+    COMMAND ${APPLICATION} -1 CM METRE
+)
+set_tests_properties (${prefix}_can_Detect_Negative_Length PROPERTIES
+    PASS_REGULAR_EXPRESSION "The length can't be less than 0!"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format
     COMMAND ${APPLICATION} u.1w METRE YARD
 )
