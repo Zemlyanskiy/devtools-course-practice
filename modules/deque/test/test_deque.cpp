@@ -88,9 +88,9 @@ TEST(Deque, GetFront_get_front_element) {
     Deque deq(size);
 
     for (int i = 0; i < size; i++)
-        deq.InsFront("test" + i);
+        deq.InsFront("test" + (char)i);
 
-    ASSERT_EQ(deq.GetFront(), "test" + 4);
+    ASSERT_EQ(deq.GetFront(), "test" + (char)(size-1));
 }
 
 TEST(Deque, cant_GetFront_from_deque_with_null_size) {
