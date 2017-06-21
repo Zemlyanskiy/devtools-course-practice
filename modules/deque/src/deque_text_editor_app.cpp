@@ -137,6 +137,7 @@ std::string DequeTextEditorApp::operator()(int argc, const char** argv) {
             }
         }
     }
+
     catch (std::string& err) {
         return err;
     }
@@ -160,6 +161,7 @@ bool DequeTextEditorApp::argValidate(int argc, const char** argv) {
                 return false;
             }
         }
+
         if (argc > 4 && argv[argc - 2][0] == '-' && argv[argc - 2][1] != '\0') {
             for (int i = 1; argv[argc - 2][i] != '\0'; i++) {
                 if (argv[argc - 2][i] != 'l' && argv[argc - 2][i] != 's' &&
