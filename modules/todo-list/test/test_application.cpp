@@ -39,10 +39,18 @@ class ApplicationTest : public ::testing::Test {
     string output_;
 };
 
-TEST_F(ApplicationTest, test123) {
+TEST_F(ApplicationTest, Do_Print_Help) {
     vector<string> args = {};
 
     Act(args);
 
-    Assert("");
+    Assert("This is a TODO-list application.*");
+}
+
+TEST_F(ApplicationTest, Can_Detect_Unknown_Command_Format) {
+    vector<string> args = {"delete"};
+
+    Act(args);
+
+    Assert("ERROR: unknown command format!*");
 }

@@ -63,16 +63,16 @@ bool Application::CheckCorrectnessOfCommand(int argc, const char** argv) {
 
     if (command == "delete" || command == "done" || command == "undone") {
         if (argc != 3) {
-            Help(argv[0], "ERROR: unknown command format");
+            Help(argv[0], "ERROR: unknown command format!");
             return false;
         }
     } else if (command == "add") {
         if (argc == 2) {
-            Help(argv[0], "ERROR: please enter a name");
+            Help(argv[0], "ERROR: please enter a name!");
             return false;
         }
     } else if (command != "show" && command != "clear") {
-        Help(argv[0], "ERROR: unknown command");
+        Help(argv[0], "ERROR: unknown command!");
         return false;
     }
 
@@ -91,6 +91,9 @@ std::string Application::operator()(int argc, const char** argv) {
     if (!CheckCorrectnessOfCommand(argc, argv)) {
         return message_;
     }
+
+    std::fstream fout("data.txt", std::ios::out);
+    fout.close();
 
     return "";
 }
