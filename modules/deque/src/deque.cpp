@@ -1,6 +1,7 @@
 // Copyright 2017 Nazarov Aleksandr
 
 #include "include/deque.h"
+#include <string>
 
 Deque::Deque(int size) : front_(-1), back_(0) {
     data_count_ = 0;
@@ -105,8 +106,7 @@ bool Deque::IsFull(void) const {
 void Deque::Save(const char *FileName) {
     std::ofstream filestream(FileName, std::ios_base::trunc);
 
-    if (filestream.is_open())
-    {
+    if (filestream.is_open()) {
         for (int i = back_, f = 0; f < data_count_; f++,
             i = GetNextFrontIndex(i)) {
             if (memory_[i].size() > 0) {

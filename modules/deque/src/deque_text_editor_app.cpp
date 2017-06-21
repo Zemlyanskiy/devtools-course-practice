@@ -22,7 +22,7 @@ void DequeTextEditorApp::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is deque of strings application.\n\n" +
-        "Please provide arguments in the following format" + 
+        "Please provide arguments in the following format" +
         " (* - optional ability):\n\n" +
 
         "  $ " + appname + " -<flags1> <file_name1> " +
@@ -46,7 +46,7 @@ std::string DequeTextEditorApp::operator()(int argc, const char** argv) {
     for (int i = 1; argv[1][i] != '\0'; i++) {
         switch (argv[1][i]) {
         case 'l':
-            load_ = true; 
+            load_ = true;
             break;
         case 's':
             save_ = true;
@@ -94,8 +94,7 @@ std::string DequeTextEditorApp::operator()(int argc, const char** argv) {
         for (int i = 3; i < ((second_arguments_) ? argc - 2 : argc); i++) {
             if (front_) {
                 first_deq.InsFront(std::string(argv[i]));
-            }
-            else {
+            } else {
                 first_deq.InsBack(std::string(argv[i]));
             }
         }
@@ -120,8 +119,7 @@ std::string DequeTextEditorApp::operator()(int argc, const char** argv) {
                 for (int i = 3; i < argc - 2; i++) {
                     if (sec_arg_front_) {
                         second_deq.InsFront(std::string(argv[i]));
-                    }
-                    else {
+                    } else {
                         second_deq.InsBack(std::string(argv[i]));
                     }
                 }
