@@ -218,12 +218,12 @@ TEST(Deque, cant_save_into_file_with_wrong_filename) {
     Deque deq(size);
     deq.InsBack("test");
 
-    ASSERT_ANY_THROW(deq.Save("|wrongnamefile|"));
+    ASSERT_ANY_THROW(deq.Save(".|wrongnamefile|"));
 }
 
 TEST(Deque, cant_load_from_file_with_wrong_filename) {
     const int size = 5;
     Deque deq(size);
 
-    ASSERT_ANY_THROW(deq.Load("|wrongnamefile|"));
+    ASSERT_ANY_THROW(deq.Load(".|wrongnamefile|"));
 }
