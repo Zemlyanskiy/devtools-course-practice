@@ -88,7 +88,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     fin.close();
 
-    std::fstream fout("data.txt", std::ios::out);
+    std::ofstream fout("data.txt", std::ofstream::out);
     fout.close();
 
     if (!CheckCorrectnessOfCommand(argc, argv)) {
