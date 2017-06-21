@@ -1,4 +1,4 @@
-﻿// Copyright 2017 Tarasov Oleg
+// Copyright 2017 Tarasov Oleg
 
 #include <string>
 #include "include/length_converter.h"
