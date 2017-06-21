@@ -14,22 +14,22 @@ using std::string;
 
 class  DequeTextEditorAppTest : public ::testing::Test {
  protected:
-        void Act(vector<string> args) {
-            vector<const char*> options;
-            
-            options.push_back("appname");
-            for (size_t i = 0; i < args.size(); ++i) {
-                options.push_back(args[i].c_str());
-            }
-            
-            const char** argv = &options.front();
-            int argc = static_cast<int>(args.size()) + 1;
-            
-            output_ = app_(argc, argv);
-        }
-            void Assert(std::string expected) {
-            EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
-        }
+     void Act(vector<string> args) {
+         vector<const char*> options;
+
+         options.push_back("appname");
+         for (size_t i = 0; i < args.size(); ++i) {
+             options.push_back(args[i].c_str());
+         }
+
+         const char** argv = &options.front();
+         int argc = static_cast<int>(args.size()) + 1;
+
+         output_ = app_(argc, argv);
+     }
+     void Assert(std::string expected) {
+         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+     }
  private:
     DequeTextEditorApp app_;
     string output_;
