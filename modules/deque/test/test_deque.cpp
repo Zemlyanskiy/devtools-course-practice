@@ -11,7 +11,7 @@ TEST(Deque, can_create_deque) {
 
 TEST(Deque, can_create_copy_deque) {
     Deque deq;
-    
+
     deq.InsFront("test string");
 
     ASSERT_NO_THROW(Deque deq2(deq));
@@ -211,7 +211,7 @@ TEST(Deque, can_load_from_file) {
 
     deq.Load("FileTesting.test");
 
-    EXPECT_EQ(deq.GetFront(), testing_string); 
+    EXPECT_EQ(deq.GetFront(), testing_string);
 }
 
 TEST(Deque, cant_load_from_not_exist_file) {
