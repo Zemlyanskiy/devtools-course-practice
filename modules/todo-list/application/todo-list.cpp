@@ -1,9 +1,14 @@
 // Copyright 2017 Bakalin Andrey
 
-#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string>
 
-int main() {
-    std::cout << "Hello, world!" << std::endl;
+#include "include/application.h"
 
+int main(int argc, const char** argv) {
+    Application app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
     return 0;
 }
