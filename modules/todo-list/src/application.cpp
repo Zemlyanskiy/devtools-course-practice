@@ -1,13 +1,12 @@
 // Copyright 2017 Bakalin Andrey
 
-#include <string>
-#include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 #include "include/todo_list.h"
 #include "include/application.h"
@@ -108,7 +107,7 @@ std::string Application::operator()(int argc, const char** argv) {
     if (!CheckCorrectnessOfCommand(argc, argv)) {
         return message_;
     }
-    
+
     std::string command = argv[1];
     std::ostringstream stream;
 
@@ -127,12 +126,12 @@ std::string Application::operator()(int argc, const char** argv) {
         stream << "\"";
 
         list.NewTask(stream.str());
-        
+
         stream << " was added";
     } else if (command == "delete") {
         stream << "\"" << list.GetTaskName(ParseUInt(argv[2]) - 1)
                << "\" was deleted";
-        
+
         try {
             list.DeleteTask(ParseUInt(argv[2]) - 1);
         } catch(std::string& str) {
@@ -141,7 +140,7 @@ std::string Application::operator()(int argc, const char** argv) {
     } else if (command == "done") {
         stream << "\"" << list.GetTaskName(ParseUInt(argv[2]) - 1)
                << "\" was marked as done";
-        
+
         try {
             list.SetTaskDone(ParseUInt(argv[2]) - 1);
         } catch(std::string& str) {
@@ -150,15 +149,14 @@ std::string Application::operator()(int argc, const char** argv) {
     } else if (command == "undone") {
         stream << "\"" << list.GetTaskName(ParseUInt(argv[2]) - 1)
                << "\" was marked as undone";
-        
+
         try {
             list.SetTaskUndone(ParseUInt(argv[2]) - 1);
         } catch(std::string& str) {
             return str;
         }
-    } else { // clear
+    } else {  // clear
         list.ClearList();
-        
         stream << "List has been cleared.";
     }
 
@@ -166,7 +164,7 @@ std::string Application::operator()(int argc, const char** argv) {
     std::ofstream fout("data.txt", std::ofstream::out);
     WriteList(&list, &fout);
     fout.close();
-    
+
     message_ = stream.str();
     return message_;
 }
