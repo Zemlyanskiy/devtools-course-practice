@@ -196,3 +196,21 @@ TEST_F(DequeTextEditorAppTest,
 
     EXPECT_TRUE(RE::PartialMatch(result, RE("teststring1teststring2.*")));
 }
+
+TEST_F(DequeTextEditorAppTest,
+    cant_load_file_because_not_enough_memory) {
+    const int kDefMemSize = 2000;
+    std::string filename1 = "testfile1.txt";
+    std::ofstream filestream(filename1, std::ios_base::trunc);
+    if (filestream) {
+        for (int i = 0; i < kDefMemSize + 100; i++) {
+            filestream << "teststring" << std::endl;
+        }
+        filestream.close();
+    }
+    vector<string> args = { "-lb", filename1, "teststring" };
+
+    Act(args);
+
+    Assert("DataFull");
+}

@@ -127,7 +127,7 @@ void Deque::Load(const char *FileName) {
 
     Clear();
     if (filestream.is_open() && !filestream.eof()) {
-        while (!filestream.eof() && !IsFull()) {
+        while (!filestream.eof()) {
             std::getline(filestream, string_from_file);
             if (string_from_file.size() != 0)
                 InsFront(string_from_file);
