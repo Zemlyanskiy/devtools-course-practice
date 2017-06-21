@@ -213,17 +213,9 @@ TEST(Deque, can_load_from_file) {
     EXPECT_EQ(deq.GetFront(), testing_string); 
 }
 
-TEST(Deque, cant_save_into_file_with_wrong_filename) {
-    const int size = 5;
-    Deque deq(size);
-    deq.InsBack("test");
-
-    ASSERT_ANY_THROW(deq.Save(".|wrongnamefile|"));
-}
-
-TEST(Deque, cant_load_from_file_with_wrong_filename) {
+TEST(Deque, cant_load_from_not_exist_file) {
     const int size = 5;
     Deque deq(size);
 
-    ASSERT_ANY_THROW(deq.Load(".|wrongnamefile|"));
+    ASSERT_ANY_THROW(deq.Load("wrongnamefile"));
 }

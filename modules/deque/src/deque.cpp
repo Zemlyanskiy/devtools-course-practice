@@ -116,8 +116,6 @@ void Deque::Save(const char *FileName) {
                     filestream << memory_[i] << std::endl;
             }
         }
-    } else {
-        throw "File stream error";
     }
 
     filestream.close();
@@ -128,7 +126,7 @@ void Deque::Load(const char *FileName) {
     std::string string_from_file;
 
     Clear();
-    if (filestream.is_open()) {
+    if (filestream.is_open() && !filestream.eof()) {
         while (!filestream.eof() && !IsFull()) {
             std::getline(filestream, string_from_file);
             if (string_from_file.size() != 0)
