@@ -1,4 +1,4 @@
-// Copyright 2017 Zemlyanskiy Nikita
+	// Copyright 2017 Zemlyanskiy Nikita
 
 #include "../include/Demand.h"
 
@@ -60,4 +60,17 @@ double Demand::RevenueChange(double revenue_) {
   }
   // New revenue
   return revenue_;
+}
+std::string Demand::GetElasticity() {
+    switch (elasticity_)
+    {
+    case 0:
+        return "Elastic";
+    case 1:
+        return "UnitElastic";
+    case 2:
+        return "NoElastic";
+    default:
+        return "Not defined";
+    }
 }
