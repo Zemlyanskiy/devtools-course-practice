@@ -112,7 +112,7 @@ std::string Application::operator()(int argc, const char** argv) {
     std::ostringstream stream;
 
     if (command == "show") {
-        for (int i = 0; i < list.GetCurrentTasksValue(); i++) {
+        for (size_t i = 0; i < list.GetCurrentTasksValue(); i++) {
             stream << i + 1 << ". " << list.GetTaskName(i) << " ";
             if (list.GetTaskStatus(i) == DONE_TASK)
                 stream << "DONE\n";
