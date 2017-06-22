@@ -1,7 +1,7 @@
 // Copyright 2017 Bilkovsky Alexander
 
-#include "include\Demand_app.h"
-#include "include\Demand.h"
+#include "include/Demand_app.h"
+#include "include/Demand.h"
 #include <sstream>
 #include <stdio.h>
 
