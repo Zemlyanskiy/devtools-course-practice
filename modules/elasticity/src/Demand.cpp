@@ -63,7 +63,7 @@ double Demand::RevenueChange(double revenue_) {
   return revenue_;
 }
 std::string Demand::GetElasticity() {
-    switch (elasticity_){
+    switch (elasticity_) {
     case 0:
         return "Elastic";
     case 1:
