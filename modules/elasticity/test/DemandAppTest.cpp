@@ -42,7 +42,7 @@ TEST_F(DemandAppTest, Do_Print_Help_Without_Arguments) {
 
 	Act(args);
 
-	Assert("This is an elasticity\..*");
+	Assert("This is an elasticity calculator*");
 }
 
 TEST_F(DemandAppTest, Is_Checking_Number_Of_Arguments) {
