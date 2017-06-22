@@ -2,8 +2,9 @@
 
 #include "include/Demand_app.h"
 #include "include/Demand.h"
-#include <sstream>
 #include <stdio.h>
+#include <sstream>
+#include <string>
 
 DemandApp::DemandApp() : message_("") {}
 
@@ -20,8 +21,7 @@ bool DemandApp::ArgsIsOk(int argc, const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    }
-    else if (argc != 5) {
+    } else if (argc != 5) {
         Help(argv[0], "ERROR: Incorrect number of arguments\n\n");
         return false;
     }
@@ -34,7 +34,7 @@ double ParseDouble(const char* arg) {
         throw std::string("Wrong number format");
     return value;
 }
-std::string DemandApp::operator()(int argc, const char** argv){
+std::string DemandApp::operator()(int argc, const char** argv) {
     Args args;
     if (!ArgsIsOk(argc, argv))
         return message_;
@@ -47,10 +47,11 @@ std::string DemandApp::operator()(int argc, const char** argv){
     catch (std::string &str) {
         return str;
     }
-    Demand dem(args.oldprice,args.newprice,args.olddemand,args.newdemand);
+    Demand dem(args.oldprice,args.newprice, args.olddemand, args.newdemand);
     dem.CheckForElasticity();
     std::ostringstream stream;
-    stream << "Delta price: " << dem.GetDeltaPrice() << "\nDelta demand :" << dem.GetDeltaDemand() << "\nElasticity : " << dem.GetElasticity();
+    stream << "Delta price: " << dem.GetDeltaPrice() << "\nDelta demand :"
+        << dem.GetDeltaDemand() << "\nElasticity : " << dem.GetElasticity();
     message_ = stream.str();
     return message_;
 }
