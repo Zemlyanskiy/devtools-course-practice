@@ -31,10 +31,10 @@ double ParseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
     if (end[0])
-        throw string("Wrong number format");
+        throw std::string("Wrong number format");
     return value;
 }
-string DemandApp::operator()(int argc, const char** argv){
+std::string DemandApp::operator()(int argc, const char** argv){
     Args args;
     if (!ArgsIsOk(argc, argv))
         return message_;
@@ -44,12 +44,12 @@ string DemandApp::operator()(int argc, const char** argv){
         args.newdemand = ParseDouble(argv[3]);
         args.olddemand = ParseDouble(argv[4]);
     }
-    catch (string &str) {
+    catch (std::string &str) {
         return str;
     }
     Demand dem(args.oldprice,args.newprice,args.olddemand,args.newdemand);
     dem.CheckForElasticity();
-    ostringstream stream;
+    std::ostringstream stream;
     stream << "Delta price: " << dem.GetDeltaPrice() << "\nDelta demand :" << dem.GetDeltaDemand() << "\nElasticity : " << dem.GetElasticity();
     message_ = stream.str();
     return message_;

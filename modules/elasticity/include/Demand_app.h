@@ -1,15 +1,14 @@
 // Copyright 2017 Bilkovsky Alexander
 
-#ifndef MODULES_ELASTICITY_INCLUDE_APPLICATION_H_
-#define MODULES_ELASTICITY_INCLUDE_APPLICATION_H_
+#ifndef MODULES_ELASTICITY_INCLUDE_DEMAND_APP_H_
+#define MODULES_ELASTICITY_INCLUDE_DEMAND_APP_H_
 
 #include <string>
-using namespace std;
 
 class DemandApp {
  public:
      DemandApp();
-     string operator()(int argc, const char** argv);
+     std::string operator()(int argc, const char** argv);
  private:
      void Help(const char* appname, const char* message = "");
      bool ArgsIsOk(int argc, const char** argv);
@@ -19,7 +18,7 @@ class DemandApp {
          double olddemand;
          double newdemand;
      };
-     string message_;
+     std::string message_;
 };
 
-#endif
+#endif //MODULES_ELASTICITY_INCLUDE_DEMAND_APP_H_

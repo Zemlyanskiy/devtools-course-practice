@@ -18,11 +18,11 @@ class Demand {
     std::string GetElasticity();
  protected:
     double coeffofdemand_;
-    double oldprice_, newprice_;    
+    double oldprice_, newprice_;
     double olddemand_, newdemand_;
     double deltaprice_;
     double deltademand_;
     double revenue_;
     int elasticity_;
 };
-#endif
+#endif // MODULES_ELASTICITY_INCLUDE_DEMAND_H_
