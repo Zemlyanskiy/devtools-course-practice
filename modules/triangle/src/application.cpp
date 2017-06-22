@@ -46,7 +46,9 @@ void Application::help(const char* appname, const char* message) {
 
         "All arguments should be double-precision numbers\n" +
         "You can use next operations: side, corner, perimeter, square," +
-        "    median, circumscribed_circle, inscribed_circle";
+        "    median, circumscribed_circle, inscribed_circle" +
+        "<num> is necessary for side and corner calculation where " +
+        "<num> is a number of triangle corner/side counting from coord1 to coord3";
 }
 
 
