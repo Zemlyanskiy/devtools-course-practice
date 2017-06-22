@@ -25,4 +25,4 @@ class Demand {
     double revenue_;
     int elasticity_;
 };
-#endif // MODULES_ELASTICITY_INCLUDE_DEMAND_H_
+#endif  // MODULES_ELASTICITY_INCLUDE_DEMAND_H_

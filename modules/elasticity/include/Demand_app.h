@@ -21,4 +21,4 @@ class DemandApp {
      std::string message_;
 };
 
-#endif //MODULES_ELASTICITY_INCLUDE_DEMAND_APP_H_
+#endif  // MODULES_ELASTICITY_INCLUDE_DEMAND_APP_H_
