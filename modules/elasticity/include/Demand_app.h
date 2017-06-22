@@ -22,4 +22,4 @@ class DemandApp {
      string message_;
 };
 
-#endif MODULES_ELASTICITY_INCLUDE_APPLICATION_H_
+#endif
