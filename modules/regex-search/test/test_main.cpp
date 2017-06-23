@@ -1,4 +1,4 @@
-// Copyright 2017 Kazakov Andrew
+// Copyright 2017 Grachev Vlad
 
 #include <gtest/gtest.h>
 
