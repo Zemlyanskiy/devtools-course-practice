@@ -23,8 +23,8 @@ void RegexSearcher::GetHelp(const char* applicationName, const char* message) {
 
         "Supported quantifiers: *, ?, +, {n} (1<=n<=9)\n" +
         "(only after some text somewhere before)\n\n" +
-        "Parentheses & quanitifiers within another parenthesis aren\'t allowed,\n" +
-        "(however there can be nothing within parentheses)\n\n" +
+        "Parentheses & quanitifiers within another parenthesis aren\'t" +
+        " allowed,\n(however there can be nothing within parentheses)\n\n" +
         "\\n, \\r support, but \\<char> equals just <char>\n\n" +
         "There can be empty regular expressions\n\n";
 }
@@ -75,7 +75,7 @@ std::string RegexSearcher::operator()(int argc, const char** argv) {
 
     std::ostringstream stream;
     std::string temp_string = "";
-    int result_size = (int)result.size();
+    int result_size = result.size();
     stream << "Search result: \n";
 
     for (int i = 1; i < result_size; i += 2) {
