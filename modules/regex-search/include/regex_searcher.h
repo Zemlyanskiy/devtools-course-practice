@@ -12,7 +12,7 @@ class RegexSearcher {
 
  private:
     void help(const char* applicationName, const char* message = "");
-    
+
     std::string message_;
 };
 
