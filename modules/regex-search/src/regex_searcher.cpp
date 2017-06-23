@@ -13,13 +13,13 @@
 
 RegexSearcher::RegexSearcher() : message_("") {}
 
-void RegexSearcher::GetHelp(const char* applicationName, const char* message) {
+void RegexSearcher::GetHelp(const char* application_name, const char* message) {
     message_ =
         std::string(message) +
         "This is a simple regular expressions searcher. \n\n" +
         "Please provide arguments in the following format : \n\n"+
 
-        " $ " + applicationName + " <regular expression> <your text> \n\n" +
+        " $ " + application_name + " <regular expression> <your text> \n\n" +
 
         "Supported quantifiers: *, ?, +, {n} (1<=n<=9)\n" +
         "(only after some text somewhere before)\n\n" +
@@ -59,7 +59,7 @@ std::string RegexSearcher::operator()(int argc, const char** argv) {
             return message_;
         }
         if (error_code == RegexSearch::errorRegExpIncorrect) {
-            message_ = "Regular is incorrect\n";
+            message_ = "Regular expression is incorrect\n";
             return message_;
          }
          if (error_code == RegexSearch::errorTooLongString) {
@@ -69,7 +69,7 @@ std::string RegexSearcher::operator()(int argc, const char** argv) {
     }
 
     if (result[0] == RegexSearch::errorNotFound) {
-        message_ = "Not found";
+        message_ = "Not found\n";
         return message_;
     }
 
