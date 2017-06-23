@@ -7,9 +7,9 @@
 
 #include "include/regex_search.h"
 
-const int RegexSearch::kMaxRegexLength;
-const int RegexSearch::kMaxStringLength;
-const int RegexSearch::errorNotFound;
+//const int RegexSearch::kMaxRegexLength;
+//const int RegexSearch::kMaxStringLength;
+//const int RegexSearch::errorNotFound;
 
 //
 // Constructor
@@ -488,7 +488,7 @@ TEST(RegexSearchFindTest, cant_find_in_too_long_string) {
   std::string s;
 
   // Act
-  for (int i = 0; i <= RegexSearch::kMaxStringLength; ++i)
+  for (int i = 0; i <= RegexSearch::kMaxStringLength + 1; ++i)
     s += "a";
 
   // Assert
