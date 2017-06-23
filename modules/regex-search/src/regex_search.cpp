@@ -40,9 +40,9 @@ std::vector<int> RegexSearch::Find(const std::string& str) {
     throw RegexSearch::errorStringIsEmpty;
   }
 
-  //if (str.length() > RegexSearch::kMaxStringLength) {
-  //  throw RegexSearch::errorTooLongString;
-  //}
+  if (str.length() > RegexSearch::kMaxStringLength) {
+    throw RegexSearch::errorTooLongString;
+  }
 
   std::vector<int> res, temp(2);
   size_t pos = 0;

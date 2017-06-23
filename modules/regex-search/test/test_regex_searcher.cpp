@@ -86,7 +86,7 @@ TEST_F(RegexSearcherTest, Can_Detect_Incorrect_Regular_Expression) {
 TEST_F(RegexSearcherTest, Can_Detect_Too_Long_Text) {
     std::string user_text;
     for (int i = 0; i < 1005; i++)
-        user_text += "a"; 
+        user_text += "a";
 
     vector<string> args = { "a", user_text };
     Act(args);
