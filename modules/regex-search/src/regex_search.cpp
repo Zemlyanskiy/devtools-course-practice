@@ -36,13 +36,13 @@ std::string RegexSearch::GetRegex() const {
 }
 
 std::vector<int> RegexSearch::Find(const std::string& str) {
-  if (str.size() == 0) {
+  if (str.length() == 0) {
     throw RegexSearch::errorStringIsEmpty;
   }
 
-  if (str.size() > RegexSearch::kMaxStringLength) {
-    throw RegexSearch::errorTooLongString;
-  }
+  //if (str.length() > RegexSearch::kMaxStringLength) {
+  //  throw RegexSearch::errorTooLongString;
+  //}
 
   std::vector<int> res, temp(2);
   size_t pos = 0;

@@ -34,7 +34,7 @@ bool RegexSearcher::ValidateNumberOfArguments(int argc, const char** argv) {
         GetHelp(argv[0]);
         return false;
     } else if (argc != 3) {
-        GetHelp(argv[0], "ERROR: Should be 2 arguments\n\n");
+        GetHelp(argv[0], "ERROR: Should be 2 arguments.\n\n");
         return false;
     }
     return true;
@@ -51,25 +51,27 @@ std::string RegexSearcher::operator()(int argc, const char** argv) {
 
     try {
         RegexSearch regularExpression((first_argument));
+        if (second_argument.length() > RegexSearch::kMaxStringLength)
+            throw RegexSearch::errorTooLongString;
         result = regularExpression.Find(second_argument);
     }
     catch (int error_code) {
         if (error_code == RegexSearch::errorTooLongRegex) {
-            message_ = "Regular expression is too long\n";
+            message_ = "Regular expression is too long!\n";
             return message_;
         }
         if (error_code == RegexSearch::errorRegExpIncorrect) {
-            message_ = "Regular expression is incorrect\n";
+            message_ = "Regular expression is incorrect!\n";
             return message_;
-         }
-         if (error_code == RegexSearch::errorTooLongString) {
-             message_ = "Your text is too long\n";
-             return message_;
-          }
+        }
+        if (error_code == RegexSearch::errorTooLongString) {
+            message_ = "Your text is too long!\n";
+            return message_;
+        }
     }
 
     if (result[0] == RegexSearch::errorNotFound) {
-        message_ = "Not found\n";
+        message_ = "Not found!\n";
         return message_;
     }
 

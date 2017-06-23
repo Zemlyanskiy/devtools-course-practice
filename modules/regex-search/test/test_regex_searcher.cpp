@@ -38,15 +38,14 @@ class RegexSearcherTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
+    std::string GetResultString() {
+        return output_;
+    }
+
  private:
     RegexSearcher app_;
     string output_;
 };
-
-TEST(RegexSearcherTest, Can_Create_Regex_Searcher) {
-    // Assert
-    ASSERT_NO_THROW(RegexSearcher regex_searcher);
-}
 
 TEST_F(RegexSearcherTest, Print_Help_Without_Arguments) {
     vector<string> args = {};
@@ -72,7 +71,7 @@ TEST_F(RegexSearcherTest, Can_Detect_Too_Long_Regular_Exp) {
     vector<string> args = { regular_expression, "abc"};
     Act(args);
 
-    Assert("Regular expression is too long*");
+    Assert("Regular expression is too long!.*");
 }
 
 TEST_F(RegexSearcherTest, Can_Detect_Incorrect_Regular_Expression) {
@@ -81,18 +80,18 @@ TEST_F(RegexSearcherTest, Can_Detect_Incorrect_Regular_Expression) {
 
     Act(args);
 
-    Assert("Regular expression is incorrect*");
+    Assert("Regular expression is incorrect!.*");
 }
 
 TEST_F(RegexSearcherTest, Can_Detect_Too_Long_Text) {
-    std::string regular_expression;
-    for (int i = 0; i < 251; i++)
-        regular_expression += "aaaa";
+    std::string user_text;
+    for (int i = 0; i < 1005; i++)
+        user_text += "a"; 
 
-    vector<string> args = { regular_expression, "abc" };
+    vector<string> args = { "a", user_text };
     Act(args);
 
-    Assert("Your text is too long*");
+    Assert("Your text is too long!*.");
 }
 
 TEST_F(RegexSearcherTest, Dont_Find_Not_Contained_Expression) {
@@ -101,14 +100,14 @@ TEST_F(RegexSearcherTest, Dont_Find_Not_Contained_Expression) {
     vector<string> args = { regular_expression, "bcacba" };
     Act(args);
 
-    Assert("Not found\n");
+    Assert("Not found!\n");
 }
 
 TEST_F(RegexSearcherTest, Can_Find_Contained_Expression) {
-    std::string regular_expression = "vc{2}";
+    std::string regular_expression = "(vc){2}";
 
     vector<string> args = { regular_expression, "aabvcvcfjs" };
     Act(args);
 
-    Assert("Search result: \nvcvc\n");
+    Assert("vcvc");
 }
