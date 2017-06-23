@@ -7,9 +7,9 @@
 
 #include "include/regex_search.h"
 
-const int RegexSearch::kMaxRegexLength;
-const int RegexSearch::kMaxStringLength;
-const int RegexSearch::errorNotFound;
+//const int RegexSearch::kMaxRegexLength;
+//const int RegexSearch::kMaxStringLength;
+//const int RegexSearch::errorNotFound;
 
 //
 // Constructor
