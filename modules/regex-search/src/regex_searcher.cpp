@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <string>
+#include <vector>
 #include <sstream>
 
 RegexSearcher::RegexSearcher() : message_("") {}
@@ -22,7 +23,7 @@ void RegexSearcher::GetHelp(const char* applicationName, const char* message) {
 
         "Supported quantifiers: *, ?, +, {n} (1<=n<=9)\n" +
         "(only after some text somewhere before)\n\n" +
-        "Parentheses and quanitifiers within another parenthesis are not allowed,\n" +
+        "Parentheses & quanitifiers within another parenthesis aren\'t allowed,\n" +
         "(however there can be nothing within parentheses)\n\n" +
         "\\n, \\r support, but \\<char> equals just <char>\n\n" +
         "There can be empty regular expressions\n\n";
@@ -37,4 +38,54 @@ bool RegexSearcher::ValidateNumberOfArguments(int argc, const char** argv) {
         return false;
     }
     return true;
+}
+
+std::string RegexSearcher::operator()(int argc, const char** argv) {
+    if (!ValidateNumberOfArguments(argc, argv)) {
+        return message_;
+    }
+
+    std::string first_argument(argv[1]);
+    std::string second_argument(argv[2]);
+    std::vector<int> result;
+
+    try {
+        RegexSearch regularExpression((first_argument));
+        result = regularExpression.Find(second_argument);
+    }
+    catch (int error_code) {
+        if (error_code == RegexSearch::errorTooLongRegex) {
+            message_ = "Regular expression is too long\n";
+            return message_;
+        }
+        if (error_code == RegexSearch::errorRegExpIncorrect) {
+            message_ = "Regular is incorrect\n";
+            return message_;
+         }
+         if (error_code == RegexSearch::errorTooLongString) {
+             message_ = "Your text is too long\n";
+             return message_;
+          }
+    }
+
+    if (result[0] == RegexSearch::errorNotFound) {
+        message_ = "Not found";
+        return message_;
+    }
+
+    std::ostringstream stream;
+    std::string temp_string = "";
+    int result_size = (int)result.size();
+    stream << "Search result: \n";
+
+    for (int i = 1; i < result_size; i += 2) {
+        for (int j = result[i -1]; j < result[i - 1] + result[i]; j++)
+            temp_string += second_argument[j];
+        stream << temp_string << "\n";
+        temp_string = "";
+    }
+
+    message_ = stream.str();
+
+    return message_;
 }
