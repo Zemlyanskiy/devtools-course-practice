@@ -11,9 +11,10 @@ class RegexSearcher {
     std::string operator()(int argc, const char** argv);
 
  private:
-    void help(const char* applicationName, const char* message = "");
+    void GetHelp(const char* applicationName, const char* message = "");
+    bool ValidateNumberOfArguments(int argc, const char** argv);
 
     std::string message_;
 };
 
-#endif // MODULES_REGEX_SEARCH_INCLUDE_REGEX_SEARCHER_H_
+#endif  // MODULES_REGEX_SEARCH_INCLUDE_REGEX_SEARCHER_H_
