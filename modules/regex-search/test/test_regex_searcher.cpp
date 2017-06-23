@@ -17,7 +17,7 @@ using std::vector;
 using std::string;
 
 class RegexSearcherTest : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -38,7 +38,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     RegexSearcher app_;
     string output_;
 };
