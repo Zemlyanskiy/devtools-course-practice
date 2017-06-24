@@ -86,7 +86,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     TODOList list(args[0]);
-    for (int i = 1; i < args.size(); ++i) {
+    for (unsigned int i = 1; i < args.size(); ++i) {
         list.NewTask(args[i]);
     }
 
