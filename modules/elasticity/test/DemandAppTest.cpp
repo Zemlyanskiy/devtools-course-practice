@@ -75,7 +75,7 @@ TEST_F(DemandAppTest, checking_output_unit_elastic) {
 }
 TEST_F(DemandAppTest, Is_Checking_Argument) {
     vector<string> args = { "0.4", "0.9", "G", "7" };
-    
+
     Act(args);
 
     Assert("Wrong number format");
