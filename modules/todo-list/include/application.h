@@ -14,6 +14,7 @@ class Application {
 
  private:
     void Help(const char* appname, const char* message = "");
+    std::vector<std::string> ParseArguments(int argc, const char** argv);
     std::string message_;
 };
 

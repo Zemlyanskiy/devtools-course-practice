@@ -44,6 +44,6 @@ TEST_F(ApplicationTest, Do_Print_Help) {
 
     Act(args);
 
-    Assert("");
+    Assert("This is a simple TODO-list application.");
 }
 
