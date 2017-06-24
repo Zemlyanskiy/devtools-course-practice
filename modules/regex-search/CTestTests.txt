@@ -28,28 +28,11 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Too_Long_Regular_Exp
-    COMMAND ${APPLICATION} avavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavav fhna
-)
-set_tests_properties (${prefix}_can_Detect_Too_Long_Regular_Exp PROPERTIES
-    PASS_REGULAR_EXPRESSION "Regular expression is too long!"
-    LABELS "${MODULE}")
-
-	
-add_test(
     NAME ${prefix}_can_Detect_Incorrect_Regular_Expression
     COMMAND ${APPLICATION} (ac){2}{3}{ jsdfkloj 
 )
 set_tests_properties (${prefix}_can_Detect_Incorrect_Regular_Expression PROPERTIES
     PASS_REGULAR_EXPRESSION "Regular expression is incorrect!!"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Detect_Too_Long_Text
-    COMMAND ${APPLICATION} abc avavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavav
-)
-set_tests_properties (${prefix}_can_Detect_Too_Long_Text
-    PASS_REGULAR_EXPRESSION "Your text is too long!"
     LABELS "${MODULE}")
 
 add_test(
