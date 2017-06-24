@@ -81,7 +81,7 @@ void TODOList::ShowTODOList() {
     std::cout << "Current tasks count: " << data_list_.size() << std::endl;
     std::cout << std::endl;
     for (unsigned int i = 0; i < data_list_.size(); i++) {
-        std::cout << i + 1 << ") " << data_list_[i].GetTaskName();
+        std::cout << i + 1 << ". " << data_list_[i].GetTaskName();
         std::cout << " - " << data_list_[i].GetTaskStatus() << std::endl;
     }
 }
@@ -95,7 +95,7 @@ std::string TODOList::ToString() {
         stream << "The list is empty" << std::endl;
 
     for (unsigned int i = 0; i < data_list_.size(); i++) {
-        stream << i + 1 << ") " << data_list_[i].GetTaskName();
+        stream << i + 1 << ". " << data_list_[i].GetTaskName();
         stream << " - ";
         if (data_list_[i].GetTaskStatus() == DONE_TASK)
             stream << "undone." << std::endl;

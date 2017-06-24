@@ -63,10 +63,42 @@ TEST_F(ApplicationTest, Application_Indicates_Incorrect_End) {
     Assert("Wrong arguments format!");
 }
 
+TEST_F(ApplicationTest, Application_Indicates_Two_Beginnings) {
+    vector<string> args = { "\"example", "list", "\"task", "name\"" };
+
+    Act(args);
+
+    Assert("Wrong arguments format!");
+}
+
+TEST_F(ApplicationTest, Application_Indicates_Two_Ends) {
+    vector<string> args = { "\"example", "list\"", "task\"", "name\"" };
+
+    Act(args);
+
+    Assert("Wrong arguments format!");
+}
+
+TEST_F(ApplicationTest, Space_After_And_Before_Quotes_Works_Correctly) {
+    vector<string> args = { "\" example", "list \""};
+
+    Act(args);
+
+    Assert("TODO List Name: \" example list \"");
+}
+
 TEST_F(ApplicationTest, Application_Can_Name_List) {
     vector<string> args = {"\"example", "list\""};
 
     Act(args);
 
     Assert("TODO List Name: \"example list\"");
+}
+
+TEST_F(ApplicationTest, Application_Can_Name_Task) {
+    vector<string> args = { "\"example", "list\"", "\"task", "name\"" };
+
+    Act(args);
+
+    Assert("1. \"task name\"");
 }
