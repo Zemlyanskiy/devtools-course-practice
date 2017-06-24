@@ -44,22 +44,6 @@ TEST_F(ApplicationTest, Do_Print_Help) {
 
     Act(args);
 
-    Assert("This is a TODO-list application.*");
-}
-
-TEST_F(ApplicationTest, Can_Detect_Unknown_Command_Format) {
-    vector<string> args = {"delete"};
-
-    Act(args);
-
-    Assert("ERROR: unknown command format!*");
-}
-
-TEST_F(ApplicationTest, Can_Show_TODO_List) {
-    vector<string> args = {"show"};
-
-    Act(args);
-
     Assert("");
 }
 
