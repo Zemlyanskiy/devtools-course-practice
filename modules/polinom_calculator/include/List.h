@@ -9,7 +9,7 @@ class List {
     ~List();
     PValue GetValue();
     virtual int IsEmpty() const;
-    int Getlistlen_gth() const;
+    int GetListLength() const;
     virtual void Reset(void);
     virtual bool IsListEnded(void) const;
     int GoNext(void);

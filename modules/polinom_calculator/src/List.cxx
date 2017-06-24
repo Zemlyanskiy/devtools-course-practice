@@ -45,7 +45,7 @@ int List::IsEmpty() const {
     return pfirst_ == plast_;
 }
 
-int List::Getlistlen_gth() const {
+int List::GetListLength() const {
     return listlen_;
 }
 
