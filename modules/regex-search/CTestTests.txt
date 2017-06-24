@@ -48,7 +48,7 @@ add_test(
     NAME ${prefix}_can_Detect_Too_Long_Text
     COMMAND ${APPLICATION} "abc" "avavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavav"
 )
-set_tests_properties (${prefix}_can_Detect_Too_Long_Text
+set_tests_properties (${prefix}_can_Detect_Too_Long_Text PROPERTIES
     PASS_REGULAR_EXPRESSION "Your text is too long!"
     LABELS "${MODULE}")
 
@@ -64,6 +64,6 @@ add_test(
     NAME ${prefix}_can_Find_Contained_Expression
     COMMAND ${APPLICATION} "(vc){2}" "aabvcvcfjs"
 )
-set_tests_properties (${prefix}_can_Find_Contained_Expression
+set_tests_properties (${prefix}_can_Find_Contained_Expression PROPERTIES
     PASS_REGULAR_EXPRESSION "vcvc"
     LABELS "${MODULE}")
