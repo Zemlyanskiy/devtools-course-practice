@@ -18,7 +18,7 @@ Demand::Demand(double oldprice, double newprice,
     deltademand_ = newdemand - olddemand;
     coeffofdemand_ = deltademand_/deltaprice_;
     revenue_ = 0;
-    elasticity_ = 0;
+    elasticity_ = -1;
   } else {
       throw "Price or demand can`t be < 0";
     }
@@ -69,7 +69,7 @@ std::string Demand::GetElasticity() {
     case 1:
         return "UnitElastic";
     case 2:
-        return "NoElastic";
+        return "NotElastic";
     default:
         return "Not defined";
     }

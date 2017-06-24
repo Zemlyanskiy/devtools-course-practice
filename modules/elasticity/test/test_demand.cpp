@@ -123,3 +123,31 @@ TEST(Demand, Test_Of_Return_Value_Check_Ela) {
 
   ASSERT_EQ(dem.CheckForElasticity(), 0);
 }
+TEST(BilkovksyTest, can_return_deltaprice) {
+    Demand dem(3, 2, 2, 1);
+    ASSERT_EQ(dem.GetDeltaPrice(), -1);
+}
+TEST(BilkovksyTest, can_return_deltademand) {
+    Demand dem(3, 2, 2, 1);
+    ASSERT_EQ(dem.GetDeltaDemand(), -1);
+}
+TEST(BilkovksyTest, can_return_elastic) {
+    Demand dem(1, 2, 2, 4);
+    dem.CheckForElasticity();
+    ASSERT_EQ(dem.GetElasticity(), "Elastic");
+}
+TEST(BilkovksyTest, can_return_UnitElastic) {
+    Demand dem(1, 3, 2, 4);
+    dem.CheckForElasticity();
+    ASSERT_EQ(dem.GetElasticity(), "UnitElastic");
+}
+TEST(BilkovksyTest, can_return_NotElastic) {
+    Demand dem(1, 5, 2, 4);
+    dem.CheckForElasticity();
+    ASSERT_EQ(dem.GetElasticity(), "NotElastic");
+}
+TEST(BilkovksyTest, can_return_not_defined) {
+    Demand dem(1, 2, 2, 4);
+
+    ASSERT_EQ(dem.GetElasticity(), "Not defined");
+}
