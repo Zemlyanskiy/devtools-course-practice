@@ -14,9 +14,6 @@ class Application {
 
  private:
     void Help(const char* appname, const char* message = "");
-    bool CheckCorrectnessOfCommand(int argc, const char** argv);
-    void ReadList(TODOList *list, std::ifstream *fin);
-    void WriteList(TODOList *list, std::ofstream *fout);
     std::string message_;
 };
 

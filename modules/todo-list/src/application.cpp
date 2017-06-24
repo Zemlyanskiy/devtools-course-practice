@@ -30,5 +30,7 @@ void Application::Help(const char* appname, const char* message) {
 std::string Application::operator()(int argc, const char** argv) {
     TODOList list;
 
+    Help(argv[0]);
+
     return message_;
 }

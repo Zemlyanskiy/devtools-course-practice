@@ -86,6 +86,26 @@ TEST(TODOListTest, TODOListCanBeShownWithTasks) {
     ASSERT_NO_FATAL_FAILURE(ListToTest.ShowTODOList());
 }
 
+TEST(TODOListTest, TODOListCanReturnStringWithoutTasks) {
+    // Arrange
+    TODOList ListToTest;
+    // Act
+    // Assert
+    ASSERT_NO_FATAL_FAILURE(ListToTest.ToString());
+}
+
+TEST(TODOListTest, TODOListCanReturnStringWithTasks) {
+    // Arrange
+    TODOList ListToTest("Today's plan");
+    // Act
+    ListToTest.NewTask("To test the ShowTodoListMethod");
+    ListToTest.NewTask("To add some tasks");
+    ListToTest.NewTask("To make this one done");
+    ListToTest.SetTaskDone(3);
+    // Assert
+    ASSERT_NO_FATAL_FAILURE(ListToTest.ToString());
+}
+
 TEST(TODOListTest, TODOListCanBeUnlimitedAndUnlimited) {
     // Arrange
     TODOList ListToTest;
