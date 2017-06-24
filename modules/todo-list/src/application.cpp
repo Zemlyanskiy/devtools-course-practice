@@ -24,14 +24,14 @@ void Application::Help(const char* appname, const char* message) {
           "\"<task-name>\" ... \"<task-name>\"\n";
 }
 
-bool IsBeginningOfName (const char* arg) {
+bool IsBeginningOfName(const char* arg) {
     if (arg[0] == '\"')
         return true;
     else
         return false;
 }
 
-bool IsEndOfName (const char* arg) {
+bool IsEndOfName(const char* arg) {
     int i = 0;
     while (arg[i] != '\0')
         ++i;
@@ -42,29 +42,30 @@ bool IsEndOfName (const char* arg) {
         return false;
 }
 
-std::string GetName(int& cursor, int argc, const char** argv) {
+std::string GetName(int* cursor, int argc, const char** argv) {
     std::string result = "";
 
-    if (!IsBeginningOfName(argv[cursor]))
+    if (!IsBeginningOfName(argv[*cursor]))
         throw std::string("Wrong arguments format!");
 
-    while (cursor < argc || !IsEndOfName(argv[cursor])) {
-        result += argv[cursor];
-        ++cursor;
+    while (*cursor < argc || !IsEndOfName(argv[*cursor])) {
+        result += argv[*cursor];
+        ++(*cursor);
     }
 
-    if (cursor == argc && !IsEndOfName(argv[cursor]))
+    if (*cursor == argc && !IsEndOfName(argv[*cursor]))
         throw std::string("Wrong arguments format!");
 
     return result;
 }
 
-std::vector<std::string> Application::ParseArguments(int argc, const char** argv) {
+std::vector<std::string> 
+Application::ParseArguments(int argc, const char** argv) {
     std::vector<std::string> args;
     int cur = 2;
 
     while (cur != argc) {
-        args.push_back(GetName(cur, argc, argv));
+        args.push_back(GetName(&cur, argc, argv));
     }
 
     return args;
