@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_dont_Find_Not_Contained_Expression PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Contained_Expression
-    COMMAND ${APPLICATION} (vc){2} aabvcvcfjs
+    COMMAND ${APPLICATION} "(vc){2}" aabvcvcfjs
 )
 set_tests_properties (${prefix}_can_Find_Contained_Expression PROPERTIES
     PASS_REGULAR_EXPRESSION "vcvc"
