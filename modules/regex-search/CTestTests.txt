@@ -41,7 +41,7 @@ add_test(
     COMMAND ${APPLICATION} "(ac){2}{3}{" "jsdfkloj"
 )
 set_tests_properties (${prefix}_can_Detect_Incorrect_Regular_Expression PROPERTIES
-    PASS_REGULAR_EXPRESSION "Regular expression is incorrect!!"
+    PASS_REGULAR_EXPRESSION "Regular expression is incorrect!"
     LABELS "${MODULE}")
 
 add_test(
