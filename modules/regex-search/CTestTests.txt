@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Incorrect_Regular_Expression
-    COMMAND ${APPLICATION} (ac){2}{3}{ jsdfkloj 
+    COMMAND ${APPLICATION} {a} jsdfkloj 
 )
 set_tests_properties (${prefix}_can_Detect_Incorrect_Regular_Expression PROPERTIES
     PASS_REGULAR_EXPRESSION "Regular expression is incorrect!!"
@@ -47,6 +47,6 @@ add_test(
     NAME ${prefix}_can_Find_Contained_Expression
     COMMAND ${APPLICATION} (vc){2} aabvcvcfjs
 )
-set_tests_properties (${prefix}_can_Mult_Complexs PROPERTIES
+set_tests_properties (${prefix}_can_Find_Contained_Expression PROPERTIES
     PASS_REGULAR_EXPRESSION "vcvc"
     LABELS "${MODULE}")
