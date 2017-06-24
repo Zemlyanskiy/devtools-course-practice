@@ -48,12 +48,23 @@ std::string GetName(int* cursor, int argc, const char** argv) {
     if (!IsBeginningOfName(argv[*cursor]))
         throw std::string("Wrong arguments format!");
 
-    while (*cursor < argc || !IsEndOfName(argv[*cursor])) {
-        result += argv[*cursor];
+    result += argv[(*cursor)++];
+    result += ' ';
+
+    while (*cursor < argc) {
+        if (IsEndOfName(argv[*cursor])) {
+            result += argv[(*cursor)++];
+            break;
+        } else if (IsBeginningOfName(argv[*cursor])) {
+            throw std::string("Wrong arguments format!");
+        } else {
+            result += argv[*cursor];
+            result += ' ';
+        }
         ++(*cursor);
     }
 
-    if (*cursor == argc && !IsEndOfName(argv[*cursor]))
+    if (*cursor == argc && !IsEndOfName(argv[(*cursor) - 1]))
         throw std::string("Wrong arguments format!");
 
     return result;
@@ -62,7 +73,7 @@ std::string GetName(int* cursor, int argc, const char** argv) {
 std::vector<std::string>
 Application::ParseArguments(int argc, const char** argv) {
     std::vector<std::string> args;
-    int cur = 2;
+    int cur = 1;
 
     while (cur != argc) {
         args.push_back(GetName(&cur, argc, argv));
@@ -87,8 +98,10 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     TODOList list(args[0]);
-    for (unsigned int i = 1; i < args.size(); ++i) {
-        list.NewTask(args[i]);
+    if (args.size() > 1) {
+        for (unsigned int i = 1; i < args.size(); i++) {
+            list.NewTask(args[i]);
+        }
     }
 
     return list.ToString();

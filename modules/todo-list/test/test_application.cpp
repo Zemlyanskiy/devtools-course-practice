@@ -47,3 +47,26 @@ TEST_F(ApplicationTest, Do_Print_Help) {
     Assert("This is a simple TODO-list application.");
 }
 
+TEST_F(ApplicationTest, Application_Indicates_Incorrect_Beginning) {
+    vector<string> args = {"todo", "list\""};
+
+    Act(args);
+
+    Assert("Wrong arguments format!");
+}
+
+TEST_F(ApplicationTest, Application_Indicates_Incorrect_End) {
+    vector<string> args = {"\"todo", "list"};
+
+    Act(args);
+
+    Assert("Wrong arguments format!");
+}
+
+TEST_F(ApplicationTest, Application_Can_Name_List) {
+    vector<string> args = {"\"example", "list\""};
+
+    Act(args);
+
+    Assert("TODO List Name: \"example list\"");
+}
