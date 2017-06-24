@@ -59,7 +59,7 @@ std::string GetName(int* cursor, int argc, const char** argv) {
     return result;
 }
 
-std::vector<std::string> 
+std::vector<std::string>
 Application::ParseArguments(int argc, const char** argv) {
     std::vector<std::string> args;
     int cur = 2;
