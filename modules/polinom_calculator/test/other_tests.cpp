@@ -853,3 +853,7 @@ TEST(List, GetLength) {
 
     ASSERT_EQ(pol.GetListLength() , 2);
 }
+
+TEST(Fake, Fake_Test) {
+    EXPECT_TRUE(true);
+}

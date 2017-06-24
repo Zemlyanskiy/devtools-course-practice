@@ -17,6 +17,7 @@ List::List() {
     currpos_ = 0;
     listlen_ = 0;
 }
+
 List::List(const List &list) {
     int k = 1;
     pfirst_ = new Link(*list.pfirst_);
