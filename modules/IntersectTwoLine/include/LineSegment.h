@@ -9,28 +9,35 @@
 using std::string;
 
 class LineSegment2D {
- protected:
-  string str;
-  double coeff_A;
-  double coeff_B;
-  double coeff_C;
-
  public:
-  LineSegment2D(double A, double B, double C) {
-    coeff_A = A;
-    coeff_B = B;
-    coeff_C = C;
+  LineSegment2D(double X1, double Y1, double X2, double Y2);
+
+  LineSegment2D() : X1_(0), X2_(0), Y1_(0), Y2_(0) {}
+
+  void SetX1(double X) {
+    X1_ = X;
   }
-  void Set_A(double new_A) {
-    coeff_A = new_A;
+  void SetX2(double X) {
+    X2_ = X;
   }
-  void Set_B(double new_B) {
-    coeff_B = new_B;
+  void SetY1(double Y) {
+    Y1_ = Y;
   }
-  void Set_C(double new_C) {
-    coeff_C = new_C;
+  void SetY2(double Y) {
+    Y2_ = Y;
   }
-  double Get_Coeff(int count);
-  string checkIntersection(LineSegment2D line);
+
+  double GetCoord(int count);
+
+  double GetCoeff(int count);
+
+  string CheckIntersection(LineSegment2D lineSegment);
+  bool BelongingToSegment(LineSegment2D segment);
+
+ protected:
+  double X1_;
+  double X2_;
+  double Y1_;
+  double Y2_;
 };
 #endif  // MODULES_INTERSECTTWOLINE_INCLUDE_LINESEGMENT_H_
