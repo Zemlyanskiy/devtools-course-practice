@@ -2,59 +2,59 @@
 #include "../include/Monom.h"
 #include <iostream>
 Monom::Monom(int cval, int x, int y, int z) {
-    Coeff_ = cval;
-    XInd_ = x;
-    YInd_ = y;
-    ZInd_ = z;
+    coeff_ = cval;
+    x_ind_ = x;
+    y_ind_ = y;
+    z_ind_ = z;
 }
 
 Monom::~Monom() {}
 
-void Monom::SetCoeff_(int cval) {
-    Coeff_ = cval;
+void Monom::SetCoeff(int cval) {
+    coeff_ = cval;
 }
 
-int Monom::GetCoeff_(void) {
-    return Coeff_;
+int Monom::GetCoeff(void) {
+    return coeff_;
 }
 
 void Monom::SetIndexX(int ival) {
-    XInd_ = ival;
+    x_ind_ = ival;
 }
 
 void Monom::SetIndexY(int ival) {
-    YInd_ = ival;
+    y_ind_ = ival;
 }
 
 void Monom::SetIndexZ(int ival) {
-    ZInd_ = ival;
+    z_ind_ = ival;
 }
 
 int Monom::GetIndexX(void) {
-    return XInd_;
+    return x_ind_;
 }
 
 int Monom::GetIndexY(void) {
-    return YInd_;
+    return y_ind_;
 }
 
 int Monom::GetIndexZ(void) {
-    return ZInd_;
+    return z_ind_;
 }
 
 Monom& Monom::operator=(const Monom &tm) {
-    Coeff_ = tm.Coeff_;
-    XInd_ = tm.XInd_;
-    YInd_ = tm.YInd_;
-    ZInd_ = tm.ZInd_;
+    coeff_ = tm.coeff_;
+    x_ind_ = tm.x_ind_;
+    y_ind_ = tm.y_ind_;
+    z_ind_ = tm.z_ind_;
     return *this;
 }
 
 std::ostream& operator<<(std::ostream &os, Monom * tm) {
-    if (tm->GetCoeff_() > 0)
-        os << " + " << tm->GetCoeff_();
+    if (tm->GetCoeff() > 0)
+        os << " + " << tm->GetCoeff();
     else
-        os << " - " << -tm->GetCoeff_();
+        os << " - " << -tm->GetCoeff();
     if (tm->GetIndexX() != 0) os << " * x^" << tm->GetIndexX();
     if (tm->GetIndexY() != 0) os << " * y^" << tm->GetIndexY();
     if (tm->GetIndexZ() != 0) os << " * z^" << tm->GetIndexZ();
@@ -63,7 +63,7 @@ std::ostream& operator<<(std::ostream &os, Monom * tm) {
 
 Monom Monom::operator*(Monom mon) {
     Monom* that = new Monom(0, 0, 0, 0);
-    that->Coeff_ = this->Coeff_ * mon.Coeff_;
+    that->coeff_ = this->coeff_ * mon.coeff_;
     that->SetIndexX(this->GetIndexX() + mon.GetIndexX());
     that->SetIndexY(this->GetIndexY() + mon.GetIndexY());
     that->SetIndexZ(this->GetIndexZ() + mon.GetIndexZ());
@@ -71,49 +71,49 @@ Monom Monom::operator*(Monom mon) {
 }
 
 bool Monom::operator==(const Monom &tm) {
-    return ((Coeff_ == tm.Coeff_) && (XInd_ == tm.XInd_)
-        && (YInd_ == tm.YInd_) && (ZInd_ == tm.ZInd_));
+    return ((coeff_ == tm.coeff_) && (x_ind_ == tm.x_ind_)
+        && (y_ind_ == tm.y_ind_) && (z_ind_ == tm.z_ind_));
 }
 
 bool Monom::EqualityExponent(Monom tm) {
-    return (XInd_ == tm.XInd_) && (YInd_ == tm.YInd_)
-        && (ZInd_ == tm.ZInd_);
+    return (x_ind_ == tm.x_ind_) && (y_ind_ == tm.y_ind_)
+        && (z_ind_ == tm.z_ind_);
 }
 
 bool Monom::operator<(Monom tm) {  //  prioritet x > y > z
     if (EqualityExponent(tm)) return false;
-    if (XInd_ > tm.XInd_)
+    if (x_ind_ > tm.x_ind_)
         return false;
-    else if (XInd_ < tm.XInd_)
+    else if (x_ind_ < tm.x_ind_)
         return true;
-    // XInd_ == tm.XInd_
-    if (YInd_ > tm.YInd_)
+    // x_ind_ == tm.x_ind_
+    if (y_ind_ > tm.y_ind_)
         return false;
-    else if (YInd_ < tm.YInd_)
+    else if (y_ind_ < tm.y_ind_)
         return true;
-    // & YInd_ == tm.YInd_
-    if (ZInd_ > tm.ZInd_)
+    // & y_ind__ == tm.y_ind__
+    if (z_ind_ > tm.z_ind_)
         return false;
     return true;
 }
 
 bool Monom::operator>(Monom tm) {  //  prioritet x > y > z
     if (EqualityExponent(tm)) return false;
-    if (XInd_ < tm.XInd_)
+    if (x_ind_ < tm.x_ind_)
         return false;
-    else if (XInd_ > tm.XInd_)
+    else if (x_ind_ > tm.x_ind_)
         return true;
-    // XInd_ == tm.XInd_
-    if (YInd_ < tm.YInd_)
+    // x_ind_ == tm.x_ind_
+    if (y_ind_ < tm.y_ind_)
         return false;
-    else if (YInd_ > tm.YInd_)
+    else if (y_ind_ > tm.y_ind_)
         return true;
-    // & YInd_ == tm.YInd_
-    if (ZInd_ < tm.ZInd_)
+    // & y_ind__ == tm.y_ind__
+    if (z_ind_ < tm.z_ind_)
         return false;
     return true;
 }
 
 Value* Monom::GetCopy() {
-    return new Monom(Coeff_, XInd_, YInd_, ZInd_);
+    return new Monom(coeff_, x_ind_, y_ind_, z_ind_);
 }

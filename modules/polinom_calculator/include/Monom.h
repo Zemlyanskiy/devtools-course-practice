@@ -9,8 +9,8 @@ class Monom : public Value {
     explicit Monom(int cval = 1, int x = 0, int y = 0, int z = 0);
     ~Monom();
     virtual Value * GetCopy();
-    void SetCoeff_(int cval);
-    int  GetCoeff_(void);
+    void SetCoeff(int cval);
+    int  GetCoeff(void);
     void SetIndexX(int ival);
     void SetIndexY(int ival);
     void SetIndexZ(int ival);
@@ -27,9 +27,9 @@ class Monom : public Value {
     friend class Polinom;
 
  protected:
-    int Coeff_;  //  monom's Coeff_
-    int XInd_;  //  index X
-    int YInd_;  //  index Y
-    int ZInd_;  //  index Z
+    int coeff_;  //  monom's coeff_
+    int x_ind_;  //  index X
+    int y_ind_;  //  index Y
+    int z_ind_;  //  index Z
 };
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_MONOM_H_

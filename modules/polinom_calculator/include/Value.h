@@ -4,7 +4,7 @@
 
 class Value {
  protected:
-    virtual Value * GetCopy() = 0;  //  copia
+    virtual Value * GetCopy() = 0;
 };
 
 #endif  //  MODULES_POLINOM_CALCULATOR_INCLUDE_VALUE_H_
