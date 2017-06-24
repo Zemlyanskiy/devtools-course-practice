@@ -21,11 +21,14 @@ void Application::Help(const char* appname, const char* message) {
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " \"<list_name>\" " +
-          "\"<task-name>\" ... \"<task-name>\"\n";
+          "<task-name> ... <task-name>\n\n"+
+
+          "As a result, application will return "+
+          "readable and framed list\n";
 }
 
 bool IsBeginningOfName(const char* arg) {
-    if (arg[0] == '\"')
+    if (arg[0] == '<')
         return true;
     else
         return false;
@@ -36,7 +39,7 @@ bool IsEndOfName(const char* arg) {
     while (arg[i] != '\0')
         ++i;
 
-    if (arg[i - 1] == '\"')
+    if (arg[i - 1] == '>')
         return true;
     else
         return false;
@@ -48,15 +51,20 @@ std::string GetName(int* cursor, int argc, const char** argv) {
     if (!IsBeginningOfName(argv[*cursor]))
         throw std::string("Wrong arguments format!");
 
-    result += argv[(*cursor)++];
-    result += ' ';
+    if (IsEndOfName(argv[*cursor])) {
+        return (argv[(*cursor)++]) + 1;
+    } else {
+        result += (argv[(*cursor)++]) + 1;
+        result += ' ';
+    }
 
     while (*cursor < argc) {
-        if (IsEndOfName(argv[*cursor])) {
-            result += argv[(*cursor)++];
-            break;
-        } else if (IsBeginningOfName(argv[*cursor])) {
+        if (IsBeginningOfName(argv[*cursor])) {
             throw std::string("Wrong arguments format!");
+        } else if (IsEndOfName(argv[*cursor])) {
+            result += argv[(*cursor)++];
+            result.pop_back();
+            break;
         } else {
             result += argv[*cursor];
             result += ' ';
@@ -98,6 +106,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     TODOList list(args[0]);
+
     if (args.size() > 1) {
         for (unsigned int i = 1; i < args.size(); i++) {
             list.NewTask(args[i]);

@@ -48,7 +48,7 @@ TEST_F(ApplicationTest, Do_Print_Help) {
 }
 
 TEST_F(ApplicationTest, Application_Indicates_Incorrect_Beginning) {
-    vector<string> args = {"todo", "list\""};
+    vector<string> args = {"todo", "list>"};
 
     Act(args);
 
@@ -56,7 +56,7 @@ TEST_F(ApplicationTest, Application_Indicates_Incorrect_Beginning) {
 }
 
 TEST_F(ApplicationTest, Application_Indicates_Incorrect_End) {
-    vector<string> args = {"\"todo", "list"};
+    vector<string> args = {"<todo", "list"};
 
     Act(args);
 
@@ -64,7 +64,7 @@ TEST_F(ApplicationTest, Application_Indicates_Incorrect_End) {
 }
 
 TEST_F(ApplicationTest, Application_Indicates_Two_Beginnings) {
-    vector<string> args = { "\"example", "list", "\"task", "name\"" };
+    vector<string> args = { "<example", "<list>" };
 
     Act(args);
 
@@ -72,7 +72,7 @@ TEST_F(ApplicationTest, Application_Indicates_Two_Beginnings) {
 }
 
 TEST_F(ApplicationTest, Application_Indicates_Two_Ends) {
-    vector<string> args = { "\"example", "list\"", "task\"", "name\"" };
+    vector<string> args = { "<example>", "list>" };
 
     Act(args);
 
@@ -80,25 +80,25 @@ TEST_F(ApplicationTest, Application_Indicates_Two_Ends) {
 }
 
 TEST_F(ApplicationTest, Space_After_And_Before_Quotes_Works_Correctly) {
-    vector<string> args = { "\" example", "list \""};
+    vector<string> args = { "<", "example", "list", ">"};
 
     Act(args);
 
-    Assert("TODO List Name: \" example list \"");
+    Assert("TODO List Name:  example list ");
 }
 
 TEST_F(ApplicationTest, Application_Can_Name_List) {
-    vector<string> args = {"\"example", "list\""};
+    vector<string> args = {"<example", "list>"};
 
     Act(args);
 
-    Assert("TODO List Name: \"example list\"");
+    Assert("TODO List Name: example list");
 }
 
 TEST_F(ApplicationTest, Application_Can_Name_Task) {
-    vector<string> args = { "\"example", "list\"", "\"task", "name\"" };
+    vector<string> args = { "<example", "list>", "<task", "name>" };
 
     Act(args);
 
-    Assert("1. \"task name\"");
+    Assert("1. task name");
 }

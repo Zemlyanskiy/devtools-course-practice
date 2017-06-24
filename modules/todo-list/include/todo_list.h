@@ -1,4 +1,4 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kozlov Ilya & Bakalin Andrey
 
 #ifndef MODULES_TODO_LIST_INCLUDE_TODO_LIST_H_
 #define MODULES_TODO_LIST_INCLUDE_TODO_LIST_H_

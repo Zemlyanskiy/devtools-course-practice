@@ -1,0 +1,77 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a simple TODO-list application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Indicate_Incorrect_Beginning
+    COMMAND ${APPLICATION} todo list>
+)
+set_tests_properties (${prefix}_can_Indicate_Incorrect_Beginning PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Indicate_Incorrect_End
+    COMMAND ${APPLICATION} <todo list
+)
+set_tests_properties (${prefix}_can_Indicate_Incorrect_End PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Indicate_Two_Beginnings
+    COMMAND ${APPLICATION} <todo <list>
+)
+set_tests_properties (${prefix}_can_Indicate_Two_Beginnings PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Indicate_Two_Ends
+    COMMAND ${APPLICATION} <todo> list>
+)
+set_tests_properties (${prefix}_can_Indicate_Two_Ends PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Work_With_Spaces_In_Names
+    COMMAND ${APPLICATION} < example list >
+)
+set_tests_properties (${prefix}_can_Work_With_Spaces_In_Names PROPERTIES
+    PASS_REGULAR_EXPRESSION "TODO List Name:  example list "
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Name_List
+    COMMAND ${APPLICATION} <example list>
+)
+set_tests_properties (${prefix}_can_Name_List PROPERTIES
+    PASS_REGULAR_EXPRESSION "TODO List Name: example list"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Name_Task
+    COMMAND ${APPLICATION} <example list> <task name>
+)
+set_tests_properties (${prefix}_can_Name_Task PROPERTIES
+    PASS_REGULAR_EXPRESSION "1. task name"
+    LABELS "${MODULE}")
+
