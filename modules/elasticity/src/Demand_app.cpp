@@ -50,8 +50,7 @@ std::string DemandApp::operator()(int argc, const char** argv) {
     Demand dem(args.oldprice, args.newprice, args.olddemand, args.newdemand);
     dem.CheckForElasticity();
     std::ostringstream stream;
-    stream << "Delta price: " << dem.GetDeltaPrice() << "\nDelta demand: "
-        << dem.GetDeltaDemand() << "\nElasticity: " << dem.GetElasticity();
+    stream << "Elasticity: " << dem.GetElasticity();
     message_ = stream.str();
     return message_;
 }

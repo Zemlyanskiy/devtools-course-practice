@@ -13,8 +13,6 @@ class Demand {
            double olddemand, double newdemand);
     int CheckForElasticity();
     double RevenueChange(double revenue);
-    double GetDeltaPrice() { return deltaprice_; }
-    double GetDeltaDemand() { return deltademand_; }
     std::string GetElasticity();
  protected:
     double coeffofdemand_;

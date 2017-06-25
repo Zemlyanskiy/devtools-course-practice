@@ -123,16 +123,6 @@ TEST(Demand, Test_Of_Return_Value_Check_Ela) {
 
   ASSERT_EQ(dem.CheckForElasticity(), 0);
 }
-TEST(BilkovksyTest, can_return_deltaprice) {
-    Demand dem(3, 2, 2, 1);
-    double temp = dem.GetDeltaPrice();
-    ASSERT_EQ(temp, -1.0);
-}
-TEST(BilkovksyTest, can_return_deltademand) {
-    Demand dem(3, 2, 2, 1);
-    double temp = dem.GetDeltaDemand();
-    ASSERT_EQ(temp, -1.0);
-}
 TEST(BilkovksyTest, can_return_elastic) {
     Demand dem(1, 2, 2, 4);
     dem.CheckForElasticity();
