@@ -125,11 +125,13 @@ TEST(Demand, Test_Of_Return_Value_Check_Ela) {
 }
 TEST(BilkovksyTest, can_return_deltaprice) {
     Demand dem(3, 2, 2, 1);
-    ASSERT_EQ(dem.GetDeltaPrice(), -1);
+    double temp = dem.GetDeltaPrice();
+    ASSERT_EQ(temp, -1.0);
 }
 TEST(BilkovksyTest, can_return_deltademand) {
     Demand dem(3, 2, 2, 1);
-    ASSERT_EQ(dem.GetDeltaDemand(), -1);
+    double temp = dem.GetDeltaDemand();
+    ASSERT_EQ(temp, -1.0);
 }
 TEST(BilkovksyTest, can_return_elastic) {
     Demand dem(1, 2, 2, 4);

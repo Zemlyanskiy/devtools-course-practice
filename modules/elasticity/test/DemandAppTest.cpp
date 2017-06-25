@@ -52,6 +52,13 @@ TEST_F(DemandAppTest, Is_Checking_Number_Of_Arguments) {
 
     Assert("ERROR: Incorrect number of arguments");
 }
+TEST_F(DemandAppTest, Is_Checking_Number_Of_Arguments2) {
+    vector<string> args = { "0.5", "3.0", "0.5", "3.0", "9.0" };
+
+    Act(args);
+
+    Assert("ERROR: Incorrect number of arguments");
+}
 TEST_F(DemandAppTest, checking_output_not_elastic) {
     vector<string> args = { "0.5", "3.0", "1.0", "2.0" };
 
