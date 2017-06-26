@@ -16,7 +16,7 @@
 // - Search is implemented according to DFA principle
 class RegexSearch {
  public:
-  static const int kMaxStringLength = 5000;
+  static const int kMaxStringLength = 1000;
   static const int kMaxRegexLength = 150;
   static const int errorNotFound = -1;
   static const int errorTooLongRegex = -2;
