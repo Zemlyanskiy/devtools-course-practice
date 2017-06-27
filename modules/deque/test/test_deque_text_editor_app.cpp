@@ -224,5 +224,5 @@ TEST_F(DequeTextEditorAppTest,
     // Act
     Act(args);
     // Assert
-    Assert("DataFull");
+    Assert("DataFull.*");
 }
