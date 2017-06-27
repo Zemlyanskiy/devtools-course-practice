@@ -137,7 +137,7 @@ std::string DequeTextEditorApp::operator()(int argc, const char** argv) {
             }
         }
     }
-    catch (char* err) {
+    catch (const char* err) {
         return std::string(err);
     }
 
