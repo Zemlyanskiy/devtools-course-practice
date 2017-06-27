@@ -1,6 +1,7 @@
 // Copyright 2017 Zemlyanskiy Nikita
 
 #include "../include/Demand.h"
+#include <string>
 
 Demand::Demand(double oldprice, double newprice,
                double olddemand, double newdemand) {
@@ -17,7 +18,7 @@ Demand::Demand(double oldprice, double newprice,
     deltademand_ = newdemand - olddemand;
     coeffofdemand_ = deltademand_/deltaprice_;
     revenue_ = 0;
-    elasticity_ = 0;
+    elasticity_ = -1;
   } else {
       throw "Price or demand can`t be < 0";
     }
@@ -60,4 +61,16 @@ double Demand::RevenueChange(double revenue_) {
   }
   // New revenue
   return revenue_;
+}
+std::string Demand::GetElasticity() {
+    switch (elasticity_) {
+    case 0:
+        return "Elastic";
+    case 1:
+        return "UnitElastic";
+    case 2:
+        return "NotElastic";
+    default:
+        return "Not defined";
+    }
 }

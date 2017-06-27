@@ -3,6 +3,8 @@
 #ifndef MODULES_ELASTICITY_INCLUDE_DEMAND_H_
 #define MODULES_ELASTICITY_INCLUDE_DEMAND_H_
 
+#include <string>
+
 enum Elasticity{Elastic, UnitElastic, NoElastic};
 
 class Demand {
@@ -11,6 +13,7 @@ class Demand {
            double olddemand, double newdemand);
     int CheckForElasticity();
     double RevenueChange(double revenue);
+    std::string GetElasticity();
  protected:
     double coeffofdemand_;
     double oldprice_, newprice_;
