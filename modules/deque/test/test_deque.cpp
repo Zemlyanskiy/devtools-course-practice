@@ -87,8 +87,10 @@ TEST(Deque, GetFront_get_front_element) {
     const int size = 5;
     Deque deq(size);
 
-    for (int i = 0; i < size; i++)
-        deq.InsFront("test" + static_cast<char>(i));
+    for (int i = 0; i < size; i++) {
+        std::string str_test = "test" + static_cast<char>(i);
+        deq.InsFront(str_test);
+    }
 
     ASSERT_EQ(deq.GetFront(), "test" + static_cast<char>(size-1));
 }
