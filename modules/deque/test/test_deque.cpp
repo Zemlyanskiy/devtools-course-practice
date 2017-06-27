@@ -86,13 +86,16 @@ TEST(Deque, can_GetFront_from_deque) {
 TEST(Deque, GetFront_get_front_element) {
     const int size = 5;
     Deque deq(size);
+    std::string number;
 
     for (int i = 0; i < size; i++) {
-        std::string str_test = "test" + static_cast<char>(i);
-        deq.InsFront(str_test);
+        number.push_back(static_cast<char>(i));
+        deq.InsFront("test" + number);
+        number.clear();
     }
+    number.push_back(static_cast<char>(size - 1));
 
-    ASSERT_EQ(deq.GetFront(), "test" + static_cast<char>(size-1));
+    ASSERT_EQ(deq.GetFront(), "test" + number);
 }
 
 TEST(Deque, cant_GetFront_from_deque_with_null_size) {
