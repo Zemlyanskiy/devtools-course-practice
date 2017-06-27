@@ -37,13 +37,13 @@ void StatisticalMoments::CheckingInputData(const std::vector<double>& values,
         throw std::runtime_error("vector \"chances\" is empty");
     }
     if (chances.size() != values.size()) {
-        throw std::runtime_error("values and chances must have equals size");
+        throw std::runtime_error("values and chances must have equal size");
     }
     if (!IsChanceValid(values, chances)) {
-        throw std::runtime_error("One of chances is out in range [0,1]");
+        throw std::runtime_error("One of chances is out of range [0,1]");
     }
     if (!IsChancesDistributionRow(values, chances)) {
-        throw std::runtime_error("sum of chances isn't equals 1");
+        throw std::runtime_error("sum of chances isn't equal 1");
     }
 }
 
@@ -53,7 +53,7 @@ double StatisticalMoments::GetCustomMoment(const std::vector<double>& values,
     CheckingInputData(values, chances);
     double moment = 0;
     if (order == 0) {
-        throw new std::runtime_error("Order must be more than zero");
+        throw std::runtime_error("Order must be more than zero");
     }
     for (unsigned int i = 0; i < chances.size(); i++) {
         moment += pow(values[i] - offset, order)*chances[i];

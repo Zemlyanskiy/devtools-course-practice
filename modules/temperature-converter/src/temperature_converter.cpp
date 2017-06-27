@@ -4,8 +4,6 @@
 
 #include <string>
 
-TemperatureConverter::TemperatureConverter() {}
-
 double TemperatureConverter::CelsiusToFahrenheit(const double t) {
     if (t < -273.15) {
         throw std::string("Temperature can't be less than absolute zero");

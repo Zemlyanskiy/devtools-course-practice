@@ -1,6 +1,7 @@
 // Copyright 2017 Dmitrichev Nikita
 
 #include <vector>
+#include <string>
 #include "include/ConverterCurrency.h"
 
 std::vector<double> ConverterCurrency::convert_coefficients_ = {
@@ -18,12 +19,12 @@ std::vector<double> ConverterCurrency::convert_coefficients_ = {
 };
 
 void ConverterCurrency::SetExchangeRateToRUR(CurrencyName target_currency,
-                        double exchange_rate_to_rur) {
+    double exchange_rate_to_rur) {
     if (exchange_rate_to_rur > 0) {
         if (target_currency != RUR)
             convert_coefficients_[target_currency] = exchange_rate_to_rur;
     } else {
-        throw "Second parameter has to be more than 0";
+        throw std::string("Convert coefficient has to be more than 0");
     }
 }
 
@@ -44,6 +45,6 @@ double ConverterCurrency::Convert(double money_size,
 
         return result_money_size;
     } else {
-        throw "First parameter can't be negative.";
+        throw std::string("Money size can't be negative");
     }
 }

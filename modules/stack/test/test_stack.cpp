@@ -88,6 +88,19 @@ TEST(StackTest, Top_Decreases_When_Pop_INT) {
     EXPECT_EQ(-1, v.GetStackTop());
 }
 
+TEST(StackTest, Can_Equate_To_Itself) {
+    // Arrange
+    TStack <int> v(2);
+    v.Push(5);
+
+    // Act
+    v = v;
+
+    // Assert
+    EXPECT_EQ(5, v.Pop());
+    EXPECT_TRUE(v.CheckEmpty());
+}
+
 TEST(StackTest, Can_stTop_INT) {
     // Arrange
     TStack <int> v(2);
@@ -141,6 +154,15 @@ TEST(StackTest, Can_Check_Full_Stack_INT) {
     EXPECT_TRUE(v.CheckFull());
 }
 
+TEST(StackTest, Can_Check_Stack_Not_Empty_INT) {
+    // Arrange
+    TStack<int> v(2);
+    v.Push(5);
+
+    // Act & Assert
+    EXPECT_FALSE(v.CheckEmpty());
+}
+
 // TESTS FOR DOUBLE
 
 TEST(StackTest, Can_Create_Stack_With_Positive_Length_DOUBLE) {
@@ -182,6 +204,19 @@ TEST(StackTest, Can_Get_Stack_Top_DOUBLE) {
 
     // Act & Assert
     EXPECT_EQ(1, v.GetStackTop());
+}
+
+TEST(StackTest, Can_Check_Stack_Not_Full_DOUBLE) {
+    // Arrange
+    TStack <double> v(10);
+    v.Push(2.55);
+    v.Push(15.1);
+    v.Push(10.1);
+    v.Push(8.1);
+    v.Push(14.1);
+
+    // Act & Assert
+    EXPECT_FALSE(v.CheckFull());
 }
 
 TEST(StackTest, Can_Push_DOUBLE) {

@@ -1,9 +1,9 @@
 // Copyright 2017 Buldakov Vladislav
 
-#include <map>
-
 #ifndef MODULES_WEIGHT_CONVERTER_INCLUDE_WEIGHT_CONVERTER_H_
 #define MODULES_WEIGHT_CONVERTER_INCLUDE_WEIGHT_CONVERTER_H_
+
+#include <map>
 
 enum Weights {
     KG,    // kilogram

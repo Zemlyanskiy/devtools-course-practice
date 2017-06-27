@@ -1,0 +1,69 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a simple regular expressions searcher"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} "avc"
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Too_Long_Regular_Exp
+    COMMAND ${APPLICATION} "avavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavav" fhna
+)
+set_tests_properties (${prefix}_can_Detect_Too_Long_Regular_Exp PROPERTIES
+    PASS_REGULAR_EXPRESSION "Regular expression is too long!"
+    LABELS "${MODULE}")
+
+	
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Regular_Expression
+    COMMAND ${APPLICATION} "(ac){2}{3}{" "jsdfkloj"
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Regular_Expression PROPERTIES
+    PASS_REGULAR_EXPRESSION "Regular expression is incorrect!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Too_Long_Text
+    COMMAND ${APPLICATION} "abc" "avavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavavavavavavvavavavavvavavavavav"
+)
+set_tests_properties (${prefix}_can_Detect_Too_Long_Text PROPERTIES
+    PASS_REGULAR_EXPRESSION "Your text is too long!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_dont_Find_Not_Contained_Expression
+    COMMAND ${APPLICATION} "abc" "bcacba"
+)
+set_tests_properties (${prefix}_dont_Find_Not_Contained_Expression PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not found!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_Contained_Expression
+    COMMAND ${APPLICATION} "(vc){2}" "aabvcvcfjs"
+)
+set_tests_properties (${prefix}_can_Find_Contained_Expression PROPERTIES
+    PASS_REGULAR_EXPRESSION "vcvc"
+    LABELS "${MODULE}")

@@ -1,0 +1,92 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is the application for calculating the distances between vectors"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Initial_Value
+    COMMAND ${APPLICATION} 1 ip dva 3
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Initial_Value PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Type_Metric
+    COMMAND ${APPLICATION} 4 14 3 trash
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Type_Metric PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect type metric!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Vectors_Size
+    COMMAND ${APPLICATION} -4 14 3 L1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Vectors_Size PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect size!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Distance_L1
+    COMMAND ${APPLICATION} 4 5 3.3 L1
+)
+set_tests_properties (${prefix}_can_Calculate_Distance_L1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance between vectors: 33.8"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Distance_L2
+    COMMAND ${APPLICATION} 4 5 3.3 L2
+)
+set_tests_properties (${prefix}_can_Calculate_Distance_L2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance between vectors: 19.6"
+    LABELS "${MODULE}")
+
+	add_test(
+    NAME ${prefix}_can_Calculate_Distance_L3
+    COMMAND ${APPLICATION} 4 5 3.3 L3
+)
+set_tests_properties (${prefix}_can_Calculate_Distance_L3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance between vectors: 17"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Distance_L4
+    COMMAND ${APPLICATION} 4 5 3.3 L4
+)
+set_tests_properties (${prefix}_can_Calculate_Distance_L4 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance between vectors: 16.14"
+    LABELS "${MODULE}")
+
+    add_test(
+    NAME ${prefix}_can_Calculate_Distance_LInf
+    COMMAND ${APPLICATION} 4 5 3.3 LInf
+)
+set_tests_properties (${prefix}_can_Calculate_Distance_LInf PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance between vectors: 15.2"
+    LABELS "${MODULE}")

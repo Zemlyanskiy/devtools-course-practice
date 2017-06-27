@@ -1,4 +1,4 @@
-// Copyright 2017 Kulygina Julia
+// Copyright 2017 Kulygina Julia, Zhorin Sergey
 
 #define _USE_MATH_DEFINES
 #include "include/calculator.h"

@@ -5,25 +5,35 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
+#include <string>
 
-bool NewtonMethod::IsMonotone(float(*fun)(float)) {
+void NewtonMethod::SetAB(float a, float b) {
+    A_ = a;
+    B_ = b;
+}
+
+void NewtonMethod::SetAccuracy(float acc) {
+    Acc_ = acc;
+}
+
+bool NewtonMethod::IsMonotone(const Function* const function) {
     if (A_ > B_) {
         std::swap(A_, B_);
     }
-    if (fun(A_) > fun(B_)) {
+    if (function->f(A_) > function->f(B_)) {
         float i = A_;
         float temp_i = i;
         while (temp_i < B_) {
-            if (fun(i) < fun(temp_i))
+            if (function->f(i) < function->f(temp_i))
                 return false;
             i = temp_i;
             temp_i += Acc_;
             }
-    } else if (fun(A_) < fun(B_)) {
+    } else if (function->f(A_) < function->f(B_)) {
         float i = A_;
         float temp_i = i;
         while (temp_i < B_) {
-            if (fun(i) > fun(temp_i))
+            if (function->f(i) > function->f(temp_i))
                 return false;
             i = temp_i;
             temp_i += Acc_;
@@ -32,28 +42,27 @@ bool NewtonMethod::IsMonotone(float(*fun)(float)) {
     if (A_ == B_) {
         return false;
     }
-    if (fun(A_) == fun(B_)) {
+    if (function->f(A_) == function->f(B_)) {
         return false;
     }
     return true;
 }
 
-float NewtonMethod::FindRoot(float(*fun)(float),
-    float(*deriv_fun)(float), float(*deriv2_fun)(float)) {
-    if (IsMonotone(fun)) {
-        float xn = fun(A_)*deriv2_fun(A_) > 0 ? A_ : B_;
-        float x1 = xn - fun(xn) / deriv_fun(xn);
+float NewtonMethod::FindRoot(const Function* const function) {
+    if (IsMonotone(function)) {
+        float xn = function->f(A_) * function->d2f(A_) > 0 ? A_ : B_;
+        float x1 = xn - function->f(xn) / function->df(xn);
         float x0 = xn;
         float xsum = std::abs(x0 - x1);
         while (xsum > Acc_) {
             if (x1 < A_ || x1 > B_)
-                throw("segment have not desidion");
+                throw std::string("There are no roots on the segment");
             x0 = x1;
-            x1 = x1 - fun(x1) / deriv_fun(x1);
+            x1 = x1 - function->f(x1) / function->df(x1);
             xsum = std::abs(x0 - x1);
         }
         return x1;
     } else {
-        throw("function isnot monotone or its point");
+        throw std::string("Function is not monotone or it is a point");
     }
 }

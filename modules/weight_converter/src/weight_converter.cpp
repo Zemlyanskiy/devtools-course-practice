@@ -2,6 +2,7 @@
 
 #include "include/weight_converter.h"
 #include <map>
+#include <string>
 
 const std::map<Weights, double> WeightsMap::kWeights_ratio =
     WeightsMap::CreateMap();

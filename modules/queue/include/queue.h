@@ -26,7 +26,7 @@ class Queue {
 
 template <class valType>
 Queue <valType> ::Queue(int _max_size) {
-    if (_max_size > 0) {
+    if ((_max_size > 0) || (_max_size > MAX_SIZE)) {
         max_size_ = _max_size;
     } else if (_max_size > MAX_SIZE) {
         max_size_ = MAX_SIZE;
@@ -49,7 +49,7 @@ Queue <valType> ::Queue(const Queue& Q) {
     queue_ptr_ = new valType[max_size_];
     if (queue_ptr_ == nullptr) throw "Memory was not allocated";
     for (int i = 0; i <= len_; i++)
-        queue_ptr_[i] = Q.queue_ptr_[i];
+       queue_ptr_[i] = Q.queue_ptr_[i];
 }
 
 template <class valType>
@@ -62,7 +62,7 @@ bool Queue<valType> :: operator==(const Queue<valType>& Q) const {
     if (this == &Q) return true;
     if (len_ != Q.len_) return false;
     for (int i = 0; i < len_; i++) {
-        if (queue_ptr_[i] != Q.queue_ptr_[i])
+       if (queue_ptr_[i] != Q.queue_ptr_[i])
             return false;
     }
     return true;
@@ -105,7 +105,7 @@ void Queue <valType> ::Push(const valType &elem) {
             tail_++;
             queue_ptr_[tail_] = elem;
             len_++;
-      }
+        }
     }
 }
 

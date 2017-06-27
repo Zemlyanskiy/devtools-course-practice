@@ -5,8 +5,6 @@
 
 class TemperatureConverter {
  public:
-    TemperatureConverter();
-
     static double CelsiusToFahrenheit(const double t);
     static double CelsiusToNewton(const double t);
     static double CelsiusToKelvin(const double t);

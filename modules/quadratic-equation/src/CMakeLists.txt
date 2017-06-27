@@ -9,7 +9,7 @@ add_library(${target} STATIC ${srcs} ${hdrs})
 set_target_properties(${target} PROPERTIES
     OUTPUT_NAME ${MODULE}
     LABELS "${MODULE};Library")
-
+target_link_libraries(${target} lib_complex-number)
 if (UNIX)
   target_link_libraries(${target} ${CMAKE_THREAD_LIBS_INIT})
 endif (UNIX)
