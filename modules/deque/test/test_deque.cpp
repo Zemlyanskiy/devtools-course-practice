@@ -90,12 +90,12 @@ TEST(Deque, GetFront_get_front_element) {
 
     for (int i = 0; i < size; i++) {
         number.push_back(static_cast<char>(i));
-        deq.InsFront("test" + number);
+        deq.InsFront("teststring" + number);
         number.clear();
     }
     number.push_back(static_cast<char>(size - 1));
 
-    ASSERT_EQ(deq.GetFront(), "test" + number);
+    ASSERT_EQ(deq.GetFront(), "teststring" + number);
 }
 
 TEST(Deque, cant_GetFront_from_deque_with_null_size) {
