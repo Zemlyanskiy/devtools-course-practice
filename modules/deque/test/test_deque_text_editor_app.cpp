@@ -214,12 +214,10 @@ TEST_F(DequeTextEditorAppTest,
     const int kDefMemSize = 2000;
     std::string filename1 = "testfile1.txt";
     std::ofstream filestream(filename1, std::ios_base::trunc);
-    if (filestream) {
-        for (int i = 0; i < kDefMemSize + 100; i++) {
-            filestream << "teststring" << std::endl;
-        }
-        filestream.close();
+    for (int i = 0; i < kDefMemSize + 100; i++) {
+        filestream << "teststring" << std::endl;
     }
+    filestream.close();
     vector<string> args = { "-lb", filename1, "teststring" };
     // Act
     Act(args);
