@@ -1,5 +1,6 @@
 // Copyright 2017 Tarasov Oleg
 
+#include <string>
 #include "include/length_converter.h"
 
 /* Коэффициенты перевода единицы измерения в см */
@@ -29,7 +30,10 @@ Length::Length(LengthType type, double value) {
 }
 
 void Length::SetValue(LengthType type, double value) {
-    length_cm_ = value * GetConvertCoef(type);
+    if (value >= 0)
+        length_cm_ = value * GetConvertCoef(type);
+    else
+        throw std::string("The length can't be less than 0!");
 }
 
 double Length::GetConvertCoef(LengthType type) const {

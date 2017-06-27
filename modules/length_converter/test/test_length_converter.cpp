@@ -12,6 +12,11 @@ TEST(LengthConverterTest, Can_Create_Length_Object) {
     ASSERT_NO_THROW(new Length(type, value));
 }
 
+TEST(LengthConverterTest, Can_Not_Set_Negative_Length) {
+    // Act & Assert
+    ASSERT_ANY_THROW(new Length(KILOMETRE, -1.0));
+}
+
 TEST(LengthConverterTest, Can_Conver_Into_SM) {
     // Arrange
     LengthType type = CENTIMETRE;
