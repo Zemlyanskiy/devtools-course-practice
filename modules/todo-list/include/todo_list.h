@@ -1,4 +1,4 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kozlov Ilya & Bakalin Andrey
 
 #ifndef MODULES_TODO_LIST_INCLUDE_TODO_LIST_H_
 #define MODULES_TODO_LIST_INCLUDE_TODO_LIST_H_
@@ -22,6 +22,7 @@ class TODOList {
     void RenameTask(const std::size_t _task_index,
                     const std::string _new_task_name);
     void ShowTODOList();
+    std::string ToString();
     void LimitTasksCount(const std::size_t _new_limit);
     void UnlimitTasksCount();
     void SetTaskDone(const std::size_t _task_index);

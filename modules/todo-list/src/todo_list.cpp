@@ -1,8 +1,9 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kozlov Ilya & Bakalin Andrey
 
 #include "include/todo_list.h"
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 TODOList::TODOTask::TODOTask() {
 }
@@ -80,9 +81,28 @@ void TODOList::ShowTODOList() {
     std::cout << "Current tasks count: " << data_list_.size() << std::endl;
     std::cout << std::endl;
     for (unsigned int i = 0; i < data_list_.size(); i++) {
-        std::cout << i + 1 << ": " << data_list_[i].GetTaskName();
+        std::cout << i + 1 << ". " << data_list_[i].GetTaskName();
         std::cout << " - " << data_list_[i].GetTaskStatus() << std::endl;
     }
+}
+
+std::string TODOList::ToString() {
+    std::ostringstream stream;
+
+    stream << "TODO List Name: " << todo_list_name_ << std::endl;
+
+    if (data_list_.size() == 0)
+        stream << "The list is empty" << std::endl;
+
+    for (unsigned int i = 0; i < data_list_.size(); i++) {
+        stream << i + 1 << ". " << data_list_[i].GetTaskName();
+        stream << " - ";
+        if (data_list_[i].GetTaskStatus() == DONE_TASK)
+            stream << "undone." << std::endl;
+        else
+            stream << "done." << std::endl;
+    }
+    return stream.str();
 }
 
 void TODOList::LimitTasksCount(const std::size_t _new_limit) {
