@@ -9,6 +9,7 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <vector>
 
 MatrixCalculatorApp::MatrixCalculatorApp() : message_("") {}
 
@@ -16,7 +17,7 @@ void MatrixCalculatorApp::help(const char* appname, const char* message) {
     message_ = std::string(message) +
         "This is a matrix calculator application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
-        
+
         "  $ " + appname + "<columns_of_firmt><rows_of_firmt>\n" +
         "<columns_of_secmt><rows_of_secmt>"+
         "<fir_value><sec_value><operation>\n\n " +
@@ -25,12 +26,12 @@ void MatrixCalculatorApp::help(const char* appname, const char* message) {
         "and <operation> is one of '+', '-', '*','d'.\n ";
 }
 
-bool MatrixCalculatorApp::validateNumberOfArguments(int argc, const char** argv) {
+bool MatrixCalculatorApp::validateNumberOfArguments(int argc,
+                                                    const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 8) {
+    } else if (argc != 8) {
         help(argv[0], "ERROR: Should be not more than 7 arguments\n\n");
         return false;
     }
@@ -63,17 +64,13 @@ char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "+") == 0) {
         op = '+';
-    }
-    else if (strcmp(arg, "-") == 0) {
+    } else if (strcmp(arg, "-") == 0) {
         op = '-';
-    }
-    else if (strcmp(arg, "*") == 0) {
+    } else if (strcmp(arg, "*") == 0) {
         op = '*';
-    }
-    else if (strcmp(arg, "d") == 0) {
+    } else if (strcmp(arg, "d") == 0) {
         op = 'd';
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
@@ -99,8 +96,10 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
 
     MatrixCalculator z1;
     MatrixCalculator z2;
-    std::vector<std::vector<double>> input_1(args.columns_of_firmt, std::vector<double>(args.rows_of_firmt, args.fir_value));
-    std::vector<std::vector<double>> input_2(args.columns_of_secmt, std::vector<double>(args.rows_of_secmt, args.sec_value));
+    std::vector<std::vector<double>> input_1(args.columns_of_firmt,
+                                             std::vector<double>(args.rows_of_firmt, args.fir_value));
+    std::vector<std::vector<double>> input_2(args.columns_of_secmt,
+                                             std::vector<double>(args.rows_of_secmt, args.sec_value));
 
     z1.SetMatrix(input_1);
     z2.SetMatrix(input_2);
