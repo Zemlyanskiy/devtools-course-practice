@@ -4,6 +4,9 @@
 #define MODULES_MATRIX_CALCULATOR_INCLUDE_MATRIX_CALCULATOR_H_
 
 #include <vector>
+#include <iostream>
+
+using namespace std;
 
 class MatrixCalculator {
  public:
@@ -22,9 +25,17 @@ class MatrixCalculator {
     bool operator ==(const MatrixCalculator&) const;
     bool operator !=(const MatrixCalculator&) const;
     bool IsSizesEqual(const MatrixCalculator&) const;
+    friend ostream & operator<<(ostream &out, const MatrixCalculator &mt)
+    {
+        for (int i = 0; i < mt.Size; i++)
+            out << mt.pVector[i] << endl;
+        return out;
+    }
 
  private:
-    std::vector<std::vector<double > > matrix_;
+    double *pVector;
+    int Size;
+    std::vector<std::vector<double>> matrix_;
 };
 
 #endif  // MODULES_MATRIX_CALCULATOR_INCLUDE_MATRIX_CALCULATOR_H_
