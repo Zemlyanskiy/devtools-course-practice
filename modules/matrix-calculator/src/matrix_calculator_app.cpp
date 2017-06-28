@@ -22,7 +22,7 @@ void MatrixCalculatorApp::help(const char* appname, const char* message) {
         "<fir_value><sec_value><operation>\n\n " +
 
         "Where all arguments are double-precision numbers, " +
-        "and <operation> is one of '+', '-', '*','det'.\n ";
+        "and <operation> is one of '+', '-', '*','d'.\n ";
 }
 
 bool MatrixCalculatorApp::validateNumberOfArguments(int argc, const char** argv) {
@@ -30,8 +30,8 @@ bool MatrixCalculatorApp::validateNumberOfArguments(int argc, const char** argv)
         help(argv[0]);
         return false;
     }
-    else if (argc == 7) {
-        help(argv[0], "ERROR: Should be more than 7 arguments\n\n");
+    else if (argc != 8) {
+        help(argv[0], "ERROR: Should be not more than 7 arguments\n\n");
         return false;
     }
     return true;
@@ -70,8 +70,8 @@ char parseOperation(const char* arg) {
     else if (strcmp(arg, "*") == 0) {
         op = '*';
     }
-    else if (strcmp(arg, "det") == 0) {
-        op = 'det';
+    else if (strcmp(arg, "d") == 0) {
+        op = 'd';
     }
     else {
         throw std::string("Wrong operation format!");
@@ -120,7 +120,7 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
         z = z1 * z2;
         stream << "Multiplication = " << z;
         break;
-    case 'det':
+    case 'd':
         stream<< "Determinant_of_first_matrix = "<< z1.Determinant();
         stream << "Determinant_of_second_matrix = " << z2.Determinant();
     }
