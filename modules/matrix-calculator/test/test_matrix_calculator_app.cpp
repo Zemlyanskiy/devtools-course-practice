@@ -12,7 +12,7 @@
 using ::testing::internal::RE;
 
 class MatrixCalculatorAppTest : public ::testing::Test {
-protected:
+  protected:
     void Act(const std::vector<std::string> &args_) {
         std::vector<const char *> options;
 
@@ -30,7 +30,7 @@ protected:
     void Assert(const std::string &expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-private:
+  private:
     MatrixCalculatorApp app_;
     std::string output_;
 };

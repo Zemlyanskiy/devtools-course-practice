@@ -10,7 +10,7 @@ class MatrixCalculatorApp {
     MatrixCalculatorApp();
     std::string operator()(int argc, const char** argv);
 
-private:
+  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
@@ -25,4 +25,4 @@ private:
     } Arguments;
 };
 
-#endif  // MODULES_MATRIX_CALCULATOR_INCLUDE_MATRIX_CALCULATOR_H_
+#endif  // MODULES_MATRIX_CALCULATOR_INCLUDE_MATRIX_CALCULATOR_APP_H_
