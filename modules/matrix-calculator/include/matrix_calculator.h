@@ -23,7 +23,7 @@ class MatrixCalculator {
     bool operator ==(const MatrixCalculator&) const;
     bool operator !=(const MatrixCalculator&) const;
     bool IsSizesEqual(const MatrixCalculator&) const;
-    friend std::ostream & operator<<(std::ostream &out, 
+    friend std::ostream & operator<<(std::ostream &out,
                                      const MatrixCalculator &mt) {
         for (int i = 0; i < mt.Size; i++)
             out << mt.pVector[i] << std::endl;
