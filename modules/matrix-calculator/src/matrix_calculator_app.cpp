@@ -3,10 +3,8 @@
 #include "../include/matrix_calculator.h"
 #include "../include/matrix_calculator_app.h"
 
-#include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <sstream>
 #include <vector>
@@ -38,9 +36,9 @@ bool MatrixCalculatorApp::validateNumberOfArguments(int argc,
     return true;
 }
 
-double parseDouble(const std::string &arg) {
-    char *end;
-    double value = strtod(arg.c_str(), &end);
+double parseDouble(const char* arg) {
+    char* end = 0;
+    double value = strtod(arg, &end);
 
     if (end[0]) {
         throw std::string("Wrong number format!");
@@ -77,18 +75,24 @@ char parseOperation(const char* arg) {
 }
 
 std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
-    Arguments args;
+    int col1;
+    int col2;
+    int row1;
+    int row2;
+    double val1; 
+    double val2;
+    char operation;
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-        args.columns_of_firmt = parseInt(argv[1]);
-        args.rows_of_firmt = parseInt(argv[2]);
-        args.columns_of_secmt = parseInt(argv[3]);
-        args.rows_of_secmt = parseInt(argv[4]);
-        args.fir_value = parseDouble(argv[5]);
-        args.sec_value = parseDouble(argv[6]);
-        args.operation = parseOperation(argv[7]);
+        col1 = parseInt(argv[1]);
+        row1 = parseInt(argv[2]);
+        col2 = parseInt(argv[3]);
+        row2 = parseInt(argv[4]);
+        val1 = parseDouble(argv[5]);
+        val2 = parseDouble(argv[6]);
+        operation = parseOperation(argv[7]);
     }
     catch (std::string& str) {
         return str;
@@ -96,12 +100,7 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
 
     MatrixCalculator z1;
     MatrixCalculator z2;
-    int col1 = args.columns_of_firmt;
-    int col2 = args.columns_of_secmt;
-    int row1 = args.rows_of_firmt;
-    int row2 = args.rows_of_secmt;
-    double val1 = args.fir_value;
-    double val2 = args.sec_value;
+
     std::vector<std::vector<double>> input_1(col1,
                                              std::vector<double>(row1, val1));
     std::vector<std::vector<double>> input_2(col2,
@@ -112,7 +111,7 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
 
     MatrixCalculator z;
     std::ostringstream stream;
-    switch (args.operation) {
+    switch (operation) {
     case '+':
         z = z1 + z2;
         stream << "Sum = " << z;
@@ -126,7 +125,7 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
         stream << "Multiplication = " << z;
         break;
     case 'd':
-        stream<< "Determinant_of_first_matrix = "<< z1.Determinant();
+        stream << "Determinant_of_first_matrix = "<< z1.Determinant();
         stream << "Determinant_of_second_matrix = " << z2.Determinant();
     }
 

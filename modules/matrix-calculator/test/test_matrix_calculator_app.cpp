@@ -44,7 +44,23 @@ TEST_F(MatrixCalculatorAppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Is_Checking_Number_Of_Arguments) {
-    std::vector<std::string> args = { "4", "4", "4", "4", "5.5", "7.4" };
+    std::vector<std::string> args = { "4", "4" };
+
+    Act(args);
+
+    Assert("This is a matrix calculator application\\..*");
+}
+
+TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Number_Format_Case1) {
+    std::vector<std::string> args = { "4.3", "4.1", "4.2", "4", "5.5", "7.4" };
+
+    Act(args);
+
+    Assert("This is a matrix calculator application\\..*");
+}
+
+TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Number_Format_Case2) {
+    std::vector<std::string> args = { "4", "4", "4", "4", "5", "7" };
 
     Act(args);
 
