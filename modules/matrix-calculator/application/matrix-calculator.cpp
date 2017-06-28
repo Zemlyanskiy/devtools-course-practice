@@ -1,7 +1,7 @@
 // Copyright 2017 Zemlyanskiy Nikita
 
 #include <stdlib.h>
-#include <stdio.h>
+#include <iostream>
 #include <string>
 
 #include "include\matrix_calculator_app.h"
