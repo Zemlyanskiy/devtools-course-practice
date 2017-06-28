@@ -44,7 +44,6 @@ TEST(MatrixCalculatorTest, assign_operator_change_matrix_size) {
 
 TEST(MatrixCalculatorTest, can_add_matrices_with_equal_size) {
     std::vector<std::vector<double>> v1(3, std::vector<double>(3, 2));
-
     MatrixCalculator m1, m2, m3;
     m1.SetMatrix(v1);
     m2.SetMatrix(v1);
