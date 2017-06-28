@@ -102,8 +102,10 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
     int row2 = args.rows_of_secmt;
     double val1 = args.fir_value;
     double val2 = args.sec_value;
-    std::vector<std::vector<double>> input_1(col1, std::vector<double>(row1, val1));
-    std::vector<std::vector<double>> input_2(col2, std::vector<double>(row2, val2));
+    std::vector<std::vector<double>> input_1(col1,
+                                             std::vector<double>(row1, val1));
+    std::vector<std::vector<double>> input_2(col2,
+                                             std::vector<double>(row2, val2));
 
     z1.SetMatrix(input_1);
     z2.SetMatrix(input_2);
