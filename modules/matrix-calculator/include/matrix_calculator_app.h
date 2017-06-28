@@ -4,7 +4,6 @@
 #define MODULES_MATRIX_CALCULATOR_INCLUDE_MATRIX_CALCULATOR_APP_H_
 
 #include <string>
-#include "include\matrix_calculator.h"
 
 class MatrixCalculatorApp {
   public:
