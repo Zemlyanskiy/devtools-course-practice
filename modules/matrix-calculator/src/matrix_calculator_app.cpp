@@ -1,13 +1,13 @@
 // Copyright 2017 Zemlyanskiy Nikita
 
-#include "../include/matrix_calculator.h"
-#include "../include/matrix_calculator_app.h"
-
 #include <iostream>
 #include <stdlib.h>
 #include <string>
 #include <sstream>
 #include <vector>
+
+#include "../include/matrix_calculator_app.h"
+#include "../include/matrix_calculator.h"
 
 MatrixCalculatorApp::MatrixCalculatorApp() : message_("") {}
 
@@ -79,7 +79,7 @@ std::string MatrixCalculatorApp::operator()(int argc, const char** argv) {
     int col2;
     int row1;
     int row2;
-    double val1; 
+    double val1;
     double val2;
     char operation;
     if (!validateNumberOfArguments(argc, argv)) {
