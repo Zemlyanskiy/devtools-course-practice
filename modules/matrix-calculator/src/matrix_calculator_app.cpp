@@ -42,7 +42,7 @@ double parseDouble(const std::string &arg) {
     double value = strtod(arg.c_str(), &end);
 
     if (end[0]) {
-        throw std::invalid_argument("Wrong number format!");
+        throw std::string("Wrong number format!");
     }
 
     return value;

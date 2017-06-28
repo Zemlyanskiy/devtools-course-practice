@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "include\matrix_calculator_app.h"
+#include "../include/matrix_calculator_app.h"
 
 int main(int argc, const char** argv) {
     MatrixCalculatorApp app;

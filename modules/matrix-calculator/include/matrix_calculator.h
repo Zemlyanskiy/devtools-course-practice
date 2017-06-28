@@ -6,8 +6,6 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 class MatrixCalculator {
  public:
     explicit MatrixCalculator(int rows = 0, int columns = 0);
@@ -25,10 +23,9 @@ class MatrixCalculator {
     bool operator ==(const MatrixCalculator&) const;
     bool operator !=(const MatrixCalculator&) const;
     bool IsSizesEqual(const MatrixCalculator&) const;
-    friend ostream & operator<<(ostream &out, const MatrixCalculator &mt)
-    {
+    friend std::ostream & operator<<(std::ostream &out, const MatrixCalculator &mt) {
         for (int i = 0; i < mt.Size; i++)
-            out << mt.pVector[i] << endl;
+            out << mt.pVector[i] << std::endl;
         return out;
     }
 
