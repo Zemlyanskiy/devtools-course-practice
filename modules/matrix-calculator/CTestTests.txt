@@ -29,11 +29,11 @@ add_test(
     COMMAND ${APPLICATION} 10.9 3 20 4 2 3
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Double
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a matrix calculator application")
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format_Int
     COMMAND ${APPLICATION} 10.9 3 20 5 6 7
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Int
-  PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
+  PROPERTIES PASS_REGULAR_EXPRESSION "This is a matrix calculator application")
