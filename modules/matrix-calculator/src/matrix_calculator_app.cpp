@@ -1,6 +1,6 @@
 // Copyright 2017 Zemlyanskiy Nikita
 
-#include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string>
 #include <sstream>
