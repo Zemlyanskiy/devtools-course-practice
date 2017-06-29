@@ -26,14 +26,14 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments
   PROPERTIES PASS_REGULAR_EXPRESSION "ERROR: Should be not more than 7 arguments.")
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format_Double
-    COMMAND ${APPLICATION} 10.9q 3 20 4 2 3
+    COMMAND ${APPLICATION} 10.9 3 20 4 2 3
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Double
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format_Int
-    COMMAND ${APPLICATION} 10.9 3q 20 5 6 7
+    COMMAND ${APPLICATION} 10.9 3 20 5 6 7
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Int
   PROPERTIES PASS_REGULAR_EXPRESSION "Wrong number format!")
