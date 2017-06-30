@@ -84,6 +84,8 @@ string MatrixCalculatorApp::operator()(int argc, const char** argv) {
     MatrixCalculator z2;
     vector<vector<double>> v1(4, vector<double>(4, val_of_firmt));
     vector<vector<double>> v2(4, vector<double>(4, val_of_secmt));
+    z1.SetMatrix(v1);
+    z2.SetMatrix(v2);
     MatrixCalculator z;
     std::ostringstream stream;
     switch (operation) {
