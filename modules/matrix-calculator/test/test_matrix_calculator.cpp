@@ -1,6 +1,7 @@
 // Copyright 2017 Israfilov Marat
 
 #include <gtest/gtest.h>
+
 #include <vector>
 #include "include/matrix_calculator.h"
 
