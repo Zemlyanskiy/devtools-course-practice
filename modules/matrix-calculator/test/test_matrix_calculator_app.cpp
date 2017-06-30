@@ -10,6 +10,8 @@
 #include "../include/matrix_calculator_app.h"
 
 using ::testing::internal::RE;
+using std::vector;
+using std::string;
 
 class MatrixCalculatorAppTest : public ::testing::Test {
  protected:
