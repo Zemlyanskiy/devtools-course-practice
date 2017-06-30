@@ -53,10 +53,9 @@ double parseDouble(const char* arg) {
 char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "+") == 0) {
-        op = '+';  
+        op = '+'; 
     } else if (strcmp(arg, "-") == 0) {
         op = '-';
-        
     } else if (strcmp(arg, "*") == 0) {
         op = '*';
     } else {
