@@ -15,8 +15,8 @@ using std::string;
 
 class MatrixCalculatorAppTest : public ::testing::Test {
  protected:
-    void Act(const std::vector<std::string> &args_) {
-        std::vector<const char *> options;
+    void Act(const vector<string> &args_) {
+        vector<const char *> options;
 
         options.push_back("appname");
         for (size_t i = 0; i < args_.size(); ++i) {
@@ -29,16 +29,16 @@ class MatrixCalculatorAppTest : public ::testing::Test {
         output_ = app_(argc, argv);
     }
 
-    void Assert(const std::string expected) {
+    void Assert(const string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
  private:
     MatrixCalculatorApp app_;
-    std::string output_;
+    string output_;
 };
 
 TEST_F(MatrixCalculatorAppTest, Do_Print_Help_Without_Arguments) {
-    std::vector<std::string> args = {};
+    vector<string> args = {};
 
     Act(args);
 
@@ -46,7 +46,7 @@ TEST_F(MatrixCalculatorAppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Is_Checking_Number_Of_Arguments) {
-    std::vector<std::string> args = { "4", "4", "+", "5" };
+    vector<string> args = { "4", "4", "+", "5" };
 
     Act(args);
 
@@ -54,7 +54,7 @@ TEST_F(MatrixCalculatorAppTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Number_Format) {
-    std::vector<std::string> args = {"3f", "2", "+"};
+    vector<string> args = {"3f", "2", "+"};
 
     Act(args);
 
@@ -62,7 +62,7 @@ TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Operation_Format) {
-    std::vector<std::string> args = { "2.3", "3.2", "d" };
+    vector<string> args = { "2.3", "3.2", "d" };
 
     Act(args);
 
@@ -70,7 +70,7 @@ TEST_F(MatrixCalculatorAppTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Can_Search_Det_Of_Sum) {
-    std::vector<std::string> args = {"4.4", "5.5", "+"};
+    vector<string> args = {"4.4", "5.5", "+"};
 
     Act(args);
 
@@ -78,7 +78,7 @@ TEST_F(MatrixCalculatorAppTest, Can_Search_Det_Of_Sum) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Can_Search_Det_Of_Dif) {
-    std::vector<std::string> args = { "4.4", "5.5", "-" };
+    vector<string> args = { "4.4", "5.5", "-" };
 
     Act(args);
 
@@ -86,7 +86,7 @@ TEST_F(MatrixCalculatorAppTest, Can_Search_Det_Of_Dif) {
 }
 
 TEST_F(MatrixCalculatorAppTest, Can_Search_Det_Of_Mul) {
-    std::vector<std::string> args = { "4.4", "5.5", "*" };
+    vector<string> args = { "4.4", "5.5", "*" };
 
     Act(args);
 
