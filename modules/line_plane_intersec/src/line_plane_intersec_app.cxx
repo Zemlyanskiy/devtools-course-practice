@@ -61,7 +61,7 @@ double ParseDouble(const char* arg) {
     double value = strtod(arg, &end);
 
     if (end[0]) {
-        throw std::string("Wrong number format!*");
+        throw std::string("Wrong number format!");
     }
 
     return value;
